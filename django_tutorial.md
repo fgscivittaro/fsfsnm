@@ -48,7 +48,7 @@
 
 ##### Writing your first view
 - `python manage.py startapp polls`
-- open the file polls/views.py and write your desired code in it
+- open the file `polls/views.py` and write your desired code in it
 
 <pre><code>
 from django.http import HttpResponse
@@ -77,20 +77,20 @@ urlpatterns = [
 </pre></code>
 
 - Django checks your code for errors every time you save it; checks in the shell
-- Use polls/models.py to write your models for working with data
+- Use `polls/models.py` to write your models for working with data
 
 ##### Migrations
 - A migration involves the manipulation of data, columns, rows, etc in SQL to account for changes in your database or in your desires
     - Django is capable of doing the hard work of figuring out what changes need to be instituted in the SQL database in order to run your code
 
 ##### Working with the shell
-- 'python manage.py shell' opens a shell very much like iPython3, but with some Django functionality as well
+- `python manage.py shell` opens a shell very much like iPython3, but with some Django functionality as well
 - running commands that rely on Django and then saving with `.save()` will save the changes made to your Django database
-- Can use object notation you've created in models.py to save information to SQL, meaning you don't need to use SQL syntax or SELECT statements
+- Can use object notation you've created in models.py to save information to SQL, meaning you don't need to use SQL syntax or `SELECT` statements
     - Can add new rows/columns, retrieve rows/columns, use indices to find particular row/column cells, search for rows with certain primary keys
 
 ##### Creating Templates
-- Templates are created in a different directory, polls/templates/
+- Templates are created in a different directory, `polls/templates/`
 - Within this directory, you create ANOTHER subdirectory called `polls`, so now the directory you are in is `polls/templates/polls`
 - Our view functions will be injecting information into the template, filling it in
 
@@ -113,3 +113,4 @@ urlpatterns = [
 
 ##### HTML Forms
 - an HTML form is a tag that allows you to send information back to the server
+- `{% csrf_token %}` is a simple command interpreted by Django that does not let other browsers use the cookies on your browser to send requests (basically it doesn't allow your Django website to be scammed by the Nigerian prince, who uses an analogous process)
