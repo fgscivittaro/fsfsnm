@@ -17,5 +17,8 @@ from django.conf.urls import url
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^$', views.home, name="homepage"), # Acceses the home page if the string is empty
+    url(r'add', views.add_a_question,, name="addquestion") # Takes us to the add_a_question view
+    url(r'[0-9]+', views.current_question, name="yourquestion") # Acceses the current question
+    url(r'^admin/', admin.site.urls), # Access the admin page
 ]
