@@ -64,9 +64,9 @@ def results(request):
 
 - You can write other files within `polls` and enter python code in them
 
-<pre><code>
-# Using regex to figure out which view to use
+##### Using regex to figure out which view to use
 
+<pre><code>
 from django.conf.urls import url
 from . import views
 
@@ -97,8 +97,6 @@ urlpatterns = [
 - Can create HTML code using commands that interact with your Python objects and views
 
 <pre><code>
-# Written in an HTML file
-
 {% if latest_question_list %}
 
     <ul>
@@ -110,6 +108,8 @@ urlpatterns = [
     <p>No polls available</p>
 {% endif %}
 </pre></code>
+
+- Written in an HTML file
 
 ##### HTML Forms
 - an HTML form is a tag that allows you to send information back to the server
