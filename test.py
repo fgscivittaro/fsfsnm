@@ -1,2 +1,0 @@
-# Francesco Scivittaro
-# Clone test
