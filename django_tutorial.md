@@ -50,7 +50,7 @@
 - `python manage.py startapp polls`
 - open the file polls/views.py and write your desired code in it
 
-"""
+<pre><code>
 from django.http import HttpResponse
 
 # The HttpResponse is the object that returns information to the client
@@ -60,7 +60,7 @@ def index(request):
 
 def results(request):
     return HttpResponse("And here's the other potential view")
-"""
+</code></pre>
 
 - You can write other files within `polls` and enter python code in them
 
