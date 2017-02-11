@@ -64,7 +64,7 @@ def results(request):
 
 - You can write other files within `polls` and enter python code in them
 
-"""
+<pre><code>
 # Using regex to figure out which view to use
 
 from django.conf.urls import url
@@ -74,7 +74,7 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'([0-9]+)', views.results, name='results'),
     ]
-"""
+</pre></code>
 
 - Django checks your code for errors every time you save it; checks in the shell
 - Use polls/models.py to write your models for working with data
@@ -96,7 +96,7 @@ urlpatterns = [
 
 - Can create HTML code using commands that interact with your Python objects and views
 
-"""
+<pre><code>
 # Written in an HTML file
 
 {% if latest_question_list %}
@@ -109,7 +109,7 @@ urlpatterns = [
 {% else %}
     <p>No polls available</p>
 {% endif %}
-"""
+</pre></code>
 
 ##### HTML Forms
 - an HTML form is a tag that allows you to send information back to the server
