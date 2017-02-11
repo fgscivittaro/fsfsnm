@@ -65,7 +65,6 @@ def results(request):
 - You can write other files within `polls` and enter python code in them
 
 <pre><code>
-# Using regex to figure out which view to use
 
 from django.conf.urls import url
 from . import views
@@ -74,6 +73,8 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'([0-9]+)', views.results, name='results'),
     ]
+
+# Using regex to figure out which view to use
 </pre></code>
 
 - Django checks your code for errors every time you save it; checks in the shell
