@@ -13,12 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import include, url
+# The include function allows referencing other URLconfs
+# Always use include when you have URL patterns besides admin
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^$', views.home, name="homepage"), # Acceses the home page if the string is empty
-    url(r'add', views.add_a_question,, name="addquestion") # Takes us to the add_a_question view
-    url(r'[0-9]+', views.current_question, name="yourquestion") # Acceses the current question
-    url(r'^admin/', admin.site.urls), # Access the admin page
+    url(r'^polls/', include('polls.urls')),
+    # Has a / instead of $ because whenever Django encounters include(), it
+    # chops off whatever part of the URLmatched up to that point and sends the rest on.
+    url(r'^admin/', admin.site.urls),
 ]
