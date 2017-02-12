@@ -6,6 +6,7 @@
 from bs4 import BeautifulSoup  as bs
 import requests
 import json
+import csv
 
 def get_statcast_link(year, minimum_at_bats = 0):
     '''
@@ -26,10 +27,36 @@ def get_statcast_link(year, minimum_at_bats = 0):
 
     request = requests.get(link)
     c = request.content
-    soup = bs(c)
+    soup = bs(c, "lxml")
 
     data_text = soup.find_all("script")[9].text
     data_list = data_text[101:-3]
     obj = json.loads(data_list)
 
-    return obj
+    f = csv.writer(open("statcast_" + str(year) + ".csv", "wt"))
+
+    headers = []
+    for i in obj[0].keys():
+        headers.append(i)
+
+    f.writerow(headers)
+
+    for json_dict in obj:
+        f.writerow([json_dict[headers[0]],
+            json_dict[headers[1]],
+            json_dict[headers[2]],
+            json_dict[headers[3]],
+            json_dict[headers[4]],
+            json_dict[headers[5]],
+            json_dict[headers[6]],
+            json_dict[headers[7]],
+            json_dict[headers[8]],
+            json_dict[headers[9]],
+            json_dict[headers[10]],
+            json_dict[headers[11]],
+            json_dict[headers[12]],
+            json_dict[headers[13]],
+            json_dict[headers[14]],
+            json_dict[headers[15]],
+            json_dict[headers[16]],
+            json_dict[headers[17]]])
