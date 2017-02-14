@@ -1,0 +1,508 @@
+LastName,FirstName,DL type,Season,Transaction,Position,Location,Injury,Side,Locationid,Start date,End Date,Days on DL
+Burnett,A.J.,15-day,2015,Pirates,RHP,elbow,inflammation,Right,8,7/31/2015,9/10/2015,41
+Ellis,A.J.,15-day,2015,Dodgers,C,knee,inflammation.,Right,21,7/20/2015,8/4/2015,15
+Griffin,A.J.,60-day,2015,Athletics,RHP,shoulder,strain,Right,18,9/1/2015,10/4/2015,33
+Barrett,Aaron,15-day,2015,Nationals,RHP,bicep,strain,Right,2,6/12/2015,7/10/2015,28
+Barrett,Aaron,15-day,2015,Nationals,RHP,elbow,sprain,Right,8,8/6/2015,10/4/2015,59
+Crow,Aaron,15-day,2015,Marlins,RHP,elbow,sprain,Right,8,4/5/2015,10/4/2015,182
+Harang,Aaron,15-day,2015,Phillies,RHP,foot,Plantar fasciiis,Left,17,7/2/2015,7/30/2015,28
+Hicks,Aaron,15-day,2015,Twins,CF,hamstring.,Strained,left,5,8/20/2015,9/4/2015,15
+Hicks,Aaron,15-day,2015,Twins,CF,forearm.,Strained,right,2,6/13/2015,7/3/2015,20
+Sanchez,Aaron,15-day,2015,Blue Jays,RHP,lat,strain,Right,6,6/6/2015,7/25/2015,49
+Ottavino,Adam,15-day,2015,Rockies,RHP,triceps,inflammation,Right,2,4/26/2015,10/4/2015,161
+Wainwright,Adam,15-day,2015,Cardinals,RHP,achilles and ankle,injury,left,11,4/26/2015,9/30/2015,157
+Beltre,Adrian,15-day,2015,Rangers,3B,thumb,Laceration,Left,3,6/1/2015,6/23/2015,22
+Escobar,Alcides,7-day,2015,Royals,SS,Head,Concussion,,1,4/30/2015,5/8/2015,8
+Avila,Alex,15-day,2015,Tigers,C,knee,Loose bodies,left,21,5/8/2015,7/3/2015,56
+Claudio,Alex,60-day,2015,Rangers,LHP,groin,strain,Left,9,9/1/2015,10/4/2015,33
+Cobb,Alex,15-day,2015,Rays,RHP,forearm,tendinitis,Right,2,4/5/2015,10/4/2015,182
+Colome,Alex,15-day,2015,Rays,RHP,Internal,pneumonia,,23,4/5/2015,5/1/2015,26
+Gordon,Alex,15-day,2015,Royals,LF,groin,Strained,left,9,7/9/2015,9/1/2015,54
+Rios,Alex,15-day,2015,Royals,RF,hand,fracture,Left,3,4/14/2015,5/30/2015,46
+Rienzo,Andre,15-day,2015,Marlins,RHP,knee,laceration,Left,21,8/4/2015,8/27/2015,23
+Bellatti,Andrew,15-day,2015,Rays,RHP,shoulder,tendinitis,Right,18,6/10/2015,7/7/2015,27
+Lambo,Andrew,15-day,2015,Pirates,RF,foot,Plantar fasciiis,left,17,5/4/2015,10/4/2015,153
+Miller,Andrew,15-day,2015,Yankees,LHP,forearm.,Strained,left,2,6/10/2015,7/8/2015,28
+Susac,Andrew,60-day,2015,Giants,C,wrist,sprain,Right,19,9/6/2015,10/4/2015,28
+Susac,Andrew,15-day,2015,Giants,C,thumb,sprain,Right,3,7/19/2015,8/17/2015,29
+Pagan,Angel,15-day,2015,Giants,CF,patella,tendinitis.,Right,21,8/11/2015,9/1/2015,21
+Sanchez,Anibal,15-day,2015,Tigers,RHP,rotator cuff,inflammation,Right,18,8/20/2015,10/4/2015,45
+Rendon,Anthony,15-day,2015,Nationals,2B,quadriceps,strain,Left,5,6/25/2015,7/25/2015,30
+Rendon,Anthony,15-day,2015,Nationals,3B,knee.,Sprained,left,21,4/5/2015,6/4/2015,60
+Varvaro,Anthony,15-day,2015,Red Sox,RHP,flexor,strain,right,5,4/29/2015,5/5/2015,6
+Richardson,Antoan,60-day,2015,Rangers,RF,back,surgery,,15,4/5/2015,10/4/2015,182
+Bradley,Archie,15-day,2015,Diamondbacks,RHP,sinus,fracture.,Right,23,4/29/2015,5/16/2015,17
+Bradley,Archie,15-day,2015,Diamondbacks,RHP,shoulder,tendinitis,Right,18,6/2/2015,8/24/2015,83
+Cabrera,Asdrubal,15-day,2015,Rays,SS,hamstring.,Strained,right,5,7/12/2015,7/28/2015,16
+Jackson,Austin,15-day,2015,Mariners,CF,ankle,sprain,Right,11,5/4/2015,5/26/2015,22
+Jackson,Austin,15-day,2015,Mariners,CF,Ankle,Sprain,Right,11,5/4/2015,9/1/2015,120
+Zobrist,Ben,15-day,2015,Athletics,2B,knee,Medial meniscus tear,left,21,4/25/2015,5/25/2015,30
+Hamilton,Billy,15-day,2015,Reds,CF,shoulder,sprain,Right,18,9/17/2015,10/4/2015,17
+Hamilton,Billy,15-day,2015,Reds,CF,shoulder.,Sprained capsule,right,18,8/19/2015,9/8/2015,20
+Boyer,Blaine,15-day,2015,Twins,RHP,elbow,inflammation,Right,8,8/9/2015,8/26/2015,17
+Swihart,Blake,15-day,2015,Red Sox,C,foot.,Sprained,left,17,7/1/2015,7/20/2015,19
+Parnell,Bobby,15-day,2015,Mets,RHP,shoulder,tendinitis.,Right,18,8/17/2015,9/1/2015,15
+Parnell,Bobby,15-day,2015,Mets,RHP,Elbow,Tommy John Surgery,,8,4/5/2015,6/11/2015,67
+Logan,Boone,15-day,2015,Rockies,LHP,Elbow,Inflammation,Left,8,8/12/2015,9/1/2015,20
+Peacock,Brad,15-day,2015,Astros,RHP,hip,surgery,right,4,4/5/2015,4/14/2015,9
+Peacock,Brad,15-day,2015,Astros,RHP,intercostal,strain,Left,6,4/15/2015,10/4/2015,172
+Beachy,Brandon,60-day,2015,Dodgers,RHP,Elbow,Tommy John Surgery,,8,4/5/2015,10/4/2015,182
+Cumpton,Brandon,15-day,2015,Pirates,RHP,Elbow,Tommy John Surgery,,8,4/5/2015,10/4/2015,182
+Kintzler,Brandon,15-day,2015,Brewers,RHP,patella,tendinitis,Left,21,5/28/2015,8/12/2015,76
+League,Brandon,15-day,2015,Dodgers,RHP,shoulder,impingement,Right,18,4/5/2015,7/2/2015,88
+Maurer,Brandon,15-day,2015,Padres,RHP,Shoulder,Inflammation,Right,18,8/10/2015,10/4/2015,55
+McCarthy,Brandon,15-day,2015,Dodgers,RHP,UCL,tear.,Right,8,4/26/2015,10/4/2015,161
+Morrow,Brandon,15-day,2015,Padres,RHP,shoulder,inflammation.,Right,18,5/3/2015,10/4/2015,154
+Workman,Brandon,15-day,2015,Red Sox,RHP,elbow,strain,Right,8,4/5/2015,10/4/2015,182
+Ryan,Brendan,15-day,2015,Yankees,SS,thoracic,strain.,Right,18,6/22/2015,7/17/2015,25
+Ryan,Brendan,15-day,2015,Yankees,SS,calf,strain,Right,5,4/5/2015,6/10/2015,66
+Boesch,Brennan,15-day,2015,Reds,RF,ankle,Bone Bruise,right,11,8/23/2015,9/8/2015,16
+Oberholtzer,Brett,15-day,2015,Astros,LHP,Finger,Blister,Left,3,5/14/2015,6/1/2015,18
+Oberholtzer,Brett,15-day,2015,Astros,LHP,finger,blister,Left,3,4/5/2015,5/13/2015,38
+Duensing,Brian,15-day,2015,Twins,LHP,intercostal,strain,Right,6,4/17/2015,5/2/2015,15
+Flynn,Brian,60-day,2015,Royals,LHP,latissimus dorsi,tear,Left,6,5/16/2015,10/4/2015,141
+Arroyo,Bronson,60-day,2015,Diamondbacks,RHP,Elbow,Tommy John Surgery,,8,4/5/2015,10/4/2015,182
+Brown,Brooks,15-day,2015,Rockies,RHP,shoulder,inflammation,Right,18,5/4/2015,5/23/2015,19
+Mitchell,Bryan,7-day,2015,Yankees,RHP,Head,concussion,,1,8/18/2015,8/28/2015,10
+Morris,Bryan,15-day,2015,Marlins,RHP,back,strain,Lower,15,6/7/2015,6/30/2015,23
+Norris,Bud,15-day,2015,Orioles,RHP,Internal,Bronchitis,,23,5/11/2015,6/7/2015,27
+Carlyle,Buddy,15-day,2015,Mets,RHP,Back,spasms,,15,5/12/2015,10/4/2015,145
+Smith,Burch,60-day,2015,Rays,RHP,Elbow,Tommy John Surgery,,8,4/8/2015,10/4/2015,179
+Buxton,Byron,15-day,2015,Twins,CF,thumb,sprain,Left,3,6/25/2015,8/10/2015,46
+Wilson,C.J.,15-day,2015,Angels,LHP,elbow,inflammation,Left,8,7/29/2015,10/4/2015,67
+Crawford,Carl,15-day,2015,Dodgers,LF,oblique,strain.,Right,6,4/28/2015,7/21/2015,84
+Beltran,Carlos,15-day,2015,Yankees,RF,oblique,strain,Left,6,7/1/2015,7/19/2015,18
+Carrasco,Carlos,15-day,2015,Indians,RHP,shoulder,inflammation,Right,18,8/22/2015,9/8/2015,17
+Corporan,Carlos,15-day,2015,Rangers,C,thumb,sprained,left,3,7/13/2015,9/1/2015,50
+Frias,Carlos,15-day,2015,Dodgers,RHP,back,tightness.,Right lower,15,7/1/2015,8/2/2015,32
+Frias,Carlos,15-day,2015,Dodgers,RHP,back,tightness.,Right lower,15,8/2/2015,9/17/2015,46
+Gomez,Carlos,15-day,2015,Brewers,CF,hamstring,strain,Right,5,4/16/2015,5/2/2015,16
+Martinez,Carlos,60-day,2015,Cardinals,RHP,shoulder,strain,Right,18,9/30/2015,10/4/2015,4
+Capps,Carter,15-day,2015,Marlins,RHP,elbow,strain,Right,8,8/3/2015,10/4/2015,62
+Fien,Casey,15-day,2015,Twins,RHP,shoulder,strain,Right,18,4/30/2015,5/29/2015,29
+Janssen,Casey,15-day,2015,Nationals,RHP,shoulder,inflammation.,Right,18,4/5/2015,5/22/2015,47
+Sadler,Casey,60-day,2015,Pirates,RHP,forearm,strain,Right,2,9/1/2015,10/4/2015,33
+Sabathia,CC,15-day,2015,Yankees,LHP,knee,inflammation,Right,21,8/24/2015,9/9/2015,16
+Hernandez,Cesar,60-day,2015,Phillies,SS,thumb,Dislocated,left,3,9/14/2015,10/4/2015,20
+Puello,Cesar,15-day,2015,Mets,RF,back,Stress fracture,,15,4/5/2015,8/24/2015,141
+Bettis,Chad,15-day,2015,Rockies,RHP,Shoulder,Inflammation,Right,18,7/19/2015,10/4/2015,77
+Billingsley,Chad,15-day,2015,Phillies,RHP,elbow,surgery,right,8,4/5/2015,5/5/2015,30
+Billingsley,Chad,15-day,2015,Phillies,RHP,shoulder,strain,Right,18,5/16/2015,7/2/2015,47
+Billingsley,Chad,15-day,2015,Phillies,RHP,flexor,strain.,Right,5,7/19/2015,10/4/2015,77
+Qualls,Chad,15-day,2015,Astros,RHP,neck,Pinched Nerve,,7,6/25/2015,7/10/2015,15
+Culberson,Charlie,15-day,2015,Rockies,3B,Lumbar disc,injury.,,6,4/5/2015,6/6/2015,62
+Furbush,Charlie,15-day,2015,Mariners,LHP,biceps,tendinitis,Left,2,7/8/2015,10/4/2015,88
+Morton,Charlie,15-day,2015,Pirates,RHP,hip,surgery,right,4,4/5/2015,5/25/2015,50
+Anderson,Chase,15-day,2015,Diamondbacks,RHP,triceps,inflammation.,Right,2,7/19/2015,8/7/2015,19
+Utley,Chase,15-day,2015,Phillies,2B,ankle,inflammation,Right,11,6/23/2015,8/7/2015,45
+Whitley,Chase,15-day,2015,Yankees,RHP,elbow,strain,right,8,5/15/2015,10/4/2015,142
+Roe,Chaz,15-day,2015,Orioles,RHP,shoulder,tendinitis.,Right,18,8/10/2015,9/1/2015,22
+Capuano,Chris,15-day,2015,Yankees,LHP,quad,strain,Right,5,4/5/2015,5/17/2015,42
+Denorfia,Chris,15-day,2015,Cubs,RF,hamstring,strain.,left,5,4/5/2015,4/17/2015,12
+Denorfia,Chris,15-day,2015,Cubs,LF,hamstring.,Strained,left,5,5/5/2015,6/7/2015,33
+Hatcher,Chris,15-day,2015,Dodgers,RHP,Oblique,Strain,Left,6,6/15/2015,8/14/2015,60
+Johnson,Chris,15-day,2015,Indians,3B,hand.,"Infection,",left,3,8/15/2015,9/1/2015,17
+Johnson,Chris,15-day,2015,Braves,3B,hand,Fractured,left,3,5/1/2015,5/27/2015,26
+Sale,Chris,15-day,2015,White Sox,LHP,foot.,Avulsion fracture,right,17,4/5/2015,4/12/2015,7
+Stewart,Chris,15-day,2015,Pirates,C,hamstring,strain,Right,5,4/5/2015,4/17/2015,12
+Withrow,Chris,60-day,2015,Dodgers,RHP,Elbow,Tommy John Surgery,,8,4/5/2015,10/4/2015,182
+Bergman,Christian,15-day,2015,Rockies,RHP,shoulder,inflammation.,Right,18,6/29/2015,8/1/2015,33
+Vazquez,Christian,60-day,2015,Red Sox,C,elbow,sprain,Right,8,4/5/2015,10/4/2015,182
+Yelich,Christian,15-day,2015,Marlins,LF,knee,contusion,Right,21,8/10/2015,8/25/2015,15
+Yelich,Christian,15-day,2015,Marlins,LF,back,strain,Lower,15,4/20/2015,5/8/2015,18
+Buchholz,Clay,15-day,2015,Red Sox,RHP,Flexor,Strain,Right,5,7/11/2015,10/4/2015,85
+Lee,Cliff,60-day,2015,Phillies,LHP,forearm,strain,Left,2,4/5/2015,10/4/2015,182
+Crisp,Coco,15-day,2015,Athletics,LF,elbow,surgery,right,8,4/5/2015,5/6/2015,31
+Crisp,Coco,15-day,2015,Athletics,LF,Cervical,strain,,7,5/20/2015,8/3/2015,75
+Anderson,Cody,15-day,2015,Indians,RHP,oblique,strain.,Left,6,8/8/2015,8/26/2015,18
+Cowgill,Collin,15-day,2015,Angels,LF,wrist,Sprained,right,19,5/26/2015,9/1/2015,98
+Dickerson,Corey,15-day,2015,Rockies,LF,foot.,Plantar fasciiis,left,17,5/19/2015,6/11/2015,23
+Dickerson,Corey,15-day,2015,Rockies,LF,Foot,Plantar fasciiis,Left,17,6/17/2015,7/24/2015,37
+Dickerson,Corey,15-day,2015,Rockies,LF,rib,Non-displaced,,6,7/31/2015,9/8/2015,39
+Hart,Corey,15-day,2015,Pirates,1B,shoulder,impingement.,Left,18,6/22/2015,10/4/2015,104
+Luebke,Cory,15-day,2015,Padres,LHP,elbow,Strained,left,8,4/5/2015,10/4/2015,182
+Mazzoni,Cory,60-day,2015,Padres,RHP,Shoulder,Strain,Right,18,9/4/2015,10/4/2015,30
+Rasmus,Cory,15-day,2015,Angels,RHP,forearm,strain,Right,2,8/14/2015,10/4/2015,51
+Rasmus,Cory,15-day,2015,Angels,RHP,core muscle,injury,Left,6,4/5/2015,9/1/2015,149
+Spangenberg,Cory,15-day,2015,Padres,2B,knee,contusion,Left,21,6/28/2015,8/14/2015,47
+Stammen,Craig,15-day,2015,Nationals,RHP,forearm,stiffness,Right,2,4/15/2015,10/4/2015,172
+Casali,Curt,15-day,2015,Rays,C,hamstring,Strained,left,5,8/26/2015,10/4/2015,39
+Thayer,Dale,15-day,2015,Padres,RHP,rotator cuff,strain,Right,18,6/17/2015,7/8/2015,21
+Beeler,Dallas,15-day,2015,Cubs,RHP,shoulder,inflammation.,Right,18,4/5/2015,5/18/2015,43
+Jennings,Dan,15-day,2015,White Sox,LHP,side,inflammation,left,6,6/5/2015,7/1/2015,26
+Uggla,Dan,15-day,2015,Nationals,2B,Back,spasms.,,15,8/8/2015,9/1/2015,24
+Murphy,Daniel,15-day,2015,Mets,2B,quad,Strained,left,5,6/5/2015,6/30/2015,25
+Nava,Daniel,15-day,2015,Red Sox,RF,thumb,strain,left,3,5/26/2015,7/21/2015,56
+Norris,Daniel,15-day,2015,Tigers,LHP,Oblique,Strained,,6,8/20/2015,9/16/2015,27
+Webb,Daniel,15-day,2015,White Sox,RHP,back,strain,right,15,8/5/2015,8/29/2015,24
+Winkler,Daniel,60-day,2015,Braves,RHP,Elbow,Tommy John Surgery,,8,4/5/2015,9/10/2015,158
+Duffy,Danny,15-day,2015,Royals,LHP,biceps,tendinitis.,Left,2,5/17/2015,6/24/2015,38
+Ceciliani,Darrell,60-day,2015,Mets,CF,hamstring,strain,Left,5,9/8/2015,10/4/2015,26
+Carpenter,David,15-day,2015,Nationals,RHP,shoulder,inflammation,Right,18,7/12/2015,9/16/2015,66
+Freese,David,15-day,2015,Angels,3B,Finger,Non-displaced fracture,,3,7/23/2015,9/1/2015,40
+Hale,David,15-day,2015,Rockies,RHP,groin,strain.,left,9,7/10/2015,8/17/2015,38
+Hernandez,David,15-day,2015,Diamondbacks,RHP,Elbow,Tommy John Surgery,,8,4/5/2015,6/7/2015,63
+Lough,David,15-day,2015,Orioles,LF,hamstring,strain.,Left,5,4/5/2015,4/13/2015,8
+Phelps,David,15-day,2015,Marlins,RHP,forearm,strain,Right,2,8/17/2015,10/4/2015,48
+Ross,David,7-day,2015,Cubs,C,Head,Concussion,,1,7/2/2015,7/12/2015,10
+Wright,David,15-day,2015,Mets,3B,Spinal,stenosis.,,15,4/15/2015,8/24/2015,131
+Gordon,Dee,15-day,2015,Marlins,2B,thumb,dislocated,left,3,7/12/2015,7/28/2015,16
+DeShields,Delino,15-day,2015,Rangers,LF,hamstring,strain,Left,5,6/15/2015,7/5/2015,20
+Span,Denard,15-day,2015,Nationals,CF,core muscle,surgery.,Right,6,4/5/2015,4/19/2015,14
+Span,Denard,15-day,2015,Nationals,CF,hip,inflammation,Left,4,8/27/2015,10/4/2015,38
+Span,Denard,15-day,2015,Nationals,CF,Back,tightness,,15,7/7/2015,8/25/2015,49
+Guerra,Deolis,15-day,2015,Pirates,RHP,knee,inflammation,left,21,8/7/2015,10/4/2015,58
+Holland,Derek,60-day,2015,Rangers,LHP,shoulder,strain,Left,18,4/11/2015,8/19/2015,130
+Jennings,Desmond,15-day,2015,Rays,LF,knee,Bruised,left,21,8/26/2015,10/4/2015,39
+Jennings,Desmond,15-day,2015,Rays,LF,knee,bursitis.,Left,21,4/26/2015,8/14/2015,110
+Mesoraco,Devin,15-day,2015,Reds,C,hip,injury.,Left,4,5/21/2015,10/4/2015,136
+Travis,Devon,15-day,2015,Blue Jays,2B,shoulder,inflammation,Left,18,5/17/2015,6/26/2015,40
+Travis,Devon,15-day,2015,Blue Jays,2B,shoulder,strain,Left,18,7/29/2015,10/4/2015,67
+Moreno,Diego,15-day,2015,Yankees,RHP,elbow,inflammation.,Right,8,8/2/2015,10/4/2015,63
+Gee,Dillon,15-day,2015,Mets,RHP,groin,strain,Right,9,5/4/2015,6/3/2015,30
+Herrera,Dilson,15-day,2015,Mets,2B,finger,Broken,right,3,5/15/2015,6/11/2015,27
+Navarro,Dioner,15-day,2015,Blue Jays,DH,hamstring.,Strained,left,5,4/22/2015,6/2/2015,41
+German,Domingo,60-day,2015,Yankees,RHP,Elbow,Tommy John Surgery,,8,9/1/2015,10/4/2015,33
+Kelly,Don,15-day,2015,Marlins,3B,finger.,Fractured,right,3,4/13/2015,10/4/2015,174
+Fister,Doug,15-day,2015,Nationals,RHP,forearm,tightness.,Right,2,5/15/2015,6/18/2015,34
+Pomeranz,Drew,15-day,2015,Athletics,LHP,Shoulder AC Joint,Sprained,left,18,5/20/2015,6/4/2015,15
+Smyly,Drew,15-day,2015,Rays,LHP,shoulder,tendinitis,Left,18,4/5/2015,4/24/2015,19
+Smyly,Drew,15-day,2015,Rays,LHP,shoulder,soreness,Left,18,5/6/2015,8/16/2015,102
+Ackley,Dustin,15-day,2015,Yankees,LF,lumbar,strain.,Right,6,8/4/2015,9/1/2015,28
+Pedroia,Dustin,15-day,2015,Red Sox,2B,hamstring.,Strained,right,5,6/25/2015,7/17/2015,22
+Pedroia,Dustin,15-day,2015,Red Sox,2B,hamstring,Strained,right,5,7/23/2015,9/8/2015,47
+Bundy,Dylan,60-day,2015,Orioles,RHP,shoulder,strain,right,18,9/24/2015,10/4/2015,10
+Nunez,Eduardo,15-day,2015,Twins,3B,oblique,strain.,Left,6,4/30/2015,5/18/2015,18
+Mujica,Edward,15-day,2015,Athletics,RHP,thumb,fractured,right,3,5/22/2015,6/19/2015,28
+Escobar,Edwin,15-day,2015,Red Sox,LHP,shoulder,inflammation.,Left,18,4/5/2015,6/13/2015,69
+Araujo,Elvis,15-day,2015,Phillies,LHP,groin,Strained,left,9,8/28/2015,10/4/2015,37
+Bonifacio,Emilio,15-day,2015,White Sox,2B,oblique,strain.,Left,6,7/29/2015,8/14/2015,16
+Inciarte,Ender,15-day,2015,Diamondbacks,LF,hamstring,strain,Right,5,6/16/2015,7/17/2015,31
+Burgos,Enrique,15-day,2015,Diamondbacks,RHP,shoulder,tendinitis.,Right,18,5/26/2015,6/22/2015,27
+Hernandez,Enrique,15-day,2015,Dodgers,LF,hamstring,strain,Left,5,8/31/2015,9/28/2015,28
+O'Flaherty,Eric,15-day,2015,Athletics,LHP,shoulder,strain,Left,18,5/1/2015,6/2/2015,32
+Cordier,Erik,15-day,2015,Giants,RHP,forearm,strain.,Right,2,4/5/2015,5/17/2015,42
+Goeddel,Erik,15-day,2015,Mets,RHP,elbow,strain,Right,8,6/12/2015,9/1/2015,81
+Kratz,Erik,15-day,2015,Royals,C,foot,injury,Left,17,5/4/2015,6/11/2015,38
+Marshall,Evan,60-day,2015,Diamondbacks,RHP,Skull,fracture,,1,9/8/2015,10/4/2015,26
+Scribner,Evan,60-day,2015,Athletics,RHP,lat,torn,right,6,9/10/2015,10/4/2015,24
+Cabrera,Everth,15-day,2015,Orioles,SS,Foot,Bruised,Left,17,5/7/2015,5/22/2015,15
+Freeman,Freddie,15-day,2015,Braves,1B,oblique,Strained,right,6,8/4/2015,8/19/2015,15
+Freeman,Freddie,15-day,2015,Braves,1B,wrist,contusion,Right,19,6/18/2015,7/25/2015,37
+Richards,Garrett,15-day,2015,Angels,RHP,knee,surgery,left,21,4/5/2015,4/19/2015,14
+Floyd,Gavin,60-day,2015,Indians,RHP,elbow,fracture,Right,8,4/5/2015,9/1/2015,149
+Springer,George,7-day,2015,Astros,RF,Head,Concussion.,,1,5/6/2015,5/13/2015,7
+Springer,George,15-day,2015,Astros,RF,wrist,fracture,Right,19,7/2/2015,9/4/2015,64
+Laird,Gerald,15-day,2015,Diamondbacks,C,back,spasms.,Lower,15,4/9/2015,8/20/2015,133
+Stanton,Giancarlo,15-day,2015,Marlins,RF,hand,Broken,left,3,6/27/2015,10/4/2015,99
+Hernandez,Gorkys,15-day,2015,Pirates,CF,shoulder,discomfort.,Left,18,7/13/2015,7/30/2015,17
+Garvin,Grayson,60-day,2015,Rays,LHP,lat,Torn,left,6,8/26/2015,10/4/2015,39
+Holland,Greg,15-day,2015,Royals,RHP,pectoral,strain.,Right,6,4/18/2015,5/6/2015,18
+Blanco,Gregor,7-day,2015,Giants,RF,Head,Concussion.,,1,6/8/2015,6/19/2015,11
+Hembree,Heath,15-day,2015,Red Sox,RHP,shoulder,inflammation.,Right,18,6/15/2015,7/25/2015,40
+Sanchez,Hector,60-day,2015,Giants,C,ankle,sprain,Left,11,9/8/2015,10/4/2015,26
+Alvarez,Henderson,15-day,2015,Marlins,RHP,shoulder,inflammation.,Right,18,4/13/2015,5/17/2015,34
+Alvarez,Henderson,15-day,2015,Marlins,RHP,shoulder,inflammation,Right,18,5/23/2015,10/4/2015,134
+Iwakuma,Hisashi,15-day,2015,Mariners,RHP,lat,Strain,Right,6,4/21/2015,7/6/2015,76
+Bailey,Homer,15-day,2015,Reds,RHP,elbow,surgery,right,8,4/5/2015,4/18/2015,13
+Bailey,Homer,15-day,2015,Reds,RHP,elbow,sprain.,Right,8,4/25/2015,10/4/2015,162
+Kendrick,Howie,15-day,2015,Dodgers,2B,hamstring.,Strained,left,5,8/10/2015,9/18/2015,39
+Pence,Hunter,15-day,2015,Giants,RF,Wrist,Tendinits,Left,19,6/3/2015,7/7/2015,34
+Pence,Hunter,15-day,2015,Giants,RF,forearm.,Fractured,left,2,4/5/2015,5/16/2015,41
+Pence,Hunter,15-day,2015,Giants,RF,oblique,strain,Left,6,8/18/2015,10/4/2015,47
+Ryu,Hyun-Jin,15-day,2015,Dodgers,LHP,shoulder,impingement.,Left,18,4/5/2015,10/4/2015,182
+Kennedy,Ian,15-day,2015,Padres,RHP,Hamstring,Strained,Left,5,4/10/2015,4/25/2015,15
+Davis,Ike,15-day,2015,Athletics,1B,quad.,Strained,left,5,5/14/2015,6/19/2015,36
+Davis,Ike,15-day,2015,Athletics,1B,hip.,Strained,left,4,8/18/2015,10/4/2015,47
+Nova,Ivan,15-day,2015,Yankees,RHP,Elbow,Tommy John Surgery,,8,4/5/2015,6/24/2015,80
+Shuck,J.B.,15-day,2015,White Sox,RF,hamstring,Strained,left,5,8/1/2015,8/16/2015,15
+Hardy,J.J.,15-day,2015,Orioles,SS,groin,strain,Left,9,8/24/2015,9/8/2015,15
+Hardy,J.J.,15-day,2015,Orioles,SS,shoulder,strain.,Left,18,4/5/2015,5/7/2015,32
+Graham,J.R.,15-day,2015,Twins,RHP,elbow,inflammation.,Right,8,8/26/2015,9/11/2015,16
+Leathersich,Jack,60-day,2015,Mets,LHP,Elbow,Tommy John Surgery,,8,8/24/2015,10/4/2015,41
+Turner,Jacob,15-day,2015,Cubs,RHP,shoulder,inflammation.,Right,18,4/5/2015,10/4/2015,182
+Ellsbury,Jacoby,15-day,2015,Yankees,CF,knee,sprain,Right,21,5/20/2015,7/8/2015,49
+Garcia,Jaime,15-day,2015,Cardinals,LHP,groin,strain.,Left,9,7/1/2015,7/28/2015,27
+Garcia,Jaime,15-day,2015,Cardinals,LHP,thoracic outlet,surgery,,18,4/5/2015,5/21/2015,46
+Lamb,Jake,15-day,2015,Diamondbacks,3B,foot,stress reaction,Left,17,4/19/2015,6/6/2015,48
+Marisnick,Jake,15-day,2015,Astros,CF,hamstring,Strained,left,5,6/19/2015,7/5/2015,16
+McGee,Jake,15-day,2015,Rays,LHP,knee,Torn meniscus,left,21,8/19/2015,9/26/2015,38
+McGee,Jake,15-day,2015,Rays,LHP,elbow,surgery,left,8,4/5/2015,5/15/2015,40
+Odorizzi,Jake,15-day,2015,Rays,RHP,Oblique,Strain,Left,6,6/6/2015,7/11/2015,35
+Peavy,Jake,15-day,2015,Giants,RHP,Back,strain,,15,4/18/2015,7/3/2015,76
+Petricka,Jake,15-day,2015,White Sox,RHP,forearm,strain.,Right,2,4/5/2015,4/20/2015,15
+Loney,James,15-day,2015,Rays,1B,oblique,strain,right,6,4/7/2015,4/24/2015,17
+Loney,James,15-day,2015,Rays,1B,finger,Fractured,left,3,5/25/2015,7/3/2015,39
+Paxton,James,15-day,2015,Mariners,LHP,finger.,Strained tendon,left,3,5/29/2015,9/13/2015,107
+Cosart,Jarred,15-day,2015,Marlins,RHP,Head,Vertigo,,1,5/14/2015,10/4/2015,143
+Parker,Jarrod,15-day,2015,Athletics,RHP,Elbow,Tommy John Surgery,,8,4/5/2015,10/4/2015,182
+Saltalamacchia,Jarrod,15-day,2015,Diamondbacks,C,neck.,Strained,left,7,7/12/2015,7/27/2015,15
+Bourgeois,Jason,60-day,2015,Reds,CF,shoulder,fracture,Left,18,4/5/2015,6/28/2015,84
+Castro,Jason,15-day,2015,Astros,C,quad.,Strain,Right,5,8/29/2015,9/17/2015,19
+Frasor,Jason,15-day,2015,Braves,RHP,shoulder,strain,Right,18,8/2/2015,8/26/2015,24
+Garcia,Jason,15-day,2015,Orioles,RHP,shoulder,tendinitis,Right,18,5/11/2015,8/6/2015,87
+Grilli,Jason,60-day,2015,Braves,RHP,Achilles,Ruptured,left,11,7/17/2015,10/4/2015,79
+Kipnis,Jason,15-day,2015,Indians,2B,Shoulder,Inflammation,Right,18,8/2/2015,8/18/2015,16
+Motte,Jason,15-day,2015,Cubs,RHP,Shoulder,Strain,Right,18,8/24/2015,10/4/2015,41
+Vargas,Jason,15-day,2015,Royals,LHP,flexor,strain,Left,5,5/6/2015,5/26/2015,20
+Vargas,Jason,15-day,2015,Royals,LHP,flexor,strain,Left,5,6/9/2015,7/21/2015,42
+Vargas,Jason,15-day,2015,Royals,LHP,UCL,tear.,Left,8,7/22/2015,10/4/2015,74
+Guerra,Javy,15-day,2015,White Sox,RHP,shoulder,inflammation,Right,18,4/13/2015,5/6/2015,23
+Werth,Jayson,15-day,2015,Nationals,RF,Shoulder,surgery.,Right,18,4/5/2015,4/13/2015,8
+Werth,Jayson,15-day,2015,Nationals,LF,wrist,contusion,left,19,5/16/2015,7/28/2015,73
+Machi,Jean,15-day,2015,Giants,RHP,groin,strain,Left,9,6/2/2015,6/23/2015,21
+Segura,Jean,15-day,2015,Brewers,SS,finger,Fractured,right,3,5/13/2015,5/29/2015,16
+Lowrie,Jed,15-day,2015,Astros,SS,thumb.,Ligament tear,right,3,4/28/2015,7/30/2015,93
+Baker,Jeff,15-day,2015,Marlins,1B,intercostal,strain,Left,6,7/8/2015,7/31/2015,23
+Beliveau,Jeff,15-day,2015,Rays,LHP,shoulder,soreness,left,18,4/16/2015,10/4/2015,171
+Mathis,Jeff,15-day,2015,Marlins,C,hand.,Fractured,right,3,4/13/2015,6/5/2015,53
+Mejia,Jenrry,15-day,2015,Mets,RHP,elbow,inflammation,Right,8,4/5/2015,7/7/2015,93
+Weaver,Jered,15-day,2015,Angels,RHP,Hip,Inflammation,Left,4,6/21/2015,8/9/2015,49
+Affeldt,Jeremy,15-day,2015,Giants,LHP,knee,subluxation,Left,21,8/24/2015,9/8/2015,15
+Affeldt,Jeremy,15-day,2015,Giants,LHP,shoulder,strain,Left,18,6/26/2015,7/22/2015,26
+Hellickson,Jeremy,15-day,2015,Diamondbacks,RHP,hamstring,Strained,left,5,8/19/2015,9/11/2015,23
+Williams,Jerome,15-day,2015,Phillies,RHP,hamstring.,Strained,left,5,6/17/2015,7/21/2015,34
+Blevins,Jerry,15-day,2015,Mets,LHP,arm,Fracture,left,2,4/20/2015,10/4/2015,167
+Chavez,Jesse,60-day,2015,Athletics,RHP,rib.,Fractured,,6,9/16/2015,10/4/2015,18
+Hahn,Jesse,15-day,2015,Athletics,RHP,forearm.,Strained,right,2,7/6/2015,10/4/2015,90
+Henderson,Jim,15-day,2015,Brewers,RHP,shoulder,inflammation,Right,18,4/5/2015,5/13/2015,38
+Nelson,Jimmy,60-day,2015,Brewers,RHP,head,contusion,,1,9/22/2015,10/4/2015,12
+Paredes,Jimmy,15-day,2015,Orioles,3B,back,strain.,Lower,15,4/5/2015,4/18/2015,13
+Beimel,Joe,15-day,2015,Mariners,LHP,shoulder.,inflammation,left,18,8/20/2015,9/4/2015,15
+Kelly,Joe,15-day,2015,Red Sox,RHP,biceps,strain,Right,2,4/5/2015,4/11/2015,6
+Nathan,Joe,15-day,2015,Tigers,RHP,elbow flexor,strain,Right,8,4/7/2015,10/4/2015,180
+Panik,Joe,60-day,2015,Giants,2B,Back.,,,15,9/16/2015,10/4/2015,18
+Panik,Joe,15-day,2015,Giants,2B,back,inflammation,Lower,15,8/2/2015,9/7/2015,36
+Peralta,Joel,15-day,2015,Dodgers,RHP,neck,sprain.,Right,7,8/10/2015,9/1/2015,22
+Peralta,Joel,15-day,2015,Dodgers,RHP,Neck,strain,,7,4/24/2015,6/22/2015,59
+Terdoslavich,Joey,15-day,2015,Braves,RF,wrist.,Sprained,left,19,4/5/2015,6/5/2015,61
+Jaso,John,15-day,2015,Rays,C,wrist,contusion,Left,19,4/7/2015,7/7/2015,91
+Giavotella,Johnny,15-day,2015,Angels,2B,Eyes,personal,,1,8/21/2015,9/25/2015,35
+Jay,Jon,15-day,2015,Cardinals,CF,wrist,tendinitis,Left,19,5/10/2015,5/29/2015,19
+Jay,Jon,15-day,2015,Cardinals,CF,wrist,stress reaction,left,19,7/1/2015,9/4/2015,65
+Moscot,Jon,15-day,2015,Reds,RHP,shoulder,Dislocated,left,18,6/16/2015,10/4/2015,110
+Lucroy,Jonathan,15-day,2015,Brewers,C,toe,Broken,left,17,4/21/2015,6/1/2015,41
+Pettibone,Jonathan,15-day,2015,Phillies,RHP,shoulder,surgery,right,18,4/5/2015,7/5/2015,91
+Schoop,Jonathan,15-day,2015,Orioles,2B,knee,Partially torn,right,21,4/18/2015,7/4/2015,77
+Lyles,Jordan,15-day,2015,Rockies,RHP,toe,Sprained,left,17,6/1/2015,10/4/2015,125
+Schafer,Jordan,15-day,2015,Twins,CF,Knee,sprain,,21,5/16/2015,6/18/2015,33
+Walden,Jordan,15-day,2015,Cardinals,RHP,bicep,inflammation.,Right,2,4/30/2015,8/1/2015,93
+Mercer,Jordy,15-day,2015,Pirates,SS,knee,sprain,Left,21,7/20/2015,8/23/2015,34
+De,Jorge,15-day,2015,Rockies,LHP,groin,strain.,Left,9,4/5/2015,4/20/2015,15
+Soler,Jorge,15-day,2015,Cubs,RF,Oblique,Strain,,6,8/24/2015,9/17/2015,24
+Soler,Jorge,15-day,2015,Cubs,RF,ankle,sprain,Left,11,6/3/2015,7/5/2015,32
+Fernandez,Jose,15-day,2015,Marlins,RHP,biceps,strain,right,2,8/8/2015,9/12/2015,35
+Fernandez,Jose,15-day,2015,Marlins,RHP,Elbow,Tommy John Surgery,,8,4/5/2015,7/2/2015,88
+Pirela,Jose,7-day,2015,Yankees,2B,Head,Concussion,,1,4/5/2015,5/6/2015,31
+Reyes,Jose,15-day,2015,Blue Jays,SS,rib,Cracked,left,6,4/28/2015,5/25/2015,27
+Urena,Jose,15-day,2015,Marlins,RHP,knee,contusion,Left,21,8/7/2015,9/4/2015,28
+Edgin,Josh,15-day,2015,Mets,LHP,Elbow,Tommy John Surgery,,8,4/5/2015,10/4/2015,182
+Fields,Josh,15-day,2015,Astros,RHP,groin,strain,Right,9,4/5/2015,4/23/2015,18
+Hamilton,Josh,15-day,2015,Rangers,LF,knee,inflammation,Left,21,8/16/2015,9/1/2015,16
+Hamilton,Josh,15-day,2015,Rangers,LF,hamstring,strained,left,5,6/1/2015,6/30/2015,29
+Hamilton,Josh,15-day,2015,Angels,LF,shoulder,surgery.,right,18,4/5/2015,5/25/2015,50
+Harrison,Josh,15-day,2015,Pirates,3B,thumb,injury,Left,3,7/6/2015,8/21/2015,46
+Johnson,Josh,15-day,2015,Padres,RHP,elbow,Strained,right,8,4/5/2015,10/4/2015,182
+Outman,Josh,60-day,2015,Braves,LHP,shoulder,discomfort,Left,18,4/6/2015,8/4/2015,120
+Ravin,Josh,60-day,2015,Dodgers,RHP,groin,hernia,left,9,9/1/2015,10/4/2015,33
+Reddick,Josh,15-day,2015,Athletics,RF,oblique,strain,right,6,4/5/2015,4/12/2015,7
+Tomlin,Josh,15-day,2015,Indians,RHP,shoulder,surgery.,right,18,4/5/2015,7/31/2015,117
+Nicasio,Juan,15-day,2015,Dodgers,RHP,abdominal,strain,Left,6,8/10/2015,8/25/2015,15
+Perez,Juan,60-day,2015,Giants,RF,oblique,strain.,Left,6,9/23/2015,10/4/2015,11
+Ho,Jung,60-day,2015,Pirates,3B,Leg,Fractured,left,5,9/21/2015,10/4/2015,13
+Profar,Jurickson,60-day,2015,Rangers,2B,labrum,surgery,right,18,4/5/2015,10/4/2015,182
+Grimm,Justin,15-day,2015,Cubs,RHP,forearm,inflammation,Right,2,4/5/2015,5/6/2015,31
+Masterson,Justin,15-day,2015,Red Sox,RHP,shoulder,tendinitis.,Right,18,5/13/2015,6/23/2015,41
+Morneau,Justin,7-day,2015,Rockies,1B,Head,concussion,,1,5/15/2015,9/4/2015,112
+Sellers,Justin,15-day,2015,Pirates,SS,heel,pain,Left,17,4/5/2015,7/24/2015,110
+Turner,Justin,15-day,2015,Dodgers,3B,thigh,skin infection,Right,5,7/27/2015,8/13/2015,17
+Verlander,Justin,15-day,2015,Tigers,RHP,triceps,Strained,right,2,4/5/2015,6/13/2015,69
+Johnson,Kelly,15-day,2015,Braves,LF,oblique,strain.,Right,6,5/14/2015,6/10/2015,27
+Graveman,Kendall,15-day,2015,Athletics,RHP,oblique,Strained,left,6,8/24/2015,10/4/2015,41
+Flores,Kendry,15-day,2015,Marlins,RHP,shoulder,tendinitis,right,18,8/22/2015,10/4/2015,43
+Jansen,Kenley,15-day,2015,Dodgers,RHP,metatarsal,injury.,Fifth,17,4/5/2015,5/15/2015,40
+Gausman,Kevin,15-day,2015,Orioles,RHP,shoulder,tendinitis.,Right,18,5/7/2015,6/20/2015,44
+Davis,Khris,15-day,2015,Brewers,LF,knee,Torn meniscus,right,21,5/31/2015,7/7/2015,37
+Nieuwenhuis,Kirk,15-day,2015,Mets,LF,back.,Pinched Nerve,upper,15,7/30/2015,9/1/2015,33
+Uehara,Koji,15-day,2015,Red Sox,RHP,hamstring.,Strained,left,5,4/5/2015,4/13/2015,8
+Uehara,Koji,15-day,2015,Red Sox,RHP,Wrist,Non-displaced radius fracture,right,19,8/8/2015,10/4/2015,57
+Medlen,Kris,60-day,2015,Royals,RHP,Elbow,Tommy John Surgery,,8,4/5/2015,7/20/2015,106
+Negron,Kristopher,15-day,2015,Reds,2B,shoulder,surgery,left,18,9/14/2015,10/4/2015,20
+Blanks,Kyle,15-day,2015,Rangers,1B,tailbone,pilonidal Cyst,,4,5/20/2015,6/11/2015,22
+Blanks,Kyle,15-day,2015,Rangers,1B,achilles,tendinitis.,right and left,11,6/11/2015,10/4/2015,115
+Kendrick,Kyle,15-day,2015,Rockies,RHP,shoulder,inflammation,right,18,8/1/2015,9/1/2015,31
+Lobstein,Kyle,15-day,2015,Tigers,LHP,shoulder.,Sore,left,18,5/24/2015,9/3/2015,102
+Fujikawa,Kyuji,15-day,2015,Rangers,RHP,groin,strain,Right,9,4/5/2015,5/14/2015,39
+Lynn,Lance,15-day,2015,Cardinals,RHP,forearm,strain,Right,2,6/8/2015,6/25/2015,17
+Hawkins,LaTroy,15-day,2015,Rockies,RHP,Bicep,Tendinits,Right,2,4/22/2015,6/11/2015,50
+Bonilla,Lisalverto,15-day,2015,Rangers,RHP,elbow,impingement,Right,8,4/5/2015,10/4/2015,182
+Darnell,Logan,60-day,2015,Twins,LHP,Internal,Pneumonia,,23,9/25/2015,10/4/2015,9
+Duda,Lucas,15-day,2015,Mets,1B,back,strain,Lower,15,8/22/2015,9/7/2015,16
+Hochevar,Luke,15-day,2015,Royals,RHP,Elbow,Tommy John Surgery,,8,4/5/2015,5/7/2015,32
+Izturis,Maicer,15-day,2015,Blue Jays,2B,groin.,Strained,right,9,4/5/2015,10/4/2015,182
+Franco,Maikel,15-day,2015,Phillies,3B,wrist,Non-displaced fracture,left,19,8/12/2015,10/1/2015,50
+Banuelos,Manny,15-day,2015,Braves,LHP,elbow,inflammation,Left,8,7/25/2015,9/1/2015,38
+Parra,Manny,15-day,2015,Reds,LHP,elbow,Strained,left,8,7/20/2015,8/4/2015,15
+Parra,Manny,15-day,2015,Reds,LHP,Biceps,"tendinitis,",left,2,8/19/2015,9/4/2015,16
+Parra,Manny,15-day,2015,Reds,LHP,Neck,strain,,7,4/24/2015,5/25/2015,31
+Scutaro,Marco,60-day,2015,Giants,2B,Back.,surgery,,15,6/17/2015,10/4/2015,109
+Mateo,Marcos,15-day,2015,Padres,RHP,Neck,strain,,7,8/6/2015,9/1/2015,26
+Stroman,Marcus,60-day,2015,Blue Jays,RHP,knee,surgery,Right,21,4/5/2015,9/11/2015,159
+Hollands,Mario,60-day,2015,Phillies,LHP,elbow,injury,Left,8,4/5/2015,10/4/2015,182
+Teixeira,Mark,15-day,2015,Yankees,1B,shin,Bone Bruise,right,11,8/27/2015,10/4/2015,38
+Byrd,Marlon,15-day,2015,Reds,LF,wrist,Fractured,right,19,6/3/2015,6/19/2015,16
+Perez,Martin,60-day,2015,Rangers,LHP,elbow,reconstruction,Left,8,4/5/2015,7/17/2015,103
+Prado,Martin,15-day,2015,Marlins,3B,shoulder,sprain,Right,18,6/15/2015,7/17/2015,32
+Tanaka,Masahiro,15-day,2015,Yankees,RHP,wrist,tendinitis,right,19,4/24/2015,6/3/2015,40
+Williams,Mason,15-day,2015,Yankees,CF,shoulder,inflammation,Right,18,6/20/2015,10/4/2015,106
+Latos,Mat,15-day,2015,Marlins,RHP,knee,inflammation,Left,21,5/22/2015,6/13/2015,22
+Adams,Matt,15-day,2015,Cardinals,1B,quad.,Strained,right,5,5/27/2015,9/9/2015,105
+Albers,Matt,15-day,2015,White Sox,RHP,finger,broken,right,3,4/20/2015,7/19/2015,90
+Belisle,Matt,15-day,2015,Cardinals,RHP,elbow,inflammation,Right,8,6/26/2015,9/12/2015,78
+Cain,Matt,15-day,2015,Giants,RHP,elbow nerve,irritation,Right,8,8/26/2015,9/11/2015,16
+Cain,Matt,15-day,2015,Giants,RHP,flexor tendon,Strained,right,5,4/5/2015,7/2/2015,88
+Garza,Matt,15-day,2015,Brewers,RHP,shoulder,tendinitis,Right,18,7/3/2015,7/21/2015,18
+Harrison,Matt,15-day,2015,Phillies,LHP,back,inflammation,Lower,15,7/31/2015,10/4/2015,65
+Harrison,Matt,15-day,2015,Rangers,LHP,spinal,fusion,,15,4/5/2015,7/4/2015,90
+Holliday,Matt,15-day,2015,Cardinals,LF,quadriceps,Strained,right,5,6/9/2015,7/17/2015,38
+Holliday,Matt,15-day,2015,Cardinals,LF,quadriceps,strain,right,5,7/30/2015,9/15/2015,47
+Joyce,Matt,7-day,2015,Angels,LF,Head,Concussion,,1,7/27/2015,9/1/2015,36
+Moore,Matt,60-day,2015,Rays,LHP,Elbow,Tommy John Surgery,,8,4/5/2015,7/2/2015,88
+Wieters,Matt,15-day,2015,Orioles,C,Elbow,Tommy John Surgery,,8,4/5/2015,6/5/2015,61
+Upton,Melvin,15-day,2015,Braves,CF,foot,Sesamoiditis,left,17,4/5/2015,6/8/2015,64
+Blazek,Michael,15-day,2015,Brewers,RHP,hand,fracture,Right,3,8/13/2015,10/4/2015,52
+Cuddyer,Michael,15-day,2015,Mets,LF,knee,Bone Bruise,left,21,7/22/2015,8/10/2015,19
+McKenry,Michael,60-day,2015,Rockies,C,knee.,lateral meniscus tear,right,21,8/19/2015,10/4/2015,46
+Morse,Michael,15-day,2015,Marlins,1B,finger,sprain,right,3,5/24/2015,7/5/2015,42
+Pineda,Michael,15-day,2015,Yankees,RHP,forearm,strain,right,2,7/30/2015,8/26/2015,27
+Saunders,Michael,15-day,2015,Blue Jays,RF,knee,Torn meniscus,Left,21,4/5/2015,4/25/2015,20
+Saunders,Michael,15-day,2015,Blue Jays,RF,knee,inflammation,Left,21,5/10/2015,10/4/2015,147
+Cabrera,Miguel,15-day,2015,Tigers,1B,Calf,Strain,Left,5,7/4/2015,8/14/2015,41
+Gonzalez,Miguel,15-day,2015,Orioles,RHP,groin,strain,right,9,6/10/2015,6/25/2015,15
+Gonzalez,Miguel,15-day,2015,Orioles,RHP,shoulder,tendinitis,Right,18,8/31/2015,9/29/2015,29
+Montero,Miguel,15-day,2015,Cubs,C,thumb,Sprained,left,3,7/12/2015,8/7/2015,26
+Foltynewicz,Mike,15-day,2015,Braves,RHP,Ribs,Costochondritis,,6,8/30/2015,9/15/2015,16
+Leake,Mike,15-day,2015,Giants,RHP,hamstring,strain,Left,5,8/3/2015,8/22/2015,19
+Minor,Mike,15-day,2015,Braves,LHP,rotator,Inflammation,left,18,4/5/2015,10/4/2015,182
+Morin,Mike,15-day,2015,Angels,RHP,oblique,strain,Left,6,5/24/2015,7/1/2015,38
+Olt,Mike,15-day,2015,Cubs,3B,wrist,Hairline fracture,right,19,4/15/2015,7/10/2015,86
+Wright,Mike,15-day,2015,Orioles,RHP,calf,strain,left,5,8/1/2015,9/4/2015,34
+Moreland,Mitch,15-day,2015,Rangers,1B,elbow,Tommy John Surgery,Left,8,4/28/2015,5/13/2015,15
+Betts,Mookie,7-day,2015,Red Sox,CF,Head,Concussion,,1,7/29/2015,8/11/2015,13
+Adcock,Nate,15-day,2015,Reds,RHP,elbow,injury,right,8,7/30/2015,10/4/2015,66
+Freiman,Nate,15-day,2015,Athletics,1B,lumbar strain,strain,,6,4/5/2015,5/9/2015,34
+Jones,Nate,15-day,2015,,,elbow,surgery,,11,4/5/2015,8/5/2015,122
+McLouth,Nate,15-day,2015,Nationals,LF,shoulder,surgery,Right,18,4/5/2015,10/4/2015,182
+Feliz,Neftali,15-day,2015,Rangers,RHP,side.,axillary abscess,right,6,5/20/2015,7/2/2015,43
+Ramirez,Neil,15-day,2015,Cubs,RHP,abdominal,soreness.,Left,6,7/29/2015,9/8/2015,41
+Ramirez,Neil,15-day,2015,Cubs,RHP,shoulder,inflammation,Right,18,4/16/2015,6/28/2015,73
+Franklin,Nick,15-day,2015,Rays,SS,oblique,strain,Left,6,4/5/2015,5/16/2015,41
+Hagadone,Nick,15-day,2015,Indians,LHP,back,strain,Lower,15,7/7/2015,10/4/2015,89
+Hundley,Nick,60-day,2015,Rockies,C,Cervical,strain,,7,9/11/2015,10/4/2015,23
+Swisher,Nick,15-day,2015,Indians,1B,Elbow,Tommy John Surgery,,8,4/5/2015,5/5/2015,30
+Swisher,Nick,15-day,2015,Indians,DH,knee,inflammation,Left,21,6/15/2015,8/7/2015,53
+Tepesch,Nick,15-day,2015,Rangers,RHP,ulnar nerve,inflammation,Right,8,4/5/2015,10/4/2015,182
+Aoki,Nori,7-day,2015,Giants,LF,Head,Concussion,,1,8/13/2015,8/20/2015,7
+Aoki,Nori,15-day,2015,Giants,LF,Fibula,Fractured,Right,5,6/21/2015,7/27/2015,36
+Hernandez,Oscar,15-day,2015,Diamondbacks,C,hamate,Broken bone,left,19,4/5/2015,7/4/2015,90
+Arcia,Oswaldo,15-day,2015,Twins,LF,flexor,strain,Right,5,5/4/2015,6/3/2015,30
+Rodriguez,Paco,15-day,2015,Dodgers,LHP,elbow,strain,left,8,5/30/2015,10/4/2015,127
+Corbin,Patrick,15-day,2015,Diamondbacks,LHP,Elbow,Tommy John Surgery,,8,4/5/2015,7/4/2015,90
+Baez,Pedro,15-day,2015,Dodgers,RHP,Pectoral,Strain,Right,6,5/14/2015,6/26/2015,43
+Gosselin,Phil,15-day,2015,Braves,2B,thumb,Avulsion fracture,left,3,5/18/2015,8/31/2015,105
+Hughes,Phil,15-day,2015,Twins,RHP,back,inflammation.,Lower,15,8/10/2015,9/15/2015,36
+Betancourt,Rafael,15-day,2015,Rockies,RHP,Head,Vertigo,,1,6/7/2015,6/26/2015,19
+Montero,Rafael,15-day,2015,Mets,RHP,rotator cuff,inflammation,Right,18,4/29/2015,10/4/2015,158
+Soriano,Rafael,15-day,2015,Cubs,RHP,shoulder,inflammation.,Right,18,8/4/2015,9/1/2015,28
+Iglesias,Raisel,15-day,2015,Reds,RHP,shoulder,tendinitis,Right,18,5/31/2015,7/11/2015,41
+Grichuk,Randal,15-day,2015,Cardinals,CF,elbow,strain,right,8,8/17/2015,9/6/2015,20
+Grichuk,Randal,15-day,2015,Cardinals,CF,back,strain.,Lower,15,4/17/2015,5/16/2015,29
+Delgado,Randall,15-day,2015,Diamondbacks,RHP,ankle,Sprained,right,11,7/28/2015,8/17/2015,20
+Johnson,Reed,15-day,2015,Nationals,LF,Calf,Strain,Left,5,4/29/2015,9/26/2015,150
+Porcello,Rick,15-day,2015,Red Sox,RHP,triceps,strain.,Right,2,7/30/2015,8/26/2015,27
+Nolasco,Ricky,15-day,2015,Twins,RHP,elbow,inflammation,Right,8,4/9/2015,5/2/2015,23
+Nolasco,Ricky,15-day,2015,Twins,RHP,ankle,impingement,Right,11,6/1/2015,9/25/2015,116
+Scahill,Rob,15-day,2015,Pirates,RHP,forearm,tightness,right,2,6/26/2015,9/1/2015,67
+Chirinos,Robinson,15-day,2015,Rangers,C,shoulder.,Strained,left,18,7/31/2015,9/7/2015,38
+Detwiler,Ross,15-day,2015,Rangers,LHP,shoulder,inflammation,left,18,5/15/2015,6/4/2015,20
+Ohlendorf,Ross,15-day,2015,Rangers,RHP,groin,strain,Right,9,6/4/2015,7/27/2015,53
+Brett,Ryan,15-day,2015,Rays,2B,shoulder,subluxation.,Left,18,4/22/2015,5/28/2015,36
+Flaherty,Ryan,15-day,2015,Orioles,2B,groin,strain,Right,9,4/23/2015,5/8/2015,15
+Flaherty,Ryan,15-day,2015,Orioles,2B,groin,strain.,Right,9,5/12/2015,5/27/2015,15
+Hanigan,Ryan,15-day,2015,Red Sox,C,hand,fractured,right,3,5/2/2015,7/2/2015,61
+Pressly,Ryan,15-day,2015,Twins,RHP,lat,strain.,Right,6,7/5/2015,10/4/2015,91
+Rua,Ryan,15-day,2015,Rangers,LF,ankle,sprain,Right,11,4/11/2015,6/19/2015,69
+Zimmerman,Ryan,15-day,2015,Nationals,1B,foot,Plantar fasciiis,left,17,6/10/2015,7/28/2015,48
+Deduno,Samuel,15-day,2015,Astros,RHP,back,strain,Lower,15,5/14/2015,10/4/2015,143
+Gennett,Scooter,15-day,2015,Brewers,2B,hand,laceration,Left,3,4/20/2015,5/5/2015,15
+Atchison,Scott,15-day,2015,Indians,RHP,ankle,sprain,left,11,5/28/2015,6/13/2015,16
+Feldman,Scott,60-day,2015,Astros,RHP,shoulder,sprain,right,18,9/14/2015,10/4/2015,20
+Feldman,Scott,15-day,2015,Astros,RHP,knee,Torn medial meniscus,right,21,5/27/2015,7/18/2015,52
+Van,Scott,15-day,2015,Dodgers,LF,back,Sore,,15,5/31/2015,6/17/2015,17
+Doolittle,Sean,15-day,2015,Athletics,LHP,rotator cuff,strained,left,18,4/5/2015,5/26/2015,51
+Doolittle,Sean,15-day,2015,Athletics,LHP,Shoulder,Strained,Left,18,5/28/2015,8/22/2015,86
+Marshall,Sean,60-day,2015,Reds,LHP,shoulder,surgery,left,18,4/5/2015,10/4/2015,182
+Nolin,Sean,15-day,2015,Athletics,LHP,bilateral core,surgery,,4,4/5/2015,5/15/2015,40
+O'Sullivan,Sean,15-day,2015,Phillies,RHP,knee,Tendinitis,left,21,4/18/2015,5/12/2015,24
+Santos,Sergio,15-day,2015,Yankees,RHP,elbow,inflammation,Right,8,6/15/2015,10/4/2015,111
+Simmons,Shae,60-day,2015,Braves,RHP,Elbow,Tommy John Surgery,,8,4/5/2015,10/4/2015,182
+Greene,Shane,15-day,2015,Tigers,RHP,shoulder,Sore,right,18,8/9/2015,10/4/2015,56
+Victorino,Shane,15-day,2015,Red Sox,RF,hamstring,strain,Right,5,4/23/2015,5/11/2015,18
+Victorino,Shane,15-day,2015,Red Sox,RF,calf,strain,Left,5,5/24/2015,7/3/2015,40
+Kelley,Shawn,15-day,2015,Padres,RHP,calf,strain.,Left,5,4/23/2015,5/8/2015,15
+Heathcott,Slade,15-day,2015,Yankees,RF,Quad,Strain,Right,5,5/29/2015,7/31/2015,63
+Strasburg,Stephen,15-day,2015,Nationals,RHP,Neck,Tightness,,7,5/30/2015,6/23/2015,24
+Strasburg,Stephen,15-day,2015,Nationals,RHP,oblique,strain.,Left,6,7/5/2015,8/8/2015,34
+Pearce,Steve,15-day,2015,Orioles,LF,Oblique,Strain,Left,6,7/22/2015,8/24/2015,33
+Tolleson,Steve,15-day,2015,Blue Jays,2B,groin,strain,Left,9,5/27/2015,7/1/2015,35
+Matz,Steven,15-day,2015,Mets,LHP,lat,Partial tear,Left,6,7/6/2015,9/1/2015,57
+Souza,Steven,15-day,2015,Rays,RF,finger.,laceration,right,3,7/6/2015,7/21/2015,15
+Souza,Steven,15-day,2015,Rays,RF,hand,Fractured,left,3,8/2/2015,9/11/2015,40
+Wright,Steven,7-day,2015,Red Sox,RHP,Head,Concussion,,1,8/15/2015,10/4/2015,50
+Scheppers,Tanner,15-day,2015,Rangers,RHP,ankle,sprain,Right,11,4/5/2015,4/17/2015,12
+Scheppers,Tanner,15-day,2015,Rangers,RHP,ankle,sprain,Right,12,8/2/2015,8/19/2015,17
+Featherston,Taylor,15-day,2015,Angels,3B,back,strain,Upper,15,8/16/2015,9/1/2015,16
+Collins,Tim,15-day,2015,Royals,LHP,Elbow,Tommy John Surgery,,8,4/5/2015,10/4/2015,182
+Federowicz,Tim,60-day,2015,Padres,C,knee,surgery,right,21,4/5/2015,8/1/2015,118
+Hudson,Tim,15-day,2015,Giants,RHP,shoulder,strain,Right,18,6/27/2015,7/20/2015,23
+Hudson,Tim,15-day,2015,Giants,RHP,shoulder,strain,Right,18,7/27/2015,9/1/2015,36
+Lincecum,Tim,15-day,2015,Giants,RHP,forearm,contusion,Right,2,6/28/2015,10/4/2015,98
+Stauffer,Tim,15-day,2015,Twins,RHP,intercostal,strain,Right,6,4/30/2015,5/22/2015,22
+House,TJ,15-day,2015,Indians,LHP,shoulder,inflammation,Left,18,5/1/2015,10/4/2015,156
+Wilhelmsen,Tom,15-day,2015,Mariners,RHP,elbow,Hyperextended,right,8,4/11/2015,5/8/2015,27
+La,Tommy,15-day,2015,Cubs,2B,rib cage,inflammation.,Right,6,4/9/2015,8/11/2015,124
+Milone,Tommy,15-day,2015,Twins,LHP,elbow,strain.,left,8,8/1/2015,8/16/2015,15
+Pham,Tommy,15-day,2015,Cardinals,LF,quadriceps,Strained,left,5,4/5/2015,6/5/2015,61
+Cingrani,Tony,15-day,2015,Reds,LHP,shoulder,Strained,left,18,6/14/2015,7/22/2015,38
+d'Arnaud,Travis,15-day,2015,Mets,C,elbow,Sprained,left,8,6/21/2015,7/31/2015,40
+d'Arnaud,Travis,15-day,2015,Mets,C,finger,Fracture,right,3,4/20/2015,6/10/2015,51
+Ishikawa,Travis,15-day,2015,Pirates,1B,back,strain,Low,15,8/20/2015,9/7/2015,18
+Ishikawa,Travis,15-day,2015,Giants,1B,back,strain.,Low,15,4/5/2015,5/25/2015,50
+Wada,Tsuyoshi,15-day,2015,Cubs,LHP,groin,strain.,left,9,4/5/2015,5/18/2015,43
+Gosewisch,Tuffy,15-day,2015,Diamondbacks,C,knee ACL,injury,Left,21,5/28/2015,10/4/2015,129
+Chatwood,Tyler,60-day,2015,Rockies,RHP,Elbow,Tommy John Surgery,,8,4/5/2015,10/4/2015,182
+Cravy,Tyler,15-day,2015,Brewers,RHP,elbow,impingement,Right,8,8/19/2015,9/6/2015,18
+Ladendorf,Tyler,60-day,2015,Athletics,2B,ankle,surgery,left,11,5/22/2015,8/21/2015,91
+Moore,Tyler,15-day,2015,Nationals,1B,ankle,sprain,Left,11,8/19/2015,9/3/2015,15
+Olson,Tyler,15-day,2015,Mariners,LHP,knee,contusion,right,21,5/3/2015,6/2/2015,30
+Skaggs,Tyler,15-day,2015,Angels,LHP,Elbow,Tommy John Surgery,,8,4/5/2015,10/4/2015,182
+Wilson,Tyler,15-day,2015,Orioles,RHP,oblique,strain,Left,6,8/4/2015,9/4/2015,31
+Black,Vic,15-day,2015,Mets,RHP,shoulder,weakness,Right,18,4/5/2015,6/7/2015,63
+Martinez,Victor,15-day,2015,Tigers,DH,knee,inflammation.,Left,21,5/19/2015,6/19/2015,31
+Wright,Wesley,15-day,2015,Orioles,LHP,trapeziums,strain,Left,15,4/11/2015,7/14/2015,94
+Myers,Wil,15-day,2015,Padres,CF,wrist,tendinitis.,Left,19,5/11/2015,6/11/2015,31
+Myers,Wil,15-day,2015,Padres,CF,wrist,tendinitis.,Left,19,6/14/2015,9/4/2015,82
+Perez,Williams,15-day,2015,Braves,RHP,foot,contusion,Left,17,6/27/2015,7/31/2015,34
+Peralta,Wily,15-day,2015,Brewers,RHP,oblique,strained,left,6,5/23/2015,7/28/2015,66
+Gomes,Yan,15-day,2015,Indians,C,knee,sprain,Right,21,4/12/2015,5/24/2015,42
+Puig,Yasiel,15-day,2015,Dodgers,RF,hamstring,Strained,right,5,8/28/2015,10/3/2015,36
+Puig,Yasiel,15-day,2015,Dodgers,RF,hamstring,strain,Left,5,4/25/2015,6/6/2015,42
+Grandal,Yasmani,7-day,2015,Dodgers,C,Head,Concussion,,1,5/23/2015,5/30/2015,7
+Alonso,Yonder,60-day,2015,Padres,1B,back,strain,Low,15,9/14/2015,10/4/2015,20
+Alonso,Yonder,15-day,2015,Padres,1B,Shoulder,Bone Bruise,right,18,5/8/2015,6/2/2015,25
+Ventura,Yordano,15-day,2015,Royals,RHP,ulnar nerve,inflammation.,Right,8,6/13/2015,7/9/2015,26
+Darvish,Yu,60-day,2015,Rangers,RHP,Elbow,Tommy John Surgery,,8,4/5/2015,10/4/2015,182
+Rosscup,Zac,15-day,2015,Cubs,LHP,shoulder,inflammation,left,18,6/17/2015,8/14/2015,58
+Putnam,Zach,15-day,2015,White Sox,RHP,groin,strained,right,9,8/27/2015,9/11/2015,15
+Cozart,Zack,15-day,2015,Reds,SS,knee,Torn ligaments,right,21,6/11/2015,10/4/2015,115
+Wheeler,Zack,15-day,2015,Mets,RHP,Elbow,Tommy John Surgery,,8,4/5/2015,10/4/2015,182
