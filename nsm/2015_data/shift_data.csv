@@ -1,4 +1,4 @@
-PlayerID,Name,Team,G,AB,PA,H,1B,2B,3B,HR,R,RBI,BB,IBB,SO,HBP,SF,SH,GDP,SB,CS,AVG
+PlayerID,Name,Team,shift_G,shift_AB,shift_PA,shift_H,shift_1B,shift_2B,shift_3B,shift_HR,shift_R,shift_RBI,shift_BB,Ishift_BB,shift_SO,shift_HBP,shift_SF,shift_SH,shift_GDP,shift_SB,shift_CS,shift_AVG
 2073,Jeff Baker,Marlins,1,1,1,1,0,1,0,0,0,0,1.000,0,0,0,0,0,0,0,0,1.000
 2102,Josh Wilson,Tigers,2,1,2,1,1,0,0,0,0,2,1.000,0,0,0,0,1,0,0,0,1.000
 3551,Clayton Richard,Cubs,2,2,2,2,0,2,0,0,0,3,1.000,0,0,0,0,0,0,0,0,1.000
