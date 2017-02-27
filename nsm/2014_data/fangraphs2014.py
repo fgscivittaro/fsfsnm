@@ -8,6 +8,7 @@ from urllib.request import urlopen
 # import pdb; pdb.set_trace()
 
 #PlayerID,Name,Team,G,AB,PA,H,1B,2B,3B,HR,R,RBI,BB,IBB,SO,HBP,SF,SH,GDP,SB,CS,AVG
+#PlayerID, Name, Team, BABIP, GB:FB, LD%, GB%, FB%, IFFB%, HR:FB, IFH, IFH%, BUH, BUH%, PULL%, CENT%, OPPO%, SOFT%, MED%, HARD% 
 
 def grabData():
     ## Shift Data
