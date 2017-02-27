@@ -1,3 +1,4 @@
+PlayerID,Name,Team,G,AB,PA,H,1B,2B,3B,HR,R,RBI,BB,IBB,SO,HBP,SF,SH,GDP,SB,CS,AVG
 1534,Michael Cuddyer,Mets,1,1,1,1,1,0,0,0,0,1,1.000,0,0,0,0,0,0,0,0,1.000
 1887,Jose Bautista,Blue Jays,5,4,6,4,3,0,1,0,0,6,1.000,0,0,0,2,0,0,0,0,1.000
 2102,Josh Wilson,Tigers,2,1,2,1,1,0,0,0,0,2,1.000,0,0,0,0,1,0,0,0,1.000

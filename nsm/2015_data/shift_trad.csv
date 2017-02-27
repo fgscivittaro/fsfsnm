@@ -1,3 +1,4 @@
+PlayerID,Name,Team,G,AB,PA,H,1B,2B,3B,HR,R,RBI,BB,IBB,SO,HBP,SF,SH,GDP,SB,CS,AVG
 1327,Jayson Werth,Nationals,2,1,2,1,1,0,0,0,0,1,1.000,0,0,0,1,0,0,0,0,1.000
 1572,Coco Crisp,Athletics,1,1,1,1,0,1,0,0,0,0,1.000,0,0,0,0,0,0,0,0,1.000
 2073,Jeff Baker,Marlins,1,1,1,1,0,1,0,0,0,0,1.000,0,0,0,0,0,0,0,0,1.000

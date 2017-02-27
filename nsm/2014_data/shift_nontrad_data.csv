@@ -1,3 +1,4 @@
+PlayerID,Name,Team,G,AB,PA,H,1B,2B,3B,HR,R,RBI,BB,IBB,SO,HBP,SF,SH,GDP,SB,CS,AVG
 198,Danny Worth,Tigers,1,1,1,1,1,0,0,0,0,2,1.000,0,0,0,0,0,0,0,0,1.000
 209,Antoan Richardson,Yankees,1,1,1,1,1,0,0,0,0,1,1.000,0,0,0,0,0,0,0,0,1.000
 393,Victor Martinez,Tigers,4,3,4,3,3,0,0,0,0,5,1.000,0,0,0,1,0,0,0,0,1.000

@@ -1,3 +1,4 @@
+PlayerID,Name,Team,G,AB,PA,H,1B,2B,3B,HR,R,RBI,BB,IBB,SO,HBP,SF,SH,GDP,SB,CS,AVG
 2554,Chris Parmelee,Yankees,1,1,1,1,0,1,0,0,0,0,1.000,0,0,0,0,0,0,0,0,1.000
 2717,Rick Porcello,Red Sox,1,1,1,1,1,0,0,0,0,0,1.000,0,0,0,0,0,0,0,0,1.000
 3137,Max Scherzer,Nationals,14,3,16,3,3,0,0,0,0,6,1.000,0,0,0,0,13,0,0,0,1.000
