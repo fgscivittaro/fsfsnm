@@ -1,3 +1,4 @@
+PlayerId,Name,Team,PA,BBPer,KPer,BB:K,AVG,OBP,SLG,OPS,ISO,Spd,BABIP,UBR,wGDP,WsB,wRC,wRAA,wOBA,WRCplus
 2554,Chris Parmelee,Yankees,8,0.0 %,37.5 %,0.00,.500,.500,1.375,1.875,.875,2.6,.667,0.1,0.0,0.0,4,3.0,.769,407
 1514,Oliver Perez,Nationals,3,0.0 %,0.0 %,0.00,.667,.667,1.000,1.667,.333,2.6,.667, , ,0.0,1,1.0,.707,356
 12090,Yefri Perez,Marlins,3,0.0 %,33.3 %,0.00,.667,.667,1.000,1.667,.333,6.3,1.000,0.7,0.0,0.0,1,1.0,.707,358

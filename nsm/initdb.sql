@@ -1,4 +1,4 @@
-DROP TABLE players;
+lDROP TABLE players;
 DROP TABLE regular_data;
 DROP TABLE batted_ball_data;
 
