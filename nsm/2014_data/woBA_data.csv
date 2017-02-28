@@ -1,3 +1,4 @@
+PlayerId,Name,Team,PA,BBPer,KPer,BB:K,AVG,OBP,SLG,OPS,ISO,Spd,BABIP,UBR,wGDP,WsB,wRC,wRAA,wOBA,WRCplus
 9033,Jeanmar Gomez,Pirates,2,0.0 %,0.0 %,0.00,1.000,1.000,1.000,2.000,.000,0.1,1.000, , ,0.0,1,0.9,.892,496
 5114,Jeurys Familia,Mets,3,0.0 %,0.0 %,0.00,.667,.667,.667,1.333,.000,0.1,.667, , ,0.0,1,0.7,.594,295
 2895,Zach McAllister,Indians,2,0.0 %,0.0 %,0.00,.500,.500,.500,1.000,.000,0.1,.500, , ,0.0,0,0.2,.446,191

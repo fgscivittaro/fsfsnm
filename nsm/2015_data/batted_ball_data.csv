@@ -1,4 +1,4 @@
-PlayerID, Name, Team, BABIP, GB:FB, LD%, GB%, FB%, IFFB%, HR:FB, IFH, IFH%, BUH, BUH%, PULL%, CENT%, OPPO%, SOFT%, MED%, HARD% 
+PlayerID,Name,Team,BABIP,GB:FB,LD%,GB%,FB%,IFFB%,HR:FB,IFH,IFH%,BUH,BUH%,PULL%,CENT%,OPPO%,SOFT%,MED%,HARD% 
 12638,Nate Karns,Rays,.000,0.00,0.0 %,0.0 %,100.0 %,0.0 %,100.0 %,0,0.0 %,0,0.0 %,50.0 %,0.0 %,50.0 %,0.0 %
 13288,Peter O'Brien,Diamondbacks,.750,2.00,40.0 %,40.0 %,20.0 %,0.0 %,100.0 %,0,0.0 %,0,0.0 %,60.0 %,40.0 %,0.0 %,0.0 %
 13475,Daniel Norris,- - -,.000,0.00,0.0 %,0.0 %,100.0 %,0.0 %,100.0 %,0,0.0 %,0,0.0 %,0.0 %,100.0 %,0.0 %,0.0 %
