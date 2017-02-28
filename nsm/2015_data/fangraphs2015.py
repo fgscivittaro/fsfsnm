@@ -130,12 +130,13 @@ def grabData():
     # pitcher_df.to_csv('pitcher_data.csv', index=False, header=False)
 
 
-    ## woba_data = list(csv.reader(open('woBA_data.csv','r')))
+    
+    # woba_data = list(csv.reader(open('woBA_data.csv','r')))
 
     # woba_refined = []
 
     # for i in range(len(woba_data)):
-    #     woba_refined.append([woBA_data[i][0],woBA_data[i][1],woBA_data[i][19]])
+    #     woba_refined.append([woba_data[i][0],woba_data[i][1],woba_data[i][19]])
 
     # woba_df = pd.DataFrame(woba_refined)
 
