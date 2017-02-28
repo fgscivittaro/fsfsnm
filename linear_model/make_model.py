@@ -3,8 +3,27 @@
 
 import pandas as pd
 import statsmodels.formula.api as smf
+import csv
 
-def make_model(minimum_bbe, sample_percent):
+all_poss_ivs = ['avg_distance', 'avg_exit_vel','barrels_per_bbe', 
+    'fbld_avg_exit_vel', 'gb_avg_exit_vel', 'max_distance', 'max_exit_vel', 
+    'min_hit_speed', 'LD_per', 'GB_per', 'FB_per', 'IFFB_per', 'PULL_per',
+    'CENT_per', 'OPPO_per','SOFT_per', 'MED_per', 'HARD_per', 'bb_rate', 'k_rate',
+    'shift_rate']
+exit_vel_ivs = ['avg_distance', 'avg_exit_vel','barrels_per_bbe',
+    'fbld_avg_exit_vel', 'gb_avg_exit_vel', 'max_distance','max_exit_vel',
+    'min_hit_speed', 'LD_per', 'GB_per', 'FB_per', 'IFFB_per', 'PULL_per',
+    'CENT_per', 'OPPO_per', 'bb_rate', 'k_rate','shift_rate']
+
+binning_ivs = ['LD_per', 'GB_per', 'FB_per', 'IFFB_per', 'PULL_per','CENT_per', 'OPPO_per', 
+    'SOFT_per', 'MED_per', 'HARD_per', 'bb_rate', 'k_rate','shift_rate']
+
+skinny_ivs = ['barrels_per_bbe', 'bb_rate','k_rate', 'shift_rate']
+
+best_model = ['avg_distance', 'k_rate', 'bb_rate', 'avg_exit_vel', 
+    'barrels_per_bbe', 'LD_per']
+
+def make_model(sample_percent, vars_list):
     '''
     Returns a linear model that predicts wOBA (weighted on-base average) of
     baseball players
@@ -15,21 +34,24 @@ def make_model(minimum_bbe, sample_percent):
         sample_size: An integer representing the percentage of the
         observations that will be used to build and train the model. The 
         remainder of observations will be retained for testing purposes.
-
+        vars: A list of independent variables for the regression
     Returns: 
         An object representing the linear model created
     '''
+    minimum_bbe = 30
     location = '~/cs122-win-17-fscivittaro42/fsfsnm/'
 
     fg_batter_stats =  location + 'nsm/2016_data/batter_data.csv'
     fg_batted_balls = location + 'nsm/2016_data/batted_ball_data.csv'
-    shifts = location + 'nsm/2016_data/shifts_data.csv'
+    shifts = location + 'nsm/2016_data/shift_data.csv'
+    wOBA = location + 'nsm/2016_data/woBA.csv'
     statcast = location + 'statcast_data/statcast_2016.csv'
 
     batter_stats = pd.read_csv(fg_batter_stats)
     batted_balls = pd.read_csv(fg_batted_balls)
     shifts = pd.read_csv(shifts)
     statcast = pd.read_csv(statcast)
+    wOBA = pd.read_csv(wOBA)
 
     statcast_minimum = statcast[statcast['attempts'] >= minimum_bbe]
     statcast_dict = {
@@ -42,36 +64,59 @@ def make_model(minimum_bbe, sample_percent):
     'avg_distance':list(statcast_minimum['avg_distance']),
     'fbld_avg_exit_vel':list(statcast_minimum['fbld']),
     'max_exit_vel':list(statcast_minimum['max_hit_speed']),
-    'avg_hr_distance':list(statcast_minimum['avg_hr_distance'])
     }
 
     model_df = pd.DataFrame(statcast_dict)
 
-    batter_stats['shifts_per_pa'] = 
+    fg_data = pd.merge(batter_stats, batted_balls, on=['PlayerID', 'Name'])
+    fg_data = pd.merge(fg_data, shifts, on=['PlayerID', 'Name'])
+    fg_data = pd.merge(fg_data, wOBA, on=['PlayerID', 'Name'])
 
-    match_shifts = shifts[shifts['Name'].isin(statcast_minimum['name'])]
-    model_df['shifts_per_pa'] = match_shifts
+    extras = fg_data['BB'] + fg_data['IBB'] + fg_data['HBP']
+    fg_data['bb_rate'] = extras / fg_data['PA']
+    fg_data['k_rate'] = fg_data['SO'] / fg_data['PA']
+    fg_data['shift_rate'] = fg_data['shift_PA'] / fg_data['PA']
 
-    fangraphs_data = pd.merge(batter_stats, batted_balls, on='player_id')
-    fangraphs_data = pd.merge(fangraphs_data, shifts, on='player_id')
+    with open('find_replace.csv', 'r') as f:
+        reader = csv.reader(f)
+        for rows in reader:
+            find = rows[0]
+            replace = rows[1]
+            fg_data.replace(to_replace=find, value=replace, inplace=True)
 
-    predictions_data = pd.merge(fangraphs_data, statcast_minimum,
-        left_on='player_name', right_on='name', right_index=True)
+    fg_match = fg_data[fg_data['Name'].isin(model_df['player_name'])]
 
-    sample_size = (sample_percent / 100) * len(statcast_minimum)
-    training_statcast = statcast_minimum.sample(sample_size, replace = False)
+    model_df = pd.merge(model_df, fg_match, left_on='player_name', 
+                        right_on='Name')
 
-    fangraphs_data = fangraphs_data[fangraphs_data['player_name'].isin(
-                                            training_statcast['name'])]
+    model_df['barrels_per_bbe'] = model_df['barrels_per_bbe'].map(
+                                                    change_percent)
+    model_df['SOFT_per'] = model_df['SOFT_per'].map(change_percent)
+    model_df['MED_per'] = model_df['MED_per'].map(change_percent)
+    model_df['HARD_per'] = model_df['HARD_per'].map(change_percent)
+    model_df['OPPO_per'] = model_df['OPPO_per'].map(change_percent)
+    model_df['CENT_per'] = model_df['CENT_per'].map(change_percent)
+    model_df['PULL_per'] = model_df['PULL_per'].map(change_percent)
 
-    model_data = pd.merge(fangraphs_data, training_statcast, 
-        left_on='player_name', right_on='name', right_index=True)
+    #sample_size = int((sample_percent / 100) * len(statcast_minimum))
+    #training_df = model_df.sample(sample_size, replace = False, 
+    #                            random_state=1234)
 
-    lm = smf.ols(formula='wOBA ~ ...', data=model_data).fit()
+    formula_str = 'WoBA ~ ' + ' + '.join(vars_list)
+    lm = smf.ols(formula_str, data = model_df).fit()
+    
+    return lm
 
-    make_predictions(lm, predictions_data)
+def change_percent(data):
+    '''
+    Converts percentage values to a decimal value
 
-    return fangraphs_data
+    Inputs:
+        data: A string representing a percentage
+    Returns:
+        A fractional representation of the percentage
+    '''
+    return float(str(data).strip('%'))/100
 
 def make_predictions(model, batters_df, col_name=False):
     '''
