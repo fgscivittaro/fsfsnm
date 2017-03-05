@@ -4,6 +4,7 @@ import re
 import pandas as pd
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
+import uuid
 
 # import pdb; pdb.set_trace()
 
@@ -130,172 +131,200 @@ def grabData():
     # pitcher_df.to_csv('pitcher_shift_nontrad.csv', index=False, header=False)
 
 
-    ## woba_data = list(csv.reader(open('woBA_data.csv','r')))
+    # woba_data = list(csv.reader(open('woBA_data.csv','r')))
 
-    # woba_refined = []
+    woba_refined = []
 
-    # for i in range(len(woba_data)):
-    #     woba_refined.append([woBA_data[i][0],woBA_data[i][1],woBA_data[i][19]])
+    for i in range(len(woba_data)):
+        woba_refined.append([woBA_data[i][0],woBA_data[i][1],woBA_data[i][19]])
 
-    # woba_df = pd.DataFrame(woba_refined)
+    woba_df = pd.DataFrame(woba_refined)
 
-    # woba_df.to_csv('woBA.csv', index=False, header=False)
+    woba_df.to_csv('woBA.csv', index=False, header=False)
 
-# ## SQl Prep
+## SQl Prep
 
-# # Batters
+# Batters
 
-# batter_data = list(csv.reader(open('batter_data.csv','r')))
+batter_data = list(csv.reader(open('batter_data.csv','r')))
 
-# batter_shift_data = list(csv.reader(open('shift_data.csv','r')))
+batter_shift_data = list(csv.reader(open('shift_data.csv','r')))
 
-# batter_noshift_data = list(csv.reader(open('no_shift_data.csv','r')))
+batter_noshift_data = list(csv.reader(open('no_shift_data.csv','r')))
 
-# batter_nontrad_data = list(csv.reader(open('shift_nontrad_data.csv','r')))
+batter_nontrad_data = list(csv.reader(open('shift_nontrad_data.csv','r')))
 
-# batter_trad_data = list(csv.reader(open('shift_trad_data.csv','r')))
+batter_trad_data = list(csv.reader(open('shift_trad_data.csv','r')))
 
-# ## Pitchers
+## Pitchers
 
-# pitcher_data = list(csv.reader(open('pitcher_data.csv','r')))
+pitcher_data = list(csv.reader(open('pitcher_data.csv','r')))
 
-# pitcher_shift_data = list(csv.reader(open('pitcher_shift.csv','r')))
+pitcher_shift_data = list(csv.reader(open('pitcher_shift.csv','r')))
 
-# pitcher_noshift_data = list(csv.reader(open('pitcher_noshift.csv','r')))
+pitcher_noshift_data = list(csv.reader(open('pitcher_noshift.csv','r')))
 
-# pitcher_nontrad_data = list(csv.reader(open('pitcher_shift_nontrad.csv','r')))
+pitcher_nontrad_data = list(csv.reader(open('pitcher_shift_nontrad.csv','r')))
 
-# pitcher_trad_data = list(csv.reader(open('pitcher_shift_trad.csv','r')))
+pitcher_trad_data = list(csv.reader(open('pitcher_shift_trad.csv','r')))
 
-# ## Batted ball data
+## Batted ball data
 
-# batted_ball_data = list(csv.reader(open('batted_ball_data.csv','r')))
-
-
-
-# b = batter_data
-# bs = batter_shift_data
-# bns = batter_noshift_data
-# bt = batter_trad_data
-# bnt = batter_nontrad_data
-
-# p = pitcher_data
-# ps = pitcher_shift_data
-# pns = pitcher_noshift_data
-# pt = pitcher_trad_data
-# pnt = pitcher_nontrad_data
-
-# bb = batted_ball_data
-
-# batters = []
-# for i in range(len(b)):
-#     batters.append([b[i][0]])
-# for player in batters:
-#     player.append(False)
-
-# pitchers = []
-# for i in range(len(p)):
-#     pitchers.append([p[i][0]])
-# for player in pitchers:
-#     player.append(True)
-
-# for player in b:
-#     player.append(False)
-#     player.append(False)
-#     player.append(False)
-#     player.append(False)
-
-# for player in bs:
-#     player.append(True)
-#     player.append(False)
-#     player.append(False)
-#     player.append(False)
-
-# for player in bns:
-#     player.append(False)
-#     player.append(True)
-#     player.append(False)
-#     player.append(False)
-
-# for player in bt:
-#     player.append(False)
-#     player.append(False)
-#     player.append(True)
-#     player.append(False)
-
-# for player in bnt:
-#     player.append(False)
-#     player.append(False)
-#     player.append(False)
-#     player.append(True)
-
-# for player in p:
-#     player.append(False)
-#     player.append(False)
-#     player.append(False)
-#     player.append(False)
-
-# for player in ps:
-#     player.append(True)
-#     player.append(False)
-#     player.append(False)
-#     player.append(False)
-
-# for player in pns:
-#     player.append(False)
-#     player.append(True)
-#     player.append(False)
-#     player.append(False)
-
-# for player in pt:
-#     player.append(False)
-#     player.append(False)
-#     player.append(True)
-#     player.append(False)
-
-# for player in pnt:
-#     player.append(False)
-#     player.append(False)
-#     player.append(False)
-#     player.append(True)
+batted_ball_data = list(csv.reader(open('batted_ball_data.csv','r')))
 
 
-# ## connecting to the database
 
-# # https://docs.python.org/3/library/sqlite3.html
+b = batter_data
+bs = batter_shift_data
+bns = batter_noshift_data
+bt = batter_trad_data
+bnt = batter_nontrad_data
 
-# connection = sqlite3.connect('2016_sqlcode.sqlite3')
+p = pitcher_data
+ps = pitcher_shift_data
+pns = pitcher_noshift_data
+pt = pitcher_trad_data
+pnt = pitcher_nontrad_data
 
-# cursor = connection.cursor()
+bb = batted_ball_data
 
-# # import pdb; pdb.set_trace();
-# # sqlite3 2016_sqlcode.sqlite3 -init initdb.sql
+identi = 0
 
-# cursor.executemany("INSERT INTO players VALUES (?, ?)", batters)
-# cursor.executemany("INSERT INTO players VALUES (?, ?)", pitchers)
+batters = []
+for i in range(len(b)):
+    batters.append([b[i][0]])
+for player in batters:
+    player.append(False)
+    player.insert(0,identi)
+    identi += 1
+
+pitchers = []
+for i in range(len(p)):
+    pitchers.append([p[i][0]])
+for player in pitchers:
+    player.append(True)
+    player.insert(0,identi)
+    identi += 1
+
+for player in b:
+    player.append(False)
+    player.append(False)
+    player.append(False)
+    player.append(False)
+    player.insert(0,identi)
+    identi += 1
+
+for player in bs:
+    player.append(True)
+    player.append(False)
+    player.append(False)
+    player.append(False)
+    player.insert(0,identi)
+    identi += 1
+
+for player in bns:
+    player.append(False)
+    player.append(True)
+    player.append(False)
+    player.append(False)
+    player.insert(0,identi)
+    identi += 1
+
+for player in bt:
+    player.append(False)
+    player.append(False)
+    player.append(True)
+    player.append(False)
+    player.insert(0,identi)
+    identi += 1
+
+for player in bnt:
+    player.append(False)
+    player.append(False)
+    player.append(False)
+    player.append(True)
+    player.insert(0,identi)
+    identi += 1
+
+for player in p:
+    player.append(False)
+    player.append(False)
+    player.append(False)
+    player.append(False)
+    player.insert(0,identi)
+    identi += 1
+
+for player in ps:
+    player.append(True)
+    player.append(False)
+    player.append(False)
+    player.append(False)
+    player.insert(0,identi)
+    identi += 1
+
+for player in pns:
+    player.append(False)
+    player.append(True)
+    player.append(False)
+    player.append(False)
+    player.insert(0,identi)
+    identi += 1
+
+for player in pt:
+    player.append(False)
+    player.append(False)
+    player.append(True)
+    player.append(False)
+    player.insert(0,identi)
+    identi += 1
+
+for player in pnt:
+    player.append(False)
+    player.append(False)
+    player.append(False)
+    player.append(True)
+    player.insert(0,identi)
+    identi += 1
+
+for player in bb:
+    player.insert(0,identi)
+    identi += 1
+
+## connecting to the database
+
+# https://docs.python.org/3/library/sqlite3.html
+
+connection = sqlite3.connect('2016_sqlcode.sqlite3')
+
+cursor = connection.cursor()
+
+# import pdb; pdb.set_trace();
+# sqlite3 2016_sqlcode.sqlite3 -init initdb.sql
+
+cursor.executemany("INSERT INTO players VALUES (?,?, ?)", batters)
+cursor.executemany("INSERT INTO players VALUES (?,?, ?)", pitchers)
+
+cursor.executemany("INSERT INTO regular_data VALUES (?,?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", b)
+cursor.executemany("INSERT INTO regular_data VALUES (?,?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", bs)
+cursor.executemany("INSERT INTO regular_data VALUES (?,?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", bns)
+cursor.executemany("INSERT INTO regular_data VALUES (?,?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", bt)
+cursor.executemany("INSERT INTO regular_data VALUES (?,?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", bnt)
+
+cursor.executemany("INSERT INTO regular_data VALUES (?,?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", p)
+cursor.executemany("INSERT INTO regular_data VALUES (?,?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", ps)
+cursor.executemany("INSERT INTO regular_data VALUES (?,?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", pns)
+cursor.executemany("INSERT INTO regular_data VALUES (?,?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", pt)
+cursor.executemany("INSERT INTO regular_data VALUES (?,?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", pnt)
+
+cursor.executemany("INSERT INTO batted_ball_data VALUES (?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)", bb)
+
+# Save / commit changes
+connection.commit()
+
+# close the connection
+connection.close()
 
 
-# cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", b)
-# cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", bs)
-# cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", bns)
-# cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", bt)
-# cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", bnt)
-
-# cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", p)
-# cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", ps)
-# cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", pns)
-# cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", pt)
-# cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", pnt)
-
-# cursor.executemany("INSERT INTO batted_ball_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)", bb)
-
-# # Save / commit changes
-# connection.commit()
-
-# # close the connection
-# connection.close()
-
-
-# # Number of shifts, 
-# # batted ball data, 
-# # 2015 stats, 2014 stats
+# Number of shifts, 
+# batted ball data, 
+# 2015 stats, 2014 stats
