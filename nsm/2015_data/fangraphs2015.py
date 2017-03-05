@@ -11,6 +11,7 @@ from urllib.request import urlopen
 
 def grabData():
     ## Shift Data
+    WoBA = 'http://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=all&qual=2&type=1&season=2015&month=0&season1=2015&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
     Batted_Ball  = 'http://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=all&qual=1&type=2&season=2015&month=0&season1=2015&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
     Normal = 'http://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=all&qual=1&type=0&season=2015&month=0&season1=2015&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
     Shift = 'http://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=all&qual=1&type=0&season=2015&month=61&season1=2015&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
@@ -18,7 +19,7 @@ def grabData():
     Shift_Traditional = 'http://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=all&qual=1&type=0&season=2015&month=63&season1=2015&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
     Shift_NonTraditional = 'http://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=all&qual=1&type=0&season=2015&month=64&season1=2015&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
 
-    Url_Main =  Normal
+    Url_Main =  WoBA
     Page = urlopen(Url_Main)
     soup = BeautifulSoup(Page)
 
@@ -52,21 +53,21 @@ def grabData():
             BSR = info[18].text
             Off = info[19].text
             Def = info[20].text
-            WAR = info[21].text
-            AVG = info[22].text
+            # WAR = info[21].text
+            # AVG = info[22].text
             result = re.search("playerid=(\\d*)", str(info[1]))
             if result:
                 playerid = result.group(1)
             else:
                 playerid = None
 
-            l = [playerid, name, team, G, PA, HR, R, RBI, SB, BBPer, KPer, ISO, BABIP, AVG, OBP, SLG, wOBA, wRCPlus, BSR, Off, Def, WAR, AVG]
+            l = [playerid, name, team, G, PA, HR, R, RBI, SB, BBPer, KPer, ISO, BABIP, AVG, OBP, SLG, wOBA, wRCPlus, BSR, Off, Def]
             players.append(l)
 
 
     ## remove pitches, which we aquire from here, from the above sample
 
-
+    P_WoBA = 'http://www.fangraphs.com/leaders.aspx?pos=p&stats=bat&lg=all&qual=2&type=1&season=2015&month=0&season1=2015&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
     P_Batted_Ball  = 'http://www.fangraphs.com/leaders.aspx?pos=p&stats=bat&lg=all&qual=1&type=2&season=2015&month=0&season1=2015&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
     P_Normal = 'http://www.fangraphs.com/leaders.aspx?pos=p&stats=bat&lg=all&qual=1&type=0&season=2015&month=0&season1=2015&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
     P_Shift = 'http://www.fangraphs.com/leaders.aspx?pos=p&stats=bat&lg=all&qual=1&type=0&season=2015&month=61&season1=2015&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
@@ -74,7 +75,7 @@ def grabData():
     P_Shift_Traditional = 'http://www.fangraphs.com/leaders.aspx?pos=p&stats=bat&lg=all&qual=1&type=0&season=2015&month=63&season1=2015&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
     P_Shift_NonTraditional = 'http://www.fangraphs.com/leaders.aspx?pos=p&stats=bat&lg=all&qual=1&type=0&season=2015&month=64&season1=2015&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
 
-    Url_Main =  P_Normal
+    Url_Main =  P_WoBA
     Page = urlopen(Url_Main)
     soup = BeautifulSoup(Page)
 
@@ -107,184 +108,195 @@ def grabData():
             BSR = info[18].text
             Off = info[19].text
             Def = info[20].text
-            WAR = info[21].text
-            AVG = info[22].text
+            # WAR = info[21].text
+            # AVG = info[22].text
             result = re.search("playerid=(\\d*)", str(info[1]))
             if result:
                 playerid = result.group(1)
             else:
                 playerid = None
 
-            p = [playerid, name, team, G, PA, HR, R, RBI, SB, BBPer, KPer, ISO, BABIP, AVG, OBP, SLG, wOBA, wRCPlus, BSR, Off, Def, WAR, AVG]
+            p = [playerid, name, team, G, PA, HR, R, RBI, SB, BBPer, KPer, ISO, BABIP, AVG, OBP, SLG, wOBA, wRCPlus, BSR, Off, Def]
             pitchers.append(p)
 
     batters = [x for x in players if x[0] not in pitchers[0]]
 
     batter_df = pd.DataFrame(batters)
 
-    batter_df.to_csv('batter_data.csv', index=False, header=False)
+    batter_df.to_csv('woBA_data.csv', index=False, header=False)
 
     # pitcher_df = pd.DataFrame(pitchers)
 
     # pitcher_df.to_csv('pitcher_data.csv', index=False, header=False)
 
 
+    
+    # woba_data = list(csv.reader(open('woBA_data.csv','r')))
 
-## SQl Prep
+    # woba_refined = []
 
-# Batters
+    # for i in range(len(woba_data)):
+    #     woba_refined.append([woba_data[i][0],woba_data[i][1],woba_data[i][19]])
 
-batter_data = list(csv.reader(open('batter_data.csv','r')))
+    # woba_df = pd.DataFrame(woba_refined)
 
-batter_shift_data = list(csv.reader(open('shift_data.csv','r')))
+    # woba_df.to_csv('woBA.csv', index=False, header=False)
 
-batter_noshift_data = list(csv.reader(open('no_shift_data.csv','r')))
+# ## SQl Prep
 
-batter_nontrad_data = list(csv.reader(open('shift_nontrad.csv','r')))
+# # Batters
 
-batter_trad_data = list(csv.reader(open('shift_trad.csv','r')))
+# batter_data = list(csv.reader(open('batter_data.csv','r')))
 
-## Pitchers
+# batter_shift_data = list(csv.reader(open('shift_data.csv','r')))
 
-pitcher_data = list(csv.reader(open('pitcher_data.csv','r')))
+# batter_noshift_data = list(csv.reader(open('no_shift_data.csv','r')))
 
-# pitcher_shift_data = list(csv.reader(open('pitcher_shift.csv','r')))
+# batter_nontrad_data = list(csv.reader(open('shift_nontrad.csv','r')))
 
-# pitcher_noshift_data = list(csv.reader(open('pitcher_noshift.csv','r')))
+# batter_trad_data = list(csv.reader(open('shift_trad.csv','r')))
 
-# pitcher_nontrad_data = list(csv.reader(open('pitcher_shift_nontrad.csv','r')))
+# ## Pitchers
 
-# pitcher_trad_data = list(csv.reader(open('pitcher_shift_trad.csv','r')))
+# pitcher_data = list(csv.reader(open('pitcher_data.csv','r')))
 
-## Batted ball data
+# # pitcher_shift_data = list(csv.reader(open('pitcher_shift.csv','r')))
 
-batted_ball_data = list(csv.reader(open('batted_ball_data.csv','r')))
+# # pitcher_noshift_data = list(csv.reader(open('pitcher_noshift.csv','r')))
+
+# # pitcher_nontrad_data = list(csv.reader(open('pitcher_shift_nontrad.csv','r')))
+
+# # pitcher_trad_data = list(csv.reader(open('pitcher_shift_trad.csv','r')))
+
+# ## Batted ball data
+
+# batted_ball_data = list(csv.reader(open('batted_ball_data.csv','r')))
 
 
 
-b = batter_data
-bs = batter_shift_data
-bns = batter_noshift_data
-bt = batter_trad_data
-bnt = batter_nontrad_data
+# b = batter_data
+# bs = batter_shift_data
+# bns = batter_noshift_data
+# bt = batter_trad_data
+# bnt = batter_nontrad_data
 
-p = pitcher_data
-# ps = pitcher_shift_data
-# pns = pitcher_noshift_data
-# pt = pitcher_trad_data
-# pnt = pitcher_nontrad_data
+# p = pitcher_data
+# # ps = pitcher_shift_data
+# # pns = pitcher_noshift_data
+# # pt = pitcher_trad_data
+# # pnt = pitcher_nontrad_data
 
-bb = batted_ball_data
+# bb = batted_ball_data
 
-batters = []
-for i in range(len(b)):
-    batters.append([b[i][0]])
-for player in batters:
-    player.append(False)
+# batters = []
+# for i in range(len(b)):
+#     batters.append([b[i][0]])
+# for player in batters:
+#     player.append(False)
 
-pitchers = []
-for i in range(len(p)):
-    pitchers.append([p[i][0]])
-for player in pitchers:
-    player.append(True)
+# pitchers = []
+# for i in range(len(p)):
+#     pitchers.append([p[i][0]])
+# for player in pitchers:
+#     player.append(True)
 
-for player in b:
-    player.append(False)
-    player.append(False)
-    player.append(False)
-    player.append(False)
-
-for player in bs:
-    player.append(True)
-    player.append(False)
-    player.append(False)
-    player.append(False)
-
-for player in bns:
-    player.append(False)
-    player.append(True)
-    player.append(False)
-    player.append(False)
-
-for player in bt:
-    player.append(False)
-    player.append(False)
-    player.append(True)
-    player.append(False)
-
-for player in bnt:
-    player.append(False)
-    player.append(False)
-    player.append(False)
-    player.append(True)
-
-# for player in p:
+# for player in b:
 #     player.append(False)
 #     player.append(False)
 #     player.append(False)
 #     player.append(False)
 
-# for player in ps:
+# for player in bs:
 #     player.append(True)
 #     player.append(False)
 #     player.append(False)
 #     player.append(False)
 
-# for player in pns:
+# for player in bns:
 #     player.append(False)
 #     player.append(True)
 #     player.append(False)
 #     player.append(False)
 
-# for player in pt:
+# for player in bt:
 #     player.append(False)
 #     player.append(False)
 #     player.append(True)
 #     player.append(False)
 
-# for player in pnt:
+# for player in bnt:
 #     player.append(False)
 #     player.append(False)
 #     player.append(False)
 #     player.append(True)
 
+# # for player in p:
+# #     player.append(False)
+# #     player.append(False)
+# #     player.append(False)
+# #     player.append(False)
 
-## connecting to the database
+# # for player in ps:
+# #     player.append(True)
+# #     player.append(False)
+# #     player.append(False)
+# #     player.append(False)
 
-# https://docs.python.org/3/library/sqlite3.html
+# # for player in pns:
+# #     player.append(False)
+# #     player.append(True)
+# #     player.append(False)
+# #     player.append(False)
 
-connection = sqlite3.connect('2015_sqlcode.sqlite3')
+# # for player in pt:
+# #     player.append(False)
+# #     player.append(False)
+# #     player.append(True)
+# #     player.append(False)
 
-cursor = connection.cursor()
-
-# import pdb; pdb.set_trace();
-# sqlite3 2016_sqlcode.sqlite3 -init initdb.sql
-
-cursor.executemany("INSERT INTO players VALUES (?, ?)", batters)
-cursor.executemany("INSERT INTO players VALUES (?, ?)", pitchers)
-
-
-cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", b)
-cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", bs)
-cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", bns)
-cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", bt)
-cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", bnt)
-
-# cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", p)
-# cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", ps)
-# cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", pns)
-# cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", pt)
-# cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", pnt)
-
-cursor.executemany("INSERT INTO batted_ball_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?)", bb)
-
-# Save / commit changes
-connection.commit()
-
-# close the connection
-connection.close()
+# # for player in pnt:
+# #     player.append(False)
+# #     player.append(False)
+# #     player.append(False)
+# #     player.append(True)
 
 
-# Number of shifts, 
-# batted ball data, 
-# 2015 stats, 2014 stats
+# ## connecting to the database
+
+# # https://docs.python.org/3/library/sqlite3.html
+
+# connection = sqlite3.connect('2015_sqlcode.sqlite3')
+
+# cursor = connection.cursor()
+
+# # import pdb; pdb.set_trace();
+# # sqlite3 2016_sqlcode.sqlite3 -init initdb.sql
+
+# cursor.executemany("INSERT INTO players VALUES (?, ?)", batters)
+# cursor.executemany("INSERT INTO players VALUES (?, ?)", pitchers)
+
+
+# cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", b)
+# cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", bs)
+# cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", bns)
+# cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", bt)
+# cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", bnt)
+
+# # cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", p)
+# # cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", ps)
+# # cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", pns)
+# # cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", pt)
+# # cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", pnt)
+
+# cursor.executemany("INSERT INTO batted_ball_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?)", bb)
+
+# # Save / commit changes
+# connection.commit()
+
+# # close the connection
+# connection.close()
+
+
+# # Number of shifts, 
+# # batted ball data, 
+# # 2015 stats, 2014 stats

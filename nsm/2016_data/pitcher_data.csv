@@ -1,3 +1,4 @@
+PlayerID,Name,Team,G,AB,PA,H,1B,2B,3B,HR,R,RBI,BB,IBB,SO,HBP,SF,SH,GDP,SB,CS,AVG
 4300,Matt Albers,White Sox,58,1,1,1,0,1,0,0,1,0,1.000,0,0,0,0,0,0,0,0,1.000
 7608,Tommy Milone,Twins,19,2,2,2,2,0,0,0,0,0,1.000,0,0,0,0,0,0,0,0,1.000
 7947,Cory Gearrin,Giants,56,1,1,1,1,0,0,0,0,0,1.000,0,0,0,0,0,0,0,0,1.000
