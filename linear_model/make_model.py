@@ -23,7 +23,7 @@ skinny_ivs = ['barrels_per_bbe', 'bb_rate','k_rate', 'shift_rate']
 best_model = ['avg_distance', 'k_rate', 'bb_rate', 'avg_exit_vel', 
     'barrels_per_bbe', 'LD_per']
 
-def make_model(sample_percent, vars_list):
+def make_model(year, sample_percent, vars_list):
     '''
     Returns a linear model that predicts wOBA (weighted on-base average) of
     baseball players
@@ -41,17 +41,23 @@ def make_model(sample_percent, vars_list):
     minimum_bbe = 30
     location = '~/cs122-win-17-fscivittaro42/fsfsnm/'
 
-    fg_batter_stats =  location + 'nsm/2016_data/batter_data.csv'
-    fg_batted_balls = location + 'nsm/2016_data/batted_ball_data.csv'
-    shifts = location + 'nsm/2016_data/shift_data.csv'
-    wOBA = location + 'nsm/2016_data/woBA.csv'
-    statcast = location + 'statcast_data/statcast_2016.csv'
+    fg_batter_stats =  location + 'nsm/' + str(year) + '_data/batter_data.csv'
+    fg_batted_balls = (location + 'nsm/' + str(year) + 
+                        '_data/batted_ball_data.csv')
+    shifts = location + 'nsm/' + str(year) + '_data/shift_data.csv'
+    wOBA = location + 'nsm/' + str(year) + '_data/woBA.csv'
+    statcast = location + 'statcast_data/statcast_' + str(year) + '.csv'
 
     batter_stats = pd.read_csv(fg_batter_stats)
     batted_balls = pd.read_csv(fg_batted_balls)
     shifts = pd.read_csv(shifts)
     statcast = pd.read_csv(statcast)
     wOBA = pd.read_csv(wOBA)
+
+    if year == 2015:
+        addendum_loc = location + 'linear_model/insert_shift.csv'
+        shifts_addendum = pd.read_csv(addendum_loc)
+        shifts = shifts.append(shifts_addendum)
 
     statcast_minimum = statcast[statcast['attempts'] >= minimum_bbe]
     statcast_dict = {
@@ -72,12 +78,14 @@ def make_model(sample_percent, vars_list):
     fg_data = pd.merge(fg_data, shifts, on=['PlayerID', 'Name'])
     fg_data = pd.merge(fg_data, wOBA, on=['PlayerID', 'Name'])
 
+    fg_data = fg_data[fg_data['PA'] >= 30]
+
     extras = fg_data['BB'] + fg_data['IBB'] + fg_data['HBP']
     fg_data['bb_rate'] = extras / fg_data['PA']
     fg_data['k_rate'] = fg_data['SO'] / fg_data['PA']
     fg_data['shift_rate'] = fg_data['shift_PA'] / fg_data['PA']
 
-    with open('find_replace.csv', 'r') as f:
+    with open('find_replace_' + str(year) + '.csv', 'r') as f:
         reader = csv.reader(f)
         for rows in reader:
             find = rows[0]
@@ -97,10 +105,6 @@ def make_model(sample_percent, vars_list):
     model_df['OPPO_per'] = model_df['OPPO_per'].map(change_percent)
     model_df['CENT_per'] = model_df['CENT_per'].map(change_percent)
     model_df['PULL_per'] = model_df['PULL_per'].map(change_percent)
-
-    #sample_size = int((sample_percent / 100) * len(statcast_minimum))
-    #training_df = model_df.sample(sample_size, replace = False, 
-    #                            random_state=1234)
 
     formula_str = 'WoBA ~ ' + ' + '.join(vars_list)
     lm = smf.ols(formula_str, data = model_df).fit()
