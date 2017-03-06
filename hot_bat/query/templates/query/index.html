@@ -1,11 +1,45 @@
-<p>Welcome to our website.</p>
 
-{% if top10results %}
-    <ul>
-    {% for stats in top10results %}
-        <li><a href="/query/{{ regular_data.name }}/">{{ regular_data.name }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No results.</p>
-{% endif %}
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'query/style.css' %}" />
+
+<html>
+<head>
+	<div style="width:800px; height:100px; margin:0 auto;">
+        <h1>The Hot Bat Fallacy</h1>
+    	</div>
+	<div style="width:800px; height:50px; margin:0 auto;">
+    	<h2>Our Mission Statement:</h2>
+    	</div>
+    <div style="width:1000px; height:50px; margin:0 auto;">
+    	<p></p>
+    	</div>
+</head>
+
+<body>
+	<p> Check Out Your Favorite Player's Stats!</p>
+
+<form method="get" action="/results/" class="navbar-form pull-right">
+	<input type="text" id="searchBox" class="input-medium search-query" name="q" placeholder="Search">
+	<input type="submit" class="btn" value="Search" >
+</form>
+</body>
+
+<footer >
+</footer>
+
+</html>
+
+<!-- 
+<pre><code>
+        <h3> Top Ten Best Players </h3>
+		{% if top10results %}
+		    <ol>
+		    {% for stats in top10results %}
+		        <li><a href="/query/{{ regular_data.name }}/">{{ regular_data.name }}</a></li>
+		    {% endfor %}
+		    </ol>
+		{% else %}
+		    <p>No results.</p>
+		{% endif %}
+		</pre></code> -->
