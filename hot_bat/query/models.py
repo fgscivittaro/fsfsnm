@@ -1,4 +1,3 @@
-# This is an auto-generated Django model module.
 # You'll have to do the following manually to clean this up:
 #   * Rearrange models' order
 #   * Make sure each model has one field with primary_key=True
@@ -180,7 +179,7 @@ class RegularData(models.Model):
         return type_shift
 
     def __str__(self):
-        return '({}, {})'.format(str(self.player_id), self.find_type())
+        return '{}, {}, {}'.format(self.name, self.find_type(), self.year)
 
     class Meta:
         managed = False
@@ -213,7 +212,7 @@ class BattedBallData(models.Model):
     year = models.TextField(blank=True, null=True)
 
     def __str__(self):
-        return '({}, {})'.format(self.id, self.name)
+        return '{}, {}'.format(self.name, self.year)
 
     class Meta:
         managed = False
