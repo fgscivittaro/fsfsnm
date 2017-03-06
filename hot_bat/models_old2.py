@@ -129,6 +129,52 @@ class DjangoSession(models.Model):
         db_table = 'django_session'
 
 
+class BattedBallData(models.Model):
+    id = models.IntegerField(primary_key=True)
+    player_id = models.IntegerField(blank=True, null=True)
+    name = models.TextField(blank=True, null=True)
+    team = models.TextField(blank=True, null=True)
+    babip = models.IntegerField(blank=True, null=True)
+    gb_fb = models.IntegerField(blank=True, null=True)
+    ld_per = models.IntegerField(blank=True, null=True)
+    gb_per = models.IntegerField(blank=True, null=True)
+    fb_per = models.IntegerField(blank=True, null=True)
+    iffb_per = models.IntegerField(blank=True, null=True)
+    hr_fb = models.IntegerField(blank=True, null=True)
+    ifh = models.IntegerField(blank=True, null=True)
+    ifhper = models.IntegerField(blank=True, null=True)
+    buh = models.IntegerField(blank=True, null=True)
+    buh_per = models.IntegerField(blank=True, null=True)
+    pull_per = models.IntegerField(blank=True, null=True)
+    cent_per = models.IntegerField(blank=True, null=True)
+    oppo_per = models.IntegerField(blank=True, null=True)
+    soft_per = models.IntegerField(blank=True, null=True)
+    med_per = models.IntegerField(blank=True, null=True)
+    hard_per = models.IntegerField(blank=True, null=True)
+
+    def __str__(self):
+        return '({}, {})'.format(self.id, self.name)
+
+    class Meta:
+        managed = False
+        db_table = 'batted_ball_data'
+        verbose_name_plural = 'Batted Ball Data'
+
+
+class Players(models.Model):
+    id = models.IntegerField(primary_key=True)
+    player_id = models.IntegerField(blank=True, null=True)
+    ispitcher = models.NullBooleanField()
+
+    def __str__(self):
+        return '({})'.format(self.id)
+
+    class Meta:
+        managed = False
+        db_table = 'players'
+        verbose_name_plural = 'Players'
+
+
 class RegularData(models.Model):
     id = models.IntegerField(primary_key=True)
     player_id = models.IntegerField(blank=True, null=True)
@@ -158,7 +204,6 @@ class RegularData(models.Model):
     noshift = models.NullBooleanField()
     trad_shift = models.NullBooleanField()
     nontrad_shift = models.NullBooleanField()
-    year = models.TextField(blank=True, null=True)
 
     def find_type(self):
         '''
@@ -180,42 +225,9 @@ class RegularData(models.Model):
         return type_shift
 
     def __str__(self):
-        return '({}, {})'.format(str(self.player_id), self.find_type())
+        return '({}, {})'.format(str(self.name), self.find_type())
 
     class Meta:
         managed = False
         db_table = 'regular_data'
         verbose_name_plural = 'Regular Data'
-
-
-class BattedBallData(models.Model):
-    id = models.IntegerField(primary_key=True)
-    player_id = models.IntegerField(blank=True, null=True)
-    name = models.TextField(blank=True, null=True)
-    team = models.TextField(blank=True, null=True)
-    babip = models.IntegerField(blank=True, null=True)
-    gb_fb = models.IntegerField(blank=True, null=True)
-    ld_per = models.IntegerField(blank=True, null=True)
-    gb_per = models.IntegerField(blank=True, null=True)
-    fb_per = models.IntegerField(blank=True, null=True)
-    iffb_per = models.IntegerField(blank=True, null=True)
-    hr_fb = models.IntegerField(blank=True, null=True)
-    ifh = models.IntegerField(blank=True, null=True)
-    ifhper = models.IntegerField(blank=True, null=True)
-    buh = models.IntegerField(blank=True, null=True)
-    buh_per = models.IntegerField(blank=True, null=True)
-    pull_per = models.IntegerField(blank=True, null=True)
-    cent_per = models.IntegerField(blank=True, null=True)
-    oppo_per = models.IntegerField(blank=True, null=True)
-    soft_per = models.IntegerField(blank=True, null=True)
-    med_per = models.IntegerField(blank=True, null=True)
-    hard_per = models.IntegerField(blank=True, null=True)
-    year = models.TextField(blank=True, null=True)
-
-    def __str__(self):
-        return '({}, {})'.format(self.id, self.name)
-
-    class Meta:
-        managed = False
-        db_table = 'batted_ball_data'
-        verbose_name_plural = 'Batted Ball Data'

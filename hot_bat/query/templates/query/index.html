@@ -1,0 +1,11 @@
+<p>Welcome to our website.</p>
+
+{% if top10results %}
+    <ul>
+    {% for stats in top10results %}
+        <li><a href="/query/{{ regular_data.name }}/">{{ regular_data.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No results.</p>
+{% endif %}
