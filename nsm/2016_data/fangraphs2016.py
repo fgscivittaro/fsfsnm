@@ -4,6 +4,7 @@ import re
 import pandas as pd
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
+import uuid
 
 # import pdb; pdb.set_trace()
 
@@ -11,6 +12,7 @@ from urllib.request import urlopen
 
 def grabData():
     ## Shift Data
+    WoBA = 'http://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=all&qual=2&type=1&season=2016&month=0&season1=2016&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
     Batted_Ball  = 'http://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=all&qual=1&type=2&season=2016&month=0&season1=2016&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
     Normal = 'http://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=all&qual=1&type=0&season=2016&month=0&season1=2016&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
     Shift = 'http://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=all&qual=1&type=0&season=2016&month=61&season1=2016&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
@@ -18,7 +20,7 @@ def grabData():
     Shift_Traditional = 'http://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=all&qual=1&type=0&season=2016&month=63&season1=2016&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
     Shift_NonTraditional = 'http://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=all&qual=1&type=0&season=2016&month=64&season1=2016&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
 
-    Url_Main =  Batted_Ball
+    Url_Main =  WoBA
     Page = urlopen(Url_Main)
     soup = BeautifulSoup(Page)
 
@@ -49,9 +51,9 @@ def grabData():
             SLG = info[15].text
             wOBA = info[16].text
             wRCPlus = info[17].text
-            # BSR = info[18].text
-            # Off = info[19].text
-            # Def = info[20].text
+            BSR = info[18].text
+            Off = info[19].text
+            Def = info[20].text
             # WAR = info[21].text
             # AVG = info[22].text
             result = re.search("playerid=(\\d*)", str(info[1]))
@@ -60,13 +62,13 @@ def grabData():
             else:
                 playerid = None
 
-            l = [playerid, name, team, G, PA, HR, R, RBI, SB, BBPer, KPer, ISO, BABIP, AVG, OBP, SLG, wOBA, wRCPlus]
+            l = [playerid, name, team, G, PA, HR, R, RBI, SB, BBPer, KPer, ISO, BABIP, AVG, OBP, SLG, wOBA, wRCPlus, BSR,Off, Def]
             players.append(l)
 
 
     ## remove pitches, which we aquire from here, from the above sample
 
-
+    P_WoBA = 'http://www.fangraphs.com/leaders.aspx?pos=p&stats=bat&lg=all&qual=2&type=1&season=2016&month=0&season1=2016&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
     P_Batted_Ball  = 'http://www.fangraphs.com/leaders.aspx?pos=p&stats=bat&lg=all&qual=1&type=2&season=2016&month=0&season1=2016&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
     P_Normal = 'http://www.fangraphs.com/leaders.aspx?pos=p&stats=bat&lg=all&qual=1&type=0&season=2016&month=0&season1=2016&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
     P_Shift = 'http://www.fangraphs.com/leaders.aspx?pos=p&stats=bat&lg=all&qual=1&type=0&season=2016&month=61&season1=2016&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
@@ -74,7 +76,7 @@ def grabData():
     P_Shift_Traditional = 'http://www.fangraphs.com/leaders.aspx?pos=p&stats=bat&lg=all&qual=1&type=0&season=2016&month=63&season1=2016&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
     P_Shift_NonTraditional = 'http://www.fangraphs.com/leaders.aspx?pos=p&stats=bat&lg=all&qual=1&type=0&season=2016&month=64&season1=2016&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
 
-    Url_Main =  Batted_Ball
+    Url_Main =  P_WoBA
     Page = urlopen(Url_Main)
     soup = BeautifulSoup(Page)
 
@@ -104,9 +106,9 @@ def grabData():
             SLG = info[15].text
             wOBA = info[16].text
             wRCPlus = info[17].text
-            # BSR = info[18].text
-            # Off = info[19].text
-            # Def = info[20].text
+            BSR = info[18].text
+            Off = info[19].text
+            Def = info[20].text
             # WAR = info[21].text
             # AVG = info[22].text
             result = re.search("playerid=(\\d*)", str(info[1]))
@@ -115,20 +117,30 @@ def grabData():
             else:
                 playerid = None
 
-            p = [playerid, name, team, G, PA, HR, R, RBI, SB, BBPer, KPer, ISO, BABIP, AVG, OBP, SLG, wOBA, wRCPlus]
+            p = [playerid, name, team, G, PA, HR, R, RBI, SB, BBPer, KPer, ISO, BABIP, AVG, OBP, SLG, wOBA, wRCPlus, BSR, Off, Def]
             pitchers.append(p)
 
     batters = [x for x in players if x[0] not in pitchers[0]]
 
     batter_df = pd.DataFrame(batters)
 
-    batter_df.to_csv('batted_ball_data.csv', index=False, header=False)
+    batter_df.to_csv('woBA_data.csv', index=False, header=False)
 
     # pitcher_df = pd.DataFrame(pitchers)
 
     # pitcher_df.to_csv('pitcher_shift_nontrad.csv', index=False, header=False)
 
 
+    # woba_data = list(csv.reader(open('woBA_data.csv','r')))
+
+    woba_refined = []
+
+    for i in range(len(woba_data)):
+        woba_refined.append([woBA_data[i][0],woBA_data[i][1],woBA_data[i][19]])
+
+    woba_df = pd.DataFrame(woba_refined)
+
+    woba_df.to_csv('woBA.csv', index=False, header=False)
 
 ## SQl Prep
 
@@ -176,78 +188,107 @@ pnt = pitcher_nontrad_data
 
 bb = batted_ball_data
 
+identi = 0
+
 batters = []
 for i in range(len(b)):
     batters.append([b[i][0]])
 for player in batters:
     player.append(False)
+    player.insert(0,identi)
+    identi += 1
 
 pitchers = []
 for i in range(len(p)):
     pitchers.append([p[i][0]])
 for player in pitchers:
     player.append(True)
+    player.insert(0,identi)
+    identi += 1
 
 for player in b:
     player.append(False)
     player.append(False)
     player.append(False)
     player.append(False)
+    player.insert(0,identi)
+    identi += 1
 
 for player in bs:
     player.append(True)
     player.append(False)
     player.append(False)
     player.append(False)
+    player.insert(0,identi)
+    identi += 1
 
 for player in bns:
     player.append(False)
     player.append(True)
     player.append(False)
     player.append(False)
+    player.insert(0,identi)
+    identi += 1
 
 for player in bt:
     player.append(False)
     player.append(False)
     player.append(True)
     player.append(False)
+    player.insert(0,identi)
+    identi += 1
 
 for player in bnt:
     player.append(False)
     player.append(False)
     player.append(False)
     player.append(True)
+    player.insert(0,identi)
+    identi += 1
 
 for player in p:
     player.append(False)
     player.append(False)
     player.append(False)
     player.append(False)
+    player.insert(0,identi)
+    identi += 1
 
 for player in ps:
     player.append(True)
     player.append(False)
     player.append(False)
     player.append(False)
+    player.insert(0,identi)
+    identi += 1
 
 for player in pns:
     player.append(False)
     player.append(True)
     player.append(False)
     player.append(False)
+    player.insert(0,identi)
+    identi += 1
 
 for player in pt:
     player.append(False)
     player.append(False)
     player.append(True)
     player.append(False)
+    player.insert(0,identi)
+    identi += 1
 
 for player in pnt:
     player.append(False)
     player.append(False)
     player.append(False)
     player.append(True)
+    player.insert(0,identi)
+    identi += 1
 
+for player in bb:
+    player.insert(0,identi)
+    identi += 1
 
 ## connecting to the database
 
@@ -260,23 +301,22 @@ cursor = connection.cursor()
 # import pdb; pdb.set_trace();
 # sqlite3 2016_sqlcode.sqlite3 -init initdb.sql
 
-cursor.executemany("INSERT INTO players VALUES (?, ?)", batters)
-cursor.executemany("INSERT INTO players VALUES (?, ?)", pitchers)
+cursor.executemany("INSERT INTO players VALUES (?,?, ?)", batters)
+cursor.executemany("INSERT INTO players VALUES (?,?, ?)", pitchers)
 
+cursor.executemany("INSERT INTO regular_data VALUES (?,?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", b)
+cursor.executemany("INSERT INTO regular_data VALUES (?,?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", bs)
+cursor.executemany("INSERT INTO regular_data VALUES (?,?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", bns)
+cursor.executemany("INSERT INTO regular_data VALUES (?,?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", bt)
+cursor.executemany("INSERT INTO regular_data VALUES (?,?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", bnt)
 
-cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", b)
-cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", bs)
-cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", bns)
-cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", bt)
-cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", bnt)
+cursor.executemany("INSERT INTO regular_data VALUES (?,?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", p)
+cursor.executemany("INSERT INTO regular_data VALUES (?,?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", ps)
+cursor.executemany("INSERT INTO regular_data VALUES (?,?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", pns)
+cursor.executemany("INSERT INTO regular_data VALUES (?,?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", pt)
+cursor.executemany("INSERT INTO regular_data VALUES (?,?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", pnt)
 
-cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", p)
-cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", ps)
-cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", pns)
-cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", pt)
-cursor.executemany("INSERT INTO regular_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", pnt)
-
-cursor.executemany("INSERT INTO batted_ball_data VALUES (?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)", bb)
+cursor.executemany("INSERT INTO batted_ball_data VALUES (?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)", bb)
 
 # Save / commit changes
 connection.commit()
