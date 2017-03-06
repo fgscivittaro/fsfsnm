@@ -315,7 +315,7 @@ cursor = connection.cursor()
 # import pdb; pdb.set_trace();
 # sqlite3 Overall_sqlcode.sqlite3 -init initdb.sql
 
-cursor.executemany("INSERT INTO players VALUES (?, ?)", batters)
+# cursor.executemany("INSERT INTO players VALUES (?, ?)", batters)
 # cursor.executemany("INSERT INTO players VALUES (?,?, ?)", pitchers)
 
 cursor.executemany("INSERT INTO regular_data VALUES (?,?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)", b)

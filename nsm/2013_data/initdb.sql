@@ -1,9 +1,5 @@
-DROP TABLE players;
 DROP TABLE regular_data;
 DROP TABLE batted_ball_data;
-
-CREATE TABLE players
-            (id int,player_id int);
 
 
 CREATE TABLE regular_data
