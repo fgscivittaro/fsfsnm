@@ -37,8 +37,8 @@
 - The mysite inner directoy contains a file called `urls.py`
     - Tells Django which view to use
         - There are several different "views" that do different things
-            - A view is the view people get when they open your webpage, and you can sepcify several different views for them to see
-            - Use the regular expressions in your other file to determine which view to use
+            - A view is the view people get when they open your webpage, and you can specify several different views for them to see
+            - Use the regular expressions in here to determine which view to use
 - The file `wsgi.py` interacts with the Apache server
 - `settings.py` contains several defaults you may or may not want to change, including what kind of relational database to work with (default should be SQLite3)
 - `admins.py` allows you to specify which models should be allowed for modification through the administrative page
@@ -72,7 +72,7 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'([0-9]+)', views.results, name='results'),
+    url(r'[0-9]+)', views.results, name='results'),
     ]
 </pre></code>
 
