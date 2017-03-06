@@ -195,7 +195,7 @@ bnt.pop(0)
 bb = batted_ball_data
 bb.pop(0)
 
-identi = 0
+identi = 16018
 
 batters = []
 for i in range(len(b)):
@@ -312,7 +312,7 @@ connection = sqlite3.connect('Overall_sqlcode.sqlite3')
 cursor = connection.cursor()
 
 # import pdb; pdb.set_trace();
-# sqlite3 2016_sqlcode.sqlite3 -init initdb.sql
+# sqlite3 Overall_sqlcode.sqlite3 -init initdb.sql
 
 # cursor.executemany("INSERT INTO players VALUES (?, ?)", batters)
 # cursor.executemany("INSERT INTO players VALUES (?,?, ?)", pitchers)
