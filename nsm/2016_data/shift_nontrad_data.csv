@@ -1,3 +1,4 @@
+PlayerID,Name,Team,G,AB,PA,H,1B,2B,3B,HR,R,RBI,BB,IBB,SO,HBP,SF,SH,GDP,SB,CS,AVG
 1191,Chris Johnson,Marlins,1,1,1,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1.000
 1737,Justin Morneau,White Sox,1,1,1,1,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1.000
 2434,Nelson Cruz,Mariners,3,1,3,1,1,0,0,0,0,3,0,0,0,0,2,0,0,0,0,1.000
