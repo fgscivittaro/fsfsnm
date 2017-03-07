@@ -13,3 +13,10 @@ def index(request):
 	context = {'results': results}
 
 	return render(request, 'query/index.html', context)
+
+def methodology(request):
+	'''
+	The methodology page view.
+	'''
+
+	return render(request, 'query/methodology.html')
