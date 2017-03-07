@@ -8,14 +8,7 @@ def index(request):
 	The main page view.
 	'''
 
-	top10results = RegularData.objects.order_by('avg')[:10]
-	context = {'top10results': top10results}
+	top50results = RegularData.objects.order_by('pa')[:50]
+	context = {'top50results': top50results}
 
 	return render(request, 'query/index.html', context)
-
-# def person_list(request):
-#     table = PlayerTable(RegularData.objects.all())
-
-#     return render(request, 'person_list.html', {
-#         'table': table
-#     })
