@@ -1,3 +1,4 @@
+PlayerID,Name,Team,G,AB,PA,H,1B,2B,3B,HR,R,RBI,BB,IBB,SO,HBP,SF,SH,GDP,SB,CS,AVG
 1136,Carlos Rivero,Red Sox,4,7,8,4,1,2,0,1,1,3,1,0,0,0,0,0,0,0,0,.571
 11464,Gary Brown,Giants,7,7,7,3,3,0,0,0,1,1,0,0,0,0,0,0,0,0,0,.429
 11854,Steven Moya,Tigers,11,8,8,3,3,0,0,0,2,0,0,0,2,0,0,0,0,0,0,.375

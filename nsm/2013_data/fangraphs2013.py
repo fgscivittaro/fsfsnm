@@ -19,7 +19,7 @@ def grabData():
     Shift_Traditional = 'http://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=all&qual=1&type=0&season=2013&month=63&season1=2013&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
     Shift_NonTraditional = 'http://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=all&qual=1&type=0&season=2013&month=64&season1=2013&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
 
-    Url_Main = Shift
+    Url_Main = WoBA
     Page = urlopen(Url_Main)
     soup = BeautifulSoup(Page)
 
@@ -53,15 +53,15 @@ def grabData():
             BSR = info[18].text
             Off = info[19].text
             Def = info[20].text
-            WAR = info[21].text
-            XD = info[22].text
+            # WAR = info[21].text
+            # XD = info[22].text
             result = re.search("playerid=(\\d*)", str(info[1]))
             if result:
                 playerid = result.group(1)
             else:
                 playerid = None
 
-            l = [playerid, name, team, G, PA, HR, R, RBI, SB, BBPer, KPer, ISO, BABIP, AVG, OBP, SLG, wOBA, wRCPlus, BSR, Off, Def, WAR,XD]
+            l = [playerid, name, team, G, PA, HR, R, RBI, SB, BBPer, KPer, ISO, BABIP, AVG, OBP, SLG, wOBA, wRCPlus, BSR, Off, Def]
             players.append(l)
 
 
@@ -75,7 +75,7 @@ def grabData():
     P_Shift_Traditional = 'http://www.fangraphs.com/leaders.aspx?pos=p&stats=bat&lg=all&qual=1&type=0&season=2013&month=63&season1=2013&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
     P_Shift_NonTraditional = 'http://www.fangraphs.com/leaders.aspx?pos=p&stats=bat&lg=all&qual=1&type=0&season=2013&month=64&season1=2013&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
 
-    Url_Main =  P_Shift
+    Url_Main =  P_WoBA
     Page = urlopen(Url_Main)
     soup = BeautifulSoup(Page)
 
@@ -108,15 +108,15 @@ def grabData():
             BSR = info[18].text
             Off = info[19].text
             Def = info[20].text
-            WAR = info[21].text
-            XD = info[22].text
+            # WAR = info[21].text
+            # XD = info[22].text
             result = re.search("playerid=(\\d*)", str(info[1]))
             if result:
                 playerid = result.group(1)
             else:
                 playerid = None
 
-            p = [playerid, name, team, G, PA, HR, R, RBI, SB, BBPer, KPer, ISO, BABIP, AVG, OBP, SLG, wOBA, wRCPlus, BSR, Off, Def, WAR,XD]
+            p = [playerid, name, team, G, PA, HR, R, RBI, SB, BBPer, KPer, ISO, BABIP, AVG, OBP, SLG, wOBA, wRCPlus, BSR, Off, Def]
             pitchers.append(p)
 
 
@@ -128,7 +128,7 @@ def grabData():
 
     batter_df = pd.DataFrame(batters)
 
-    batter_df.to_csv('shift_data.csv', index=False, header=False)
+    batter_df.to_csv('woBA_data.csv', index=False, header=False)
 
     # pitcher_df = pd.DataFrame(pitchers)
 
@@ -136,16 +136,16 @@ def grabData():
 
 
     
-    # woba_data = list(csv.reader(open('woBA_data.csv','r')))
+# woba_data = list(csv.reader(open('woBA_data.csv','r')))
 
-    # woba_refined = []
+# woba_refined = []
 
-    # for i in range(len(woba_data)):
-    #     woba_refined.append([woba_data[i][0],woba_data[i][1],woba_data[i][19]])
+# for i in range(len(woba_data)):
+#     woba_refined.append([woba_data[i][0],woba_data[i][1],woba_data[i][19]])
 
-    # woba_df = pd.DataFrame(woba_refined)
+# woba_df = pd.DataFrame(woba_refined)
 
-    # woba_df.to_csv('woBA.csv', index=False, header=False)
+# woba_df.to_csv('woBA.csv', index=False, header=False)
 
 
 # SQl Prep
@@ -177,7 +177,6 @@ batter_trad_data = list(csv.reader(open('shift_trad.csv','r')))
 ## Batted ball data
 
 batted_ball_data = list(csv.reader(open('batted_ball_data.csv','r')))
-
 
 
 b = batter_data
