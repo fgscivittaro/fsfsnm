@@ -23,6 +23,40 @@ skinny_ivs = ['barrels_per_bbe', 'bb_rate','k_rate', 'shift_rate']
 best_model = ['avg_distance', 'k_rate', 'bb_rate', 'avg_exit_vel', 
     'barrels_per_bbe', 'LD_per']
 
+
+def write_predictions_csv():
+    '''
+    Writes a csv file containing the predictions and model inputs of the
+    regression
+
+    Returns:
+        A command string that can be used to write the schema of the SQL
+        database containing the data
+    '''
+    lm2016, model_df_2016 = make_model(2016, 70, best_model)
+    lm2015, model_df_2015 = make_model(2015, 70, best_model)
+
+    preds_2015 = make_predictions(lm2016, model_df_2016)
+    preds_2016 = make_predictions(lm2015, model_df_2015)
+
+    preds_2016['year'] = 2016
+    preds_2015['year'] = 2015
+
+    predictions = preds_2016.append(preds_2015, ignore_index=True)
+    predictions.index.name = 'unique_id'
+
+    predictions.to_csv('predictions_data.csv')
+
+    cols = list(predictions.columns)
+    cols.remove('Team_x')
+    cols.insert(2,'Team')
+    cols = ['unique_id'] + cols
+
+    command_str = ('CREATE TABLE predictions(' + ', '.join(cols) +
+                    ', PRIMARY KEY (unique_id));')
+
+    return command_str
+
 def make_model(year, sample_percent, vars_list):
     '''
     Returns a linear model that predicts wOBA (weighted on-base average) of
@@ -75,7 +109,8 @@ def make_model(year, sample_percent, vars_list):
     model_df = pd.DataFrame(statcast_dict)
 
     fg_data = pd.merge(batter_stats, batted_balls, on=['PlayerID', 'Name'])
-    fg_data = pd.merge(fg_data, shifts, on=['PlayerID', 'Name'])
+    fg_data = pd.merge(fg_data, shifts, left_on=['PlayerID', 'Name'], 
+                        right_on=['PlayerID_shift', 'Name_shift'])
     fg_data = pd.merge(fg_data, wOBA, on=['PlayerID', 'Name'])
 
     fg_data = fg_data[fg_data['PA'] >= 30]
@@ -83,7 +118,7 @@ def make_model(year, sample_percent, vars_list):
     extras = fg_data['BB'] + fg_data['IBB'] + fg_data['HBP']
     fg_data['bb_rate'] = extras / fg_data['PA']
     fg_data['k_rate'] = fg_data['SO'] / fg_data['PA']
-    fg_data['shift_rate'] = fg_data['shift_PA'] / fg_data['PA']
+    fg_data['shift_rate'] = fg_data['PA_shift'] / fg_data['PA']
 
     with open('find_replace_' + str(year) + '.csv', 'r') as f:
         reader = csv.reader(f)
@@ -105,11 +140,14 @@ def make_model(year, sample_percent, vars_list):
     model_df['OPPO_per'] = model_df['OPPO_per'].map(change_percent)
     model_df['CENT_per'] = model_df['CENT_per'].map(change_percent)
     model_df['PULL_per'] = model_df['PULL_per'].map(change_percent)
-
-    formula_str = 'WoBA ~ ' + ' + '.join(vars_list)
-    lm = smf.ols(formula_str, data = model_df).fit()
     
-    return lm
+    fraction = sample_percent / 100
+    training_df = model_df.sample(frac=fraction, replace=False)
+
+    formula_str = 'wOBA ~ ' + ' + '.join(vars_list)
+    lm = smf.ols(formula_str, data = model_df).fit()    
+    
+    return lm, model_df
 
 def change_percent(data):
     '''
@@ -122,7 +160,7 @@ def change_percent(data):
     '''
     return float(str(data).strip('%'))/100
 
-def make_predictions(model, batters_df, col_name=False):
+def make_predictions(lm, batters_df):
     '''
     Writes a CSV file containing each batter and their projected wOBA based
     off of our model
@@ -135,21 +173,25 @@ def make_predictions(model, batters_df, col_name=False):
         A SQL command line representing the schema to create the predictions
         table
     '''
-    predictions = []
+    predictions_df = batters_df[["Name", "PlayerID", "Team_x"] + best_model]
+    predictions_df.loc[predictions_df.Team_x == '- - -', 'Team_x'] = 'FA'
 
-    batters_list = list(batters_df['name'])
-    pred_data = list(pd.DataFrame({'input': [batters_df['input']]}))
+    expected_wOBA = lm.predict(predictions_df)
 
-    f = csv.writer(open("predictions.csv", "wt"))
-    
-    if col_name:
-        f.writerow(["player_name", "expected_wOBA"])
+    predictions_df['x_wOBA'] = expected_wOBA
 
-    for i in range(len(batters_df)):
-        f.writerow([batters_list[i], ppred_data[i]])
+    return predictions_df
 
-    command_str = "CREATE TABLE predictions(player_name TEXT, prediction REAL, PRIMARY KEY (player_name));"
+'''
+To put the CSV file into a SQL database, I did the following:
 
-    return command_str
+sqlite3 predictions.db
 
+(copy/pasted the command string output from write_predictions_csv)
 
+.mode csv
+
+.import predictions_data.csv predictions
+
+Only batters with a minimum of 30 at bats were included in the data
+'''
