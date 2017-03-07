@@ -119,13 +119,13 @@ Qualified:
 					<td align="left">.362</td>
 					<td align="left">.371</td>
 				</tr> -->
-				{% if top50results %}
-				    {% for stats in top50results %}
+				{% if results %}
+				    {% for stats in results %}
 				    	<tr class="resultrow" align="right">
-							<td align="left">stats.name</td>
-							<td align="left">stats.team</td>
-							<td align="left">stats.avg</td>
-							<td align="left">stats.ab</td>
+							<td align="left">{{ stats.name }}</td>
+							<td align="left">{{ stats.team }}</td>
+							<td align="left">{{ stats.avg }}</td>
+							<td align="left">{{ stats.ab }}</td>
 						</tr>
 				    {% endfor %}
 				{% else %}
