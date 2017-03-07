@@ -200,7 +200,7 @@ bnt.pop(0)
 bb = batted_ball_data
 bb.pop(0)
 
-identi = 8952
+identi = 8326
 
 batters = []
 for i in range(len(b)):

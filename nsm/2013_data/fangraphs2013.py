@@ -19,7 +19,7 @@ def grabData():
     Shift_Traditional = 'http://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=all&qual=1&type=0&season=2013&month=63&season1=2013&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
     Shift_NonTraditional = 'http://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=all&qual=1&type=0&season=2013&month=64&season1=2013&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
 
-    Url_Main = Shift_NonTraditional
+    Url_Main = Shift
     Page = urlopen(Url_Main)
     soup = BeautifulSoup(Page)
 
@@ -75,7 +75,7 @@ def grabData():
     P_Shift_Traditional = 'http://www.fangraphs.com/leaders.aspx?pos=p&stats=bat&lg=all&qual=1&type=0&season=2013&month=63&season1=2013&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
     P_Shift_NonTraditional = 'http://www.fangraphs.com/leaders.aspx?pos=p&stats=bat&lg=all&qual=1&type=0&season=2013&month=64&season1=2013&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
 
-    Url_Main =  P_Shift_NonTraditional
+    Url_Main =  P_Shift
     Page = urlopen(Url_Main)
     soup = BeautifulSoup(Page)
 
@@ -126,10 +126,9 @@ def grabData():
                 [y[0] for y in pitchers]
         ]
 
-
     batter_df = pd.DataFrame(batters)
 
-    batter_df.to_csv('shift_nontrad.csv', index=False, header=False)
+    batter_df.to_csv('shift_data.csv', index=False, header=False)
 
     # pitcher_df = pd.DataFrame(pitchers)
 
@@ -149,7 +148,7 @@ def grabData():
     # woba_df.to_csv('woBA.csv', index=False, header=False)
 
 
-## SQl Prep
+# SQl Prep
 
 # Batters
 
