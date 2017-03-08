@@ -1,6 +1,8 @@
 import sqlite3
+import re
 import numpy as np
-from woba_weightings import *
+
+from util import *
 
 def compute_marcel_projection(name, year, db):
     """
@@ -21,7 +23,6 @@ def compute_marcel_projection(name, year, db):
     one_ya = year - 1
     two_ya = year - 2
     three_ya = year - 3
-    WEIGHTS = np.array([[5/12], [4/12], [3/12]])
 
     one_ya_stats = retrieve_stats(name, one_ya, c)
     two_ya_stats = retrieve_stats(name, two_ya, c)
@@ -40,33 +41,50 @@ def compute_marcel_projection(name, year, db):
         final_estimates.append(calculate_slg(final_estimates))
         final_estimates.append(calculate_woba(final_estimates, one_ya))
 
+        final_estimates.insert(0, '0')
+        final_estimates.insert(1, name)
+        final_estimates.insert(2, str(year))
+        final_estimates.insert(3, '0')
+
         return final_estimates
+
+    # Defaults
+    first_stats = [0] * 19
+    second_stats = [0] * 19
+    third_stats = [0] * 19
+
+    weight_5 = 0
+    weight_4 = 0
+    weight_3 = 0
+
+    one_ya_pa = 0
+    two_ya_pa = 0
+    three_ya_pa = 0
 
     if one_ya_stats:
         first_stats = weight_stats_by_pa(one_ya_stats[0][4:23])
         one_ya_pa = one_ya_stats[0][6]
-    else:
-        first_stats = [0] * 19
-        one_ya_pa = 0
-
+        weight_5 = 5
+        player_id = one_ya_stats[0][1]
+        
     if two_ya_stats:
         second_stats = weight_stats_by_pa(two_ya_stats[0][4:23])
         two_ya_pa = two_ya_stats[0][6]
-    else:
-        second_stats = [0] * 19
-        two_ya_pa = 0
-
+        weight_4 = 4
+        player_id = two_ya_stats[0][1]
+        
     if three_ya_stats:
         third_stats = weight_stats_by_pa(three_ya_stats[0][4:23])
         three_ya_pa = three_ya_stats[0][6]
-    else:
-        third_stats = [0] * 19
-        three_ya_pa = 0
+        weight_3 = 3
+        player_id = three_ya_stats[0][1]
 
+    WEIGHTS = np.array([[5], [4], [3]])
+    divisor = weight_5 + weight_4 + weight_3
+        
     all_stats = np.array([first_stats, second_stats, third_stats])
-    final_weighted_stats = all_stats * WEIGHTS
-    combined_weighted_stats = np.sum(final_weighted_stats, axis=0)
-
+    weighted_stats = all_stats * WEIGHTS / divisor
+    combined_weighted_stats = np.sum(weighted_stats, axis=0)
 
     current_age = find_age(name, year)
     if not current_age:
@@ -78,12 +96,7 @@ def compute_marcel_projection(name, year, db):
     rel = calculate_rel(one_ya_pa, two_ya_pa, three_ya_pa)
     final_regressed_rates = rel * age_regressed_rates + (1 - rel) * league_rates
 
-    projected_PAs = one_ya_pa * age_regressed_rates[2]
-
-    # Accounts for an increase in opportunity, although the number itself is
-    # arbitrary.
-    if projected_PAs < 200:
-        projected_PAs = projected_PAs * 2
+    projected_PAs = 0.5 * one_ya_pa + 0.1 * two_ya_pa + 200
 
     final_estimates = round_estimates(final_regressed_rates * projected_PAs)
 
@@ -91,6 +104,12 @@ def compute_marcel_projection(name, year, db):
     final_estimates.append(calculate_obp(final_estimates))
     final_estimates.append(calculate_slg(final_estimates))
     final_estimates.append(calculate_woba(final_estimates, one_ya))
+
+    final_estimates.insert(0, str(player_id))
+    final_estimates.insert(1, name)
+    final_estimates.insert(2, str(year))
+    final_estimates.insert(3, str(current_age))
+
 
     return final_estimates
 
@@ -184,7 +203,9 @@ def calculate_league_rates(one_ya, c):
     three_ya_averages = (np.sum(weighted_three_ya_stats, axis=0)
                        / len(weighted_three_ya_stats))
 
-    return np.add(one_ya_averages, two_ya_averages, three_ya_averages)
+    all_averages = np.array([one_ya_averages, two_ya_averages, three_ya_averages])
+    
+    return np.sum(all_averages, axis=0)
 
 
 def convert_to_array(stats):
@@ -302,7 +323,7 @@ def calculate_woba(stats, one_ya):
     data.
     """
 
-    weightings = get_weightings(one_ya)
+    weightings = get_weightings(one_ya) # Finds weightings from FanGraphs
 
     uBB = float(stats[10]) - float(stats[11]) # Subtract intentional walks
     HBP = float(stats[13])
@@ -333,32 +354,25 @@ def find_age(name, year):
     Finds a player's age in a different SQL database (players.db).
     """
 
-    db = 'players.db'
-    conn = sqlite3.connect(db)
-    c = conn.cursor()
+    soup = convert_name_to_soup(name)
 
-    firstname, lastname = name.split()
-    year = int(year)
+    if not soup:
+        return None
 
-    query = """
-            SELECT Age FROM marcel_hitting
-            WHERE LastName = ?
-            AND Firstname = ?
-            AND Year = 2015
-            """
+    step_one = soup.find('ul', attrs={'class':'player-metadata'})
 
-    inputs = (lastname, firstname)
+    if not step_one:
+        return None
 
-    age_2015 = c.execute(query, inputs).fetchall()
+    step_two = step_one.find('li').get_text()
 
-    if age_2015:
-        age_2015 = age_2015[0][0]
+    if not step_two:
+        return None
+
+    match = re.search('([0-9]{4})', step_two)
+
+    if match:
+        birth_year = match.group(1)
+        return year - int(birth_year)
     else:
-        return 29
-
-    if year == 2017:
-        return age_2015 + 2
-    elif year == 2016:
-        return age_2015 + 1
-    else:
-        return 29
+        return None
