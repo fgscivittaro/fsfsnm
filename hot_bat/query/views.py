@@ -8,14 +8,15 @@ def index(request):
 	The main page view.
 	'''
 
-	top10results = RegularData.objects.order_by('avg')[:10]
-	context = {'top10results': top10results}
+	results = RegularData.objects.filter(shift=0).filter(noshift=0).filter(trad_shift=0).filter(shift=0).order_by('pa')[4000:4050]
+	# Need to figure out how to sort descending
+	context = {'results': results}
 
 	return render(request, 'query/index.html', context)
 
-# def person_list(request):
-#     table = PlayerTable(RegularData.objects.all())
+def methodology(request):
+	'''
+	The methodology page view.
+	'''
 
-#     return render(request, 'person_list.html', {
-#         'table': table
-#     })
+	return render(request, 'query/methodology.html')

@@ -9,37 +9,138 @@
         <h1>The Hot Bat Fallacy</h1>
     	</div>
 	<div style="width:800px; height:50px; margin:0 auto;">
-    	<h2>Our Mission Statement:</h2>
+    	<h2>Our Mission</h2>
     	</div>
-    <div style="width:1000px; height:50px; margin:0 auto;">
-    	<p></p>
+    <div style="width:800px; height:50px; margin:0 auto;">
+    	<p>The Hot Bat Fallacy project attempts to use process-oriented data such as <a href="https://baseballsavant.mlb.com/statcast_search">Statcast</a> barrels and <a href="http://www.fangraphs.com/">FanGraphs</a> line-drive percentage to project future performance for MLB players. By using these measures instead of traditional results-oriented data such as batting average, we hope to create a simple model capable of projecting future performance more accurately than the famously simple-yet-effective <a href="http://m.mlb.com/glossary/projection-systems/marcel-the-monkey-forecasting-system">Marcel</a> forecasting system and more complex results-oriented projection systems such as <a href="http://m.mlb.com/glossary/projection-systems/steamer">Steamer</a>, <a href="http://m.mlb.com/glossary/projection-systems/szymborski-projection-system">ZiPS</a>, or <a href="http://m.mlb.com/glossary/projection-systems/player-empirical-comparison-and-optimization-test-algorithm">PECOTA</a>. <a href="http://127.0.0.1:8000/query/methodology/">See here for a full methodology</a>.
+    	</p>
+    	<p>
+    		Please feel free to contact <a href="mailto:fgscivittaro@uchicago.edu">Federico</a>, <a href="mailto:fscivittaro42@uchicago.edu">Francesco</a>, or <a href="mailto:nsm@uchicago.edu">Nick</a> with any questions. Thank you, and welcome to the Hot Bat Fallacy!
+    	</p>
     	</div>
 </head>
 
 <body>
-	<p> Check Out Your Favorite Player's Stats!</p>
+	<p>Search the database:</p>
 
 <form method="get" action="/results/" class="navbar-form pull-right">
 	<input type="text" id="searchBox" class="input-medium search-query" name="q" placeholder="Search">
 	<input type="submit" class="btn" value="Search" >
 </form>
+
+<br>
+Season:
+<form class="search-filters" style="display:inline;">
+	<select class="table-lookup">
+		<option value="#">Select One</option>
+		<option value="2017 Projections" selected="">2017</option>
+		<option value="2016 Projections" selected="">2016</option>
+	</select>
+</form>
+
+<br>
+Team:
+<form class="search-filters" style="display:inline;">
+	<select class="table-lookup">
+		<option value="#">All Teams</option>
+		<option value="Indians" selected="">Indians</option>
+		<option value="Other Teams" selected="">Other Teams</option>
+		<option value="Free Agent" selected="">Free Agent</option> <!-- This should equal the '- - -' value -->
+	</select>
+</form>
+
+<br>
+Age:
+<form class="search-filters" style="display:inline;">
+	<select class="table-lookup">
+		<option value="#">17</option>
+		<option value="Age Min" selected="">Age Min</option>
+		<option value="Age Max" selected="">Age Max</option>
+	</select>
+</form>
+
+<br>
+to 
+<form class="search-filters" style="display:inline;">
+	<select class="table-lookup">
+		<option value="#">45</option>
+		<option value="Age Min" selected="">Age Min</option>
+		<option value="Age Max" selected="">Age Max</option>
+	</select>
+</form>
+
+<br>
+Min PA:
+<form class="search-filters" style="display:inline;">
+	<select class="table-lookup">
+		<option value="#">None</option>
+		<option value="500" selected="">500</option>
+		<option value="450" selected="">450</option>
+		<option value="400" selected="">400</option>
+		<option value="350" selected="">350</option>
+		<option value="300" selected="">300</option>
+		<option value="250" selected="">250</option>
+		<option value="200" selected="">200</option>
+		<option value="150" selected="">150</option>
+		<option value="100" selected="">100</option>
+		<option value="50" selected="">50</option>
+	</select>
+</form>
+
+<br>
+Qualified:
+<form class="search-filters" style="display:inline;">
+	<select class="table-lookup">
+		<option value="No">No</option>
+		<option value="Yes">Yes</option>
+	</select>
+</form>
+
 </body>
+
+<div id="player-table" class="col-main">
+	<div class="mod-content">
+		<table class="tablehead" cellspacing="1" cellpadding="3">
+			<tbody>
+				<tr class="tableheader">
+					<td colspan="20">Search Results</td>
+				</tr>
+				<tr class="columnheaders" align="right">
+					<td width="175" align="left">Name</td>
+					<td width="125" align="left">Team</td>
+					<td align="left">Marcel wOBA</td>
+					<td align="left">Our wOBA</td>
+				</tr>
+<!-- 				<tr class="resultrow" align="right">
+					<td align="left">Francisco Lindor</td>
+					<td align="left">Indians</td>
+					<td align="left">.375</td>
+					<td align="left">.382</td>
+				</tr>
+				<tr class="resultrow" align="right">
+					<td align="left">Edwin Encarnacion</td>
+					<td align="left">Indians</td>
+					<td align="left">.362</td>
+					<td align="left">.371</td>
+				</tr> -->
+				{% if results %}
+				    {% for stats in results %}
+				    	<tr class="resultrow" align="right">
+							<td align="left">{{ stats.name }}</td>
+							<td align="left">{{ stats.team }}</td>
+							<td align="left">{{ stats.avg }}</td>
+							<td align="left">{{ stats.ab }}</td>
+						</tr>
+				    {% endfor %}
+				{% else %}
+				    <p>No results.</p>
+				{% endif %}
+			</tbody>
+		</table>
+	</div>
+</div>
 
 <footer >
 </footer>
 
 </html>
-
-<!-- 
-<pre><code>
-        <h3> Top Ten Best Players </h3>
-		{% if top10results %}
-		    <ol>
-		    {% for stats in top10results %}
-		        <li><a href="/query/{{ regular_data.name }}/">{{ regular_data.name }}</a></li>
-		    {% endfor %}
-		    </ol>
-		{% else %}
-		    <p>No results.</p>
-		{% endif %}
-		</pre></code> -->
