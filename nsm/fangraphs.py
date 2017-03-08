@@ -20,7 +20,7 @@ def grabData():
 
     Url_Main =  Batted_Ball
     Page = urlopen(Url_Main)
-    soup = BeautifulSoup(Page)
+    soup = BeautifulSoup(Page, 'html.parser')
 
     player_list = soup.select('#LeaderBoard1_dg1_ctl00 tr')
 
@@ -127,6 +127,8 @@ def grabData():
     # pitcher_df = pd.DataFrame(pitchers)
 
     # pitcher_df.to_csv('pitcher_shift_nontrad.csv', index=False, header=False)
+
+def record_age():
 
 
 
