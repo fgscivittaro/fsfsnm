@@ -1,8 +1,7 @@
-# This is an auto-generated Django model module.
 # You'll have to do the following manually to clean this up:
 #   * Rearrange models' order
 #   * Make sure each model has one field with primary_key=True
-#   * Make sure each ForeignKey has `on_delete` set to the desired behavior.
+#   * Make sure each ForeignKey has `on_delete` set to the desidered behavior.
 #   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 from __future__ import unicode_literals
@@ -53,7 +52,7 @@ class AuthUser(models.Model):
     is_staff = models.BooleanField()
     is_active = models.BooleanField()
     date_joined = models.DateTimeField()
-    username = models.CharField(unique=True, max_length=150)
+    username = models.CharField(unique=True, max_length=30)
 
     class Meta:
         managed = False
@@ -127,66 +126,6 @@ class DjangoSession(models.Model):
     class Meta:
         managed = False
         db_table = 'django_session'
-
-
-class Marcel(models.Model):
-    id = models.IntegerField(primary_key=True)
-    player_id = models.IntegerField(blank=True, null=True)
-    name = models.TextField(blank=True, null=True)
-    year = models.TextField(blank=True, null=True)
-    age = models.TextField(blank=True, null=True)
-    g = models.IntegerField(blank=True, null=True)
-    ab = models.IntegerField(blank=True, null=True)
-    pa = models.IntegerField(blank=True, null=True)
-    h = models.IntegerField(blank=True, null=True)
-    singles = models.IntegerField(blank=True, null=True)
-    doubles = models.IntegerField(blank=True, null=True)
-    triples = models.IntegerField(blank=True, null=True)
-    homerun = models.IntegerField(blank=True, null=True)
-    runs = models.IntegerField(blank=True, null=True)
-    runs_batted_in = models.IntegerField(blank=True, null=True)
-    bb = models.IntegerField(blank=True, null=True)
-    ibb = models.IntegerField(blank=True, null=True)
-    so = models.IntegerField(blank=True, null=True)
-    hbp = models.IntegerField(blank=True, null=True)
-    sf = models.IntegerField(blank=True, null=True)
-    sh = models.IntegerField(blank=True, null=True)
-    gdp = models.IntegerField(blank=True, null=True)
-    sb = models.IntegerField(blank=True, null=True)
-    cs = models.IntegerField(blank=True, null=True)
-    avg = models.IntegerField(blank=True, null=True)
-    obp = models.IntegerField(blank=True, null=True)
-    slg = models.IntegerField(blank=True, null=True)
-    woba = models.IntegerField(blank=True, null=True)
-
-    def __str__(self):
-        return '{}, {}'.format(self.name, self.year)
-
-    class Meta:
-        managed = False
-        db_table = 'marcel'
-
-
-class Regression(models.Model):
-    id = models.IntegerField(primary_key=True)
-    player_id = models.IntegerField(blank=True, null=True)
-    name = models.TextField(blank=True, null=True)
-    team = models.TextField(blank=True, null=True)
-    avg_distance = models.IntegerField(blank=True, null=True)
-    k_rate = models.IntegerField(blank=True, null=True)
-    bb_rate = models.IntegerField(blank=True, null=True)
-    avg_exit_vel = models.IntegerField(blank=True, null=True)
-    barrels_per_bbe = models.IntegerField(blank=True, null=True)
-    ld_per = models.IntegerField(db_column='LD_per', blank=True, null=True)  # Field name made lowercase.
-    x_woba = models.TextField(db_column='x_wOBA', blank=True, null=True)  # Field name made lowercase. This field type is a guess.
-    year = models.IntegerField(blank=True, null=True)
-
-    def __str__(self):
-        return '{}, {}'.format(self.name, self.year)
-
-    class Meta:
-        managed = False
-        db_table = 'regression'
 
 
 class RegularData(models.Model):
