@@ -64,7 +64,7 @@ def index(request):
 		'years': years,
 		'team_names': team_names,
 		'url_params': url_params,
-		'pa_range': ["500", "450", "400", "350", "300", "250", "200", "150", "100", "50"],
+		'pa_range': ["650", "600", "550", "500", "450", "400", "350", "300", "250", "200", "150", "100", "50"],
 	}
 	return render(request, 'query/index.html', context)
 
