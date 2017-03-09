@@ -4,6 +4,10 @@
 import pandas as pd
 import statsmodels.formula.api as smf
 import csv
+import numpy as np
+import matplotlib.pyplot as plt
+
+outlier = 'Chris Parmelee'
 
 all_poss_ivs = ['avg_distance', 'avg_exit_vel','barrels_per_bbe', 
     'fbld_avg_exit_vel', 'gb_avg_exit_vel', 'max_distance', 'max_exit_vel', 
@@ -33,8 +37,8 @@ def write_predictions_csv():
         A command string that can be used to write the schema of the SQL
         database containing the data
     '''
-    lm2016, model_df_2016 = make_model(2016, 70, best_model)
-    lm2015, model_df_2015 = make_model(2015, 70, best_model)
+    lm2016, model_df_2016, corr, r = make_model(2016, 70, best_model)
+    lm2015, model_df_2015, corr2, r = make_model(2015, 70, best_model)
 
     preds_2015 = make_predictions(lm2016, model_df_2016)
     preds_2016 = make_predictions(lm2015, model_df_2015)
@@ -45,6 +49,7 @@ def write_predictions_csv():
     predictions = preds_2016.append(preds_2015, ignore_index=True)
     predictions.index.name = 'unique_id'
 
+    predictions = predictions.round(3)
     predictions.to_csv('predictions_data.csv')
 
     cols = list(predictions.columns)
@@ -143,11 +148,18 @@ def make_model(year, sample_percent, vars_list):
     
     fraction = sample_percent / 100
     training_df = model_df.sample(frac=fraction, replace=False)
+    testing_df = model_df[~model_df.isin(training_df)].dropna()
 
     formula_str = 'wOBA ~ ' + ' + '.join(vars_list)
-    lm = smf.ols(formula_str, data = model_df).fit()    
-    
-    return lm, model_df
+    lm = smf.ols(formula_str, data = model_df).fit()
+
+    tested = lm.predict(testing_df)
+    testing_df['predictions'] = tested
+
+    corr = np.corrcoef(testing_df['wOBA'], list(tested))[0, 1]
+    test_r_squared = smf.ols('wOBA ~ predictions', data = testing_df).fit()
+
+    return lm, model_df, corr, test_r_squared.rsquared
 
 def change_percent(data):
     '''
@@ -181,6 +193,87 @@ def make_predictions(lm, batters_df):
     predictions_df['x_wOBA'] = expected_wOBA
 
     return predictions_df
+
+def calc_future_accuracy(df_2015, remove_outlier = False):
+    '''
+    Calculates measures of the accuracy of statcast regression projections 
+    for 2016 against the actual observed wOBAs in 2016.
+
+    Inputs:
+        df_2015: The dataframe containing the predicted wOBA
+        remove_outlier: A boolean variable that is True if outliers should be
+        removed and defaults to False
+    Returns:
+        corr: The correlation coefficient between the predicted wOBAs and the
+        observed ones
+        lm: A univariate linear model between the predictions and observations
+    '''
+    location = '~/cs122-win-17-fscivittaro42/fsfsnm/'
+    wOBA = location + 'nsm/2016_data/woBA.csv'
+
+    actual_woba = pd.read_csv(wOBA)
+
+    accuracy_df = pd.merge(df_2015, actual_woba, on=['PlayerID', 'Name'])
+
+    if remove_outlier:
+        accuracy_df = accuracy_df[accuracy_df['Name'] != outlier]
+
+    corr = np.corrcoef(accuracy_df['wOBA'], accuracy_df['x_wOBA'])[0, 1]
+    lm = smf.ols('wOBA ~ x_wOBA', data = accuracy_df).fit()
+
+    return corr, lm
+
+def calc_marcel_accuracy(remove_outlier = False):
+    '''
+    Calculates measures of the accuracy of marcel projections 
+    for 2016 against the actual observed wOBAs in 2016.
+
+    Inputs:
+        remove_outlier: A boolean variable that is True if outliers should be
+        removed and defaults to False
+    Returns:
+        corr: The correlation coefficient between the predicted wOBAs and the
+        observed ones
+        lm: A univariate linear model between the predictions and observations
+    '''
+    location = '~/cs122-win-17-fscivittaro42/fsfsnm/'
+    wOBA = location + 'nsm/2016_data/woBA.csv'
+
+    actual_woba = pd.read_csv(wOBA)
+    marcel_woba = pd.read_csv('marcel_woba.csv')
+
+    marcel_woba = marcel_woba[marcel_woba['year'] == 2016]
+
+    accuracy_df = pd.merge(actual_woba, marcel_woba, 
+        left_on=['PlayerID', 'Name'], right_on=['player_id', 'name'])
+
+    if remove_outlier:
+        accuracy_df = accuracy_df[accuracy_df['Name'] != outlier]
+
+    corr = np.corrcoef(accuracy_df['wOBA'], accuracy_df['woba'])[0, 1]
+    lm = smf.ols('wOBA ~ woba', data = accuracy_df).fit()
+
+    return corr, lm
+
+def plot_predictions(accuracy_df, col1, col2, filename):
+    '''
+    '''
+    x = accuracy_df[col1]
+    y = accuracy_df[col2]
+
+    fig, ax = plt.subplots()
+    fit = np.polyfit(x, y, deg=1)
+    ax.plot(x, fit[0] * x + fit[1], color='red')
+    ax.scatter(x, y)
+
+    plt.xlabel('Actual 2016 wOBA')
+    plt.ylabel('Predicted 2016 wOBA')
+    plt.title('Predicted vs Actual wOBAs - 2016')
+
+    fig.show()
+    fig.savefig(filename)
+
+
 
 '''
 To put the CSV file into a SQL database, I did the following:
