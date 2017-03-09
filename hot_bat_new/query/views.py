@@ -55,7 +55,10 @@ def index(request):
 	for r in regression:
 		regression_dict[r.player_id] = r
 
-	# Need to figure out how to sort descending
+	for result in results:
+		result.marcel = marcel_dict.get(result.player_id)
+		result.regression = regression_dict.get(result.player_id)
+
 	context = {
 		'results': results,
 		'years': years,
@@ -63,10 +66,6 @@ def index(request):
 		'url_params': url_params,
 		'pa_range': ["500", "450", "400", "350", "300", "250", "200", "150", "100", "50"],
 	}
-	for result in results:
-		result.marcel = marcel_dict.get(result.player_id)
-		result.regression = regression_dict.get(result.player_id)
-
 	return render(request, 'query/index.html', context)
 
 def methodology(request):

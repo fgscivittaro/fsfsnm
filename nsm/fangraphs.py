@@ -18,6 +18,10 @@ Regression = list(csv.reader(open('wOBA_predictions.csv','r')))
 m =  Marcel
 r = Regression
 
+years = []
+for player in range(len(m)):
+    years.append([m[player][0], m[player][3]])
+
 for i in range(len(r)):
     r[i].pop(0)
 

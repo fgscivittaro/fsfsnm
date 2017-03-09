@@ -70,11 +70,11 @@
 		</select>
 
 
-		<br>
+		<!-- <br>
 		Age:
 		<input type="digit" name="age_min"> 
 		to 
-		<input type="digit" name="age_max"> 
+		<input type="digit" name="age_max">  -->
 
 
 		<br>
@@ -113,6 +113,7 @@
 					</tr>
 					<tr class="columnheaders" align="right">
 						<td align="left">Name</td>
+						<td align="left">Age</td>
 						<td align="left">Team</td>
 						<td align="left">Year</td>
 						<td align="left">AVG</td>
@@ -138,6 +139,7 @@
 					    {% for stats in results %}
 					    	<tr class="resultrow" align="right">
 								<td align="left">{{ stats.name }}</td>
+								<td align="left">{{ stats.marcel.age }}</td>
 								<td align="left">{{ stats.team }}</td>
 								<td align="left">{{ stats.year }}</td>
 								<td align="left">{{ stats.avg }}</td>
@@ -145,7 +147,7 @@
 								<td align="left">{{ stats.pa }}</td>
 								<!-- <td align="left">{{ stats.player_id }}</td> -->
 								<td align="left">{{ stats.marcel.woba }}</td>
-								<td align="left">{{ stats.regression.x_woba }}</td>
+								<td align="left">{{ stats.regression.x_woba|floatformat }}</td>
 								
 							</tr>
 					    {% endfor %}

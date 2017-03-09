@@ -20,7 +20,7 @@ CREATE TABLE regular_data
              runs int, runs_batted_in int,
              bb int, ibb int, so int, hbp int, sf int, sh int, gdp int,
              sb int, cs int, avg int, shift boolean, noshift boolean, 
-             trad_shift boolean, nontrad_shift boolean, year text);
+             trad_shift boolean, nontrad_shift boolean, year text, age text);
 
 CREATE TABLE batted_ball_data
              (id int primary key, player_id int, name text, team text, babip int, gb_fb int, ld_per int,

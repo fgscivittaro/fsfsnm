@@ -178,7 +178,7 @@ class Regression(models.Model):
     avg_exit_vel = models.IntegerField(blank=True, null=True)
     barrels_per_bbe = models.IntegerField(blank=True, null=True)
     ld_per = models.IntegerField(db_column='LD_per', blank=True, null=True)  # Field name made lowercase.
-    x_woba = models.TextField(db_column='x_wOBA', blank=True, null=True)  # Field name made lowercase. This field type is a guess.
+    x_woba = models.TextField(blank=True, null=True)  # Field name made lowercase. This field type is a guess.
     year = models.IntegerField(blank=True, null=True)
 
     def __str__(self):
