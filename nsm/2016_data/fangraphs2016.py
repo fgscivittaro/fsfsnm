@@ -4,7 +4,6 @@ import re
 import pandas as pd
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
-import uuid
 
 # import pdb; pdb.set_trace()
 

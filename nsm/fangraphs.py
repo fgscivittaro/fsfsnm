@@ -11,7 +11,13 @@ Marcel = list(csv.reader(open('final_marcel_projections.csv','r')))
 
 ## Regression Data
 
+<<<<<<< HEAD
 Regression = list(csv.reader(open('wOBA_predictions.csv','r')))
+=======
+    Url_Main =  Batted_Ball
+    Page = urlopen(Url_Main)
+    soup = BeautifulSoup(Page, 'html.parser')
+>>>>>>> 9e9337d837b1757a3becb488c8f4f665e813a491
 
 
 m =  Marcel
@@ -26,9 +32,198 @@ for player in r:
     player.insert(0,identi)
     identi += 1
 
+<<<<<<< HEAD
 for player in m:
     player.insert(0,identi)
     identi +=1
+=======
+
+    ## remove pitches, which we aquire from here, from the above sample
+
+
+    P_Batted_Ball  = 'http://www.fangraphs.com/leaders.aspx?pos=p&stats=bat&lg=all&qual=1&type=2&season=2016&month=0&season1=2016&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
+    P_Normal = 'http://www.fangraphs.com/leaders.aspx?pos=p&stats=bat&lg=all&qual=1&type=0&season=2016&month=0&season1=2016&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
+    P_Shift = 'http://www.fangraphs.com/leaders.aspx?pos=p&stats=bat&lg=all&qual=1&type=0&season=2016&month=61&season1=2016&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
+    P_No_Shift = 'http://www.fangraphs.com/leaders.aspx?pos=p&stats=bat&lg=all&qual=1&type=0&season=2016&month=62&season1=2016&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
+    P_Shift_Traditional = 'http://www.fangraphs.com/leaders.aspx?pos=p&stats=bat&lg=all&qual=1&type=0&season=2016&month=63&season1=2016&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
+    P_Shift_NonTraditional = 'http://www.fangraphs.com/leaders.aspx?pos=p&stats=bat&lg=all&qual=1&type=0&season=2016&month=64&season1=2016&ind=0&team=0&rost=0&age=0&filter=&players=0&page=1_1000'
+
+    Url_Main =  Batted_Ball
+    Page = urlopen(Url_Main)
+    soup = BeautifulSoup(Page)
+
+    pitcher_list = soup.select('#LeaderBoard1_dg1_ctl00 tr')
+
+    pitchers = []
+
+    # pitchers = [['PlayerID','Name','Team','G','AB','PA','H','1B','2B','3B','HR','R','RBI','BB','IBB','SO','HBP','SF','SH','GDP','SB','CS','AVG']]
+
+    for row in pitcher_list:
+        if row.attrs.get('class') and row.attrs.get('class')[0] in ['rgRow', 'rgAltRow']:
+            info = row.select('td')
+            name = info[1].text
+            team = info[2].text
+            G = info[3].text
+            PA = info[4].text
+            HR = info[5].text
+            R = info[6].text
+            RBI = info[7].text
+            SB = info[8].text
+            BBPer = info[9].text
+            KPer = info[10].text
+            ISO = info[11].text
+            BABIP = info[12].text
+            AVG = info[13].text
+            OBP = info[14].text
+            SLG = info[15].text
+            wOBA = info[16].text
+            wRCPlus = info[17].text
+            # BSR = info[18].text
+            # Off = info[19].text
+            # Def = info[20].text
+            # WAR = info[21].text
+            # AVG = info[22].text
+            result = re.search("playerid=(\\d*)", str(info[1]))
+            if result:
+                playerid = result.group(1)
+            else:
+                playerid = None
+
+            p = [playerid, name, team, G, PA, HR, R, RBI, SB, BBPer, KPer, ISO, BABIP, AVG, OBP, SLG, wOBA, wRCPlus]
+            pitchers.append(p)
+
+    batters = [x for x in players if x[0] not in pitchers[0]]
+
+    batter_df = pd.DataFrame(batters)
+
+    batter_df.to_csv('batted_ball_data.csv', index=False, header=False)
+
+    # pitcher_df = pd.DataFrame(pitchers)
+
+    # pitcher_df.to_csv('pitcher_shift_nontrad.csv', index=False, header=False)
+
+def record_age():
+
+
+
+## SQl Prep
+
+# Batters
+
+batter_data = list(csv.reader(open('batter_data.csv','r')))
+
+batter_shift_data = list(csv.reader(open('shift_data.csv','r')))
+
+batter_noshift_data = list(csv.reader(open('no_shift_data.csv','r')))
+
+batter_nontrad_data = list(csv.reader(open('shift_nontrad_data.csv','r')))
+
+batter_trad_data = list(csv.reader(open('shift_trad_data.csv','r')))
+
+## Pitchers
+
+pitcher_data = list(csv.reader(open('pitcher_data.csv','r')))
+
+pitcher_shift_data = list(csv.reader(open('pitcher_shift.csv','r')))
+
+pitcher_noshift_data = list(csv.reader(open('pitcher_noshift.csv','r')))
+
+pitcher_nontrad_data = list(csv.reader(open('pitcher_shift_nontrad.csv','r')))
+
+pitcher_trad_data = list(csv.reader(open('pitcher_shift_trad.csv','r')))
+
+## Batted ball data
+
+batted_ball_data = list(csv.reader(open('batted_ball_data.csv','r')))
+
+
+
+b = batter_data
+bs = batter_shift_data
+bns = batter_noshift_data
+bt = batter_trad_data
+bnt = batter_nontrad_data
+
+p = pitcher_data
+ps = pitcher_shift_data
+pns = pitcher_noshift_data
+pt = pitcher_trad_data
+pnt = pitcher_nontrad_data
+
+bb = batted_ball_data
+
+batters = []
+for i in range(len(b)):
+    batters.append([b[i][0]])
+for player in batters:
+    player.append(False)
+
+pitchers = []
+for i in range(len(p)):
+    pitchers.append([p[i][0]])
+for player in pitchers:
+    player.append(True)
+
+for player in b:
+    player.append(False)
+    player.append(False)
+    player.append(False)
+    player.append(False)
+
+for player in bs:
+    player.append(True)
+    player.append(False)
+    player.append(False)
+    player.append(False)
+
+for player in bns:
+    player.append(False)
+    player.append(True)
+    player.append(False)
+    player.append(False)
+
+for player in bt:
+    player.append(False)
+    player.append(False)
+    player.append(True)
+    player.append(False)
+
+for player in bnt:
+    player.append(False)
+    player.append(False)
+    player.append(False)
+    player.append(True)
+
+for player in p:
+    player.append(False)
+    player.append(False)
+    player.append(False)
+    player.append(False)
+
+for player in ps:
+    player.append(True)
+    player.append(False)
+    player.append(False)
+    player.append(False)
+
+for player in pns:
+    player.append(False)
+    player.append(True)
+    player.append(False)
+    player.append(False)
+
+for player in pt:
+    player.append(False)
+    player.append(False)
+    player.append(True)
+    player.append(False)
+
+for player in pnt:
+    player.append(False)
+    player.append(False)
+    player.append(False)
+    player.append(True)
+>>>>>>> 9e9337d837b1757a3becb488c8f4f665e813a491
 
 
 ## connecting to the database

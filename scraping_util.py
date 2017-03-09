@@ -35,6 +35,7 @@ def get_weightings(year):
     headers = soup.find('a', text = 'Season').parent.parent
     correct_weightings = soup.find('td', text = year).parent
 
+
     def clean_soup(dirty_soup):
         """
         Takes in a soup element and returns a list of desired strings
@@ -65,6 +66,7 @@ def get_weightings(year):
 
     return weightings_dict
 
+
 def convert_name_to_soup(name):
     """
     Takes a player's name and returns the soup for that player's stats page.
@@ -79,6 +81,7 @@ def convert_name_to_soup(name):
         return None
     except:
         raise
+
 
 def get_stats_soup(url):
     """
