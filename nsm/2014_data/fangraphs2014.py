@@ -199,6 +199,30 @@ bnt.pop(0)
 bb = batted_ball_data
 bb.pop(0)
 
+for asd in range(len(b)):
+    if b[asd][2] == '- - -':
+        b[asd][2] ='Free Agent'
+
+for asd in range(len(bs)):
+    if bs[asd][2] == '- - -':
+        bs[asd][2] ='Free Agent'
+
+for asd in range(len(bns)):
+    if bns[asd][2] == '- - -':
+        bns[asd][2] ='Free Agent'
+
+for asd in range(len(bt)):
+    if bt[asd][2] == '- - -':
+        bt[asd][2] ='Free Agent'
+
+for asd in range(len(bnt)):
+    if bnt[asd][2] == '- - -':
+        bnt[asd][2] ='Free Agent'
+
+for asd in range(len(bb)):
+    if bb[asd][2] == '- - -':
+        bb[asd][2] ='Free Agent'
+
 identi = 3780
 
 batters = []
