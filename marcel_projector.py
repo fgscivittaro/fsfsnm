@@ -2,7 +2,7 @@ import sqlite3
 import re
 import numpy as np
 
-from util import *
+from scraping_util import *
 
 def compute_marcel_projection(name, year, db):
     """
@@ -43,41 +43,46 @@ def compute_marcel_projection(name, year, db):
 
         final_estimates.insert(0, '0')
         final_estimates.insert(1, name)
-        final_estimates.insert(2, str(year))
-        final_estimates.insert(3, '0')
+        final_estimates.insert(2, 'N/A')
+        final_estimates.insert(3, 'N/A')
+        final_estimates.insert(4, str(year))
+        final_estimates.insert(5, '0')
 
         return final_estimates
 
     # Defaults
-    first_stats = [0] * 19
-    second_stats = [0] * 19
     third_stats = [0] * 19
+    second_stats = [0] * 19
+    first_stats = [0] * 19
 
-    weight_5 = 0
-    weight_4 = 0
     weight_3 = 0
+    weight_4 = 0
+    weight_5 = 0
 
-    one_ya_pa = 0
-    two_ya_pa = 0
     three_ya_pa = 0
-
-    if one_ya_stats:
-        first_stats = weight_stats_by_pa(one_ya_stats[0][4:23])
-        one_ya_pa = one_ya_stats[0][6]
-        weight_5 = 5
-        player_id = one_ya_stats[0][1]
-        
-    if two_ya_stats:
-        second_stats = weight_stats_by_pa(two_ya_stats[0][4:23])
-        two_ya_pa = two_ya_stats[0][6]
-        weight_4 = 4
-        player_id = two_ya_stats[0][1]
+    two_ya_pa = 0
+    one_ya_pa = 0
         
     if three_ya_stats:
         third_stats = weight_stats_by_pa(three_ya_stats[0][4:23])
         three_ya_pa = three_ya_stats[0][6]
         weight_3 = 3
         player_id = three_ya_stats[0][1]
+        team = three_ya_stats[0][3]
+
+    if two_ya_stats:
+        second_stats = weight_stats_by_pa(two_ya_stats[0][4:23])
+        two_ya_pa = two_ya_stats[0][6]
+        weight_4 = 4
+        player_id = two_ya_stats[0][1]
+        team = two_ya_stats[0][3]
+
+    if one_ya_stats:
+        first_stats = weight_stats_by_pa(one_ya_stats[0][4:23])
+        one_ya_pa = one_ya_stats[0][6]
+        weight_5 = 5
+        player_id = one_ya_stats[0][1]
+        team = one_ya_stats[0][3]
 
     WEIGHTS = np.array([[5], [4], [3]])
     divisor = weight_5 + weight_4 + weight_3
@@ -86,9 +91,17 @@ def compute_marcel_projection(name, year, db):
     weighted_stats = all_stats * WEIGHTS / divisor
     combined_weighted_stats = np.sum(weighted_stats, axis=0)
 
-    current_age = find_age(name, year)
+    # Scraping for additional data
+    url = 'http://www.fangraphs.com/statss.aspx?playerid={}'.format(str(player_id))
+    soup = get_soup(url)
+
+    current_age = find_age(soup, year)
     if not current_age:
         current_age = 29
+
+    position = find_position(soup)
+    if not position:
+        position = 'N/A'
 
     age_regressed_rates = apply_age_factor(combined_weighted_stats,
                                            current_age)
@@ -107,9 +120,10 @@ def compute_marcel_projection(name, year, db):
 
     final_estimates.insert(0, str(player_id))
     final_estimates.insert(1, name)
-    final_estimates.insert(2, str(year))
-    final_estimates.insert(3, str(current_age))
-
+    final_estimates.insert(2, position)
+    final_estimates.insert(3, team)
+    final_estimates.insert(4, str(year))
+    final_estimates.insert(5, str(current_age))
 
     return final_estimates
 
@@ -349,30 +363,43 @@ def calculate_woba(stats, one_ya):
     return "%.3f" % (numerator / denominator)
 
 
-def find_age(name, year):
+def find_age(soup, year):
     """
-    Finds a player's age in a different SQL database (players.db).
+    Finds a player's age by scraping his FanGraphs webpage.
     """
 
-    soup = convert_name_to_soup(name)
+    step1 = soup.find('strong', text='Birthdate:')
 
-    if not soup:
+    if not step1:
         return None
 
-    step_one = soup.find('ul', attrs={'class':'player-metadata'})
+    step2 = step1.next.next
 
-    if not step_one:
+    if not step2:
         return None
 
-    step_two = step_one.find('li').get_text()
-
-    if not step_two:
-        return None
-
-    match = re.search('([0-9]{4})', step_two)
+    match = re.search('([0-9]{4})', step2)
 
     if match:
         birth_year = match.group(1)
         return year - int(birth_year)
     else:
         return None
+
+
+def find_position(soup):
+    """
+    Scrapes the player's position from his FanGraphs webpage.
+    """
+
+    step1 = soup.find('strong', text='Position:')
+
+    if not step1:
+        return 'N/A'
+
+    step2 = step1.next.next
+
+    if step2:
+        return step2.strip()
+    else:
+        return 'N/A'
