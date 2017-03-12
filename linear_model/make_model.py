@@ -53,6 +53,7 @@ def write_predictions_csv():
 
     return command_str
 
+
 def make_model(year, sample_percent, vars_list):
     '''
     Returns a linear model that predicts wOBA (weighted on-base average) of
@@ -152,6 +153,7 @@ def make_model(year, sample_percent, vars_list):
 
     return lm, model_df, corr, test_r_squared.rsquared
 
+
 def change_percent(data):
     '''
     Converts percentage values to a decimal value
@@ -162,6 +164,7 @@ def change_percent(data):
         A fractional representation of the percentage
     '''
     return float(str(data).strip('%'))/100
+
 
 def make_predictions(lm, batters_df):
     '''
@@ -184,6 +187,7 @@ def make_predictions(lm, batters_df):
     predictions_df['x_wOBA'] = expected_wOBA
 
     return predictions_df
+
 
 def calc_future_accuracy(df_2015, remove_outlier = False):
     '''
@@ -213,6 +217,7 @@ def calc_future_accuracy(df_2015, remove_outlier = False):
     lm = smf.ols('wOBA ~ x_wOBA', data = accuracy_df).fit()
 
     return corr, lm
+
 
 def calc_marcel_accuracy(remove_outlier = False):
     '''
@@ -246,6 +251,7 @@ def calc_marcel_accuracy(remove_outlier = False):
 
     return corr, lm
 
+
 def plot_predictions(accuracy_df, col1, col2, filename):
     '''
     '''
@@ -263,7 +269,6 @@ def plot_predictions(accuracy_df, col1, col2, filename):
 
     fig.show()
     fig.savefig(filename)
-
 
 
 '''
