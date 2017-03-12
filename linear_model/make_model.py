@@ -14,15 +14,6 @@ all_poss_ivs = ['avg_distance', 'avg_exit_vel','barrels_per_bbe',
     'min_hit_speed', 'LD_per', 'GB_per', 'FB_per', 'IFFB_per', 'PULL_per',
     'CENT_per', 'OPPO_per','SOFT_per', 'MED_per', 'HARD_per', 'bb_rate', 'k_rate',
     'shift_rate']
-exit_vel_ivs = ['avg_distance', 'avg_exit_vel','barrels_per_bbe',
-    'fbld_avg_exit_vel', 'gb_avg_exit_vel', 'max_distance','max_exit_vel',
-    'min_hit_speed', 'LD_per', 'GB_per', 'FB_per', 'IFFB_per', 'PULL_per',
-    'CENT_per', 'OPPO_per', 'bb_rate', 'k_rate','shift_rate']
-
-binning_ivs = ['LD_per', 'GB_per', 'FB_per', 'IFFB_per', 'PULL_per','CENT_per', 'OPPO_per', 
-    'SOFT_per', 'MED_per', 'HARD_per', 'bb_rate', 'k_rate','shift_rate']
-
-skinny_ivs = ['barrels_per_bbe', 'bb_rate','k_rate', 'shift_rate']
 
 best_model = ['avg_distance', 'k_rate', 'bb_rate', 'avg_exit_vel', 
     'barrels_per_bbe', 'LD_per']
