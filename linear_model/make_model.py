@@ -40,13 +40,13 @@ def write_predictions_csv():
     lm2016, model_df_2016, corr, r = make_model(2016, 70, best_model)
     lm2015, model_df_2015, corr2, r = make_model(2015, 70, best_model)
 
-    preds_2015 = make_predictions(lm2016, model_df_2016)
+    preds_2017 = make_predictions(lm2016, model_df_2016)
     preds_2016 = make_predictions(lm2015, model_df_2015)
 
+    preds_2017['year'] = 2017
     preds_2016['year'] = 2016
-    preds_2015['year'] = 2015
 
-    predictions = preds_2016.append(preds_2015, ignore_index=True)
+    predictions = preds_2017.append(preds_2016, ignore_index=True)
     predictions.index.name = 'unique_id'
 
     predictions = predictions.round(3)
