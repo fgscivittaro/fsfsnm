@@ -9,10 +9,10 @@ def create_file_with_headers(filename):
 
 	myfile = open(filename, 'w')
 
-	HEADERS = ['player_id', 'name', 'year', 'age', 'g', 'ab', 'pa', 'h',
-			   'singles', 'doubles', 'triples', 'homerun', 'runs',
-			   'runs_batted_in', 'bb', 'ibb', 'so', 'hbp', 'sf', 'sh', 'gdp',
-			   'sb', 'cs', 'avg', 'obp','slg', 'woba']
+	HEADERS = ['player_id', 'name', 'position', 'team', 'year', 'age', 'g',
+			   'ab', 'pa', 'h', 'singles', 'doubles', 'triples', 'homerun',
+			   'runs', 'runs_batted_in', 'bb', 'ibb', 'so', 'hbp', 'sf', 'sh',
+			   'gdp', 'sb', 'cs', 'avg', 'obp','slg', 'woba']
 
 	myfile.write(','.join(HEADERS) + '\n')
 
@@ -55,11 +55,11 @@ def retrieve_all_players(year, db):
 		  AND NOT nontrad_shift
 		  """
 
-	all_names = c.execute(query, (year,)).fetchall()
+	all_names = c.execute(query).fetchall()
 
 	name_list = []
 
 	for name in all_names:
 		name_list.append(name[0])
 
-	return name_list
+	return list(set(name_list))

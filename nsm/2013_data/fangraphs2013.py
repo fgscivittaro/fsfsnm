@@ -178,8 +178,16 @@ batter_trad_data = list(csv.reader(open('shift_trad.csv','r')))
 
 batted_ball_data = list(csv.reader(open('batted_ball_data.csv','r')))
 
+Marcel = list(csv.reader(open('final_marcel_projections.csv','r')))
 
+
+m = Marcel
 b = batter_data
+
+years = []
+for player in range(len(m)):
+    years.append([m[player][0], m[player][3]])
+
 b.pop(0)
 bs = batter_shift_data
 bs.pop(0)
@@ -224,6 +232,8 @@ for asd in range(len(bnt)):
 for asd in range(len(bb)):
     if bb[asd][2] == '- - -':
         bb[asd][2] ='Free Agent'
+
+
 
 identi = 0
 
@@ -332,6 +342,13 @@ for player in bb:
     player.insert(0,identi)
     player.append('2013')
     identi += 1
+
+import pdb; pdb.set_trace()
+
+# for player in b:
+# for data in years:
+#     if data[0] == player[1]:
+#         player.append(data[1])
 
 ## connecting to the database
 
