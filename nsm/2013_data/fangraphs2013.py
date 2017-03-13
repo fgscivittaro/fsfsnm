@@ -343,7 +343,6 @@ for player in bb:
     player.append('2013')
     identi += 1
 
-import pdb; pdb.set_trace()
 
 # for player in b:
 # for data in years:
@@ -363,6 +362,8 @@ cursor = connection.cursor()
 
 # cursor.executemany("INSERT INTO players VALUES (?, ?)", batters)
 # cursor.executemany("INSERT INTO players VALUES (?,?, ?)", pitchers)
+
+# import pdb; pdb.set_trace()
 
 cursor.executemany("INSERT INTO regular_data VALUES (?,?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)", b)
 cursor.executemany("INSERT INTO regular_data VALUES (?,?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)", bs)

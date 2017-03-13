@@ -4,7 +4,7 @@ DROP TABLE marcel;
 DROP TABLE regression;
 
 CREATE TABLE marcel
-              (id int primary key, player_id int,name text,year text,age text,g int,ab int,
+              (id int primary key, player_id int,name text,position text, team text, year text,age text,g int,ab int,
                 pa int,h int,singles int,doubles int,triples int,homerun int,
                 runs int,runs_batted_in int,bb int,ibb int,so int,hbp int,sf int,
                 sh int,gdp int,sb int,cs int,avg int,obp int,slg int,woba int);
@@ -20,7 +20,7 @@ CREATE TABLE regular_data
              runs int, runs_batted_in int,
              bb int, ibb int, so int, hbp int, sf int, sh int, gdp int,
              sb int, cs int, avg int, shift boolean, noshift boolean, 
-             trad_shift boolean, nontrad_shift boolean, year text, age text);
+             trad_shift boolean, nontrad_shift boolean, year text);
 
 CREATE TABLE batted_ball_data
              (id int primary key, player_id int, name text, team text, babip int, gb_fb int, ld_per int,

@@ -11,16 +11,18 @@ Marcel = list(csv.reader(open('final_marcel_projections.csv','r')))
 
 ## Regression Data
 
-Regression = list(csv.reader(open('wOBA_predictions.csv','r')))
+Regression = list(csv.reader(open('predictions_data.csv','r')))
 
 
 
 m =  Marcel
 r = Regression
+r.pop(0)
+m.pop(0)
 
 years = []
 for player in range(len(m)):
-    years.append([m[player][0], m[player][3]])
+    years.append([m[player][1], m[player][3]])
 
 for i in range(len(r)):
     r[i].pop(0)
@@ -37,7 +39,6 @@ for player in m:
     identi +=1
 
 
-
 ## connecting to the database
 
 # https://docs.python.org/3/library/sqlite3.html
@@ -49,7 +50,7 @@ cursor = connection.cursor()
 # import pdb; pdb.set_trace();
 # sqlite3 2016_sqlcode.sqlite3 -init initdb.sql
 
-cursor.executemany("INSERT INTO marcel VALUES (?,?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", m)
+cursor.executemany("INSERT INTO marcel VALUES (?,?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?,?)", m)
 cursor.executemany("INSERT INTO regression VALUES (?,?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?)", r)
 
 # Save / commit changes
