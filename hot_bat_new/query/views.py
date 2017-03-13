@@ -34,6 +34,8 @@ def index(request):
 	if max_woba:
 		baseQuery = baseQuery.filter(woba__lte=float(max_woba))
 
+	if position:
+		baseQuery = baseQuery.filter(position__contains=position)
 	# import pdb; pdb.set_trace();
 
 	years = Marcel.objects\
@@ -44,15 +46,9 @@ def index(request):
 		.values_list('team', flat=True)\
 		.distinct()
 
-	positions = Marcel.objects\
-		.values_list('position', flat=True)\
-		.distinct()
-
 	if sort:
-		if sort == "pa":
-			results = baseQuery.order_by('-'+sort)[0:50]
-		else:
-			results = baseQuery.order_by(sort)[0:50]
+		results = baseQuery.order_by('-'+sort)[0:50]
+
 	else:
 		results = baseQuery.order_by('-woba')[0:50]
 
@@ -72,12 +68,12 @@ def index(request):
 
 	context = {
 		'results': results,
-		'sort_by': ['age', 'pa', 'woba', 'name'],
+		'sort_by': ['Age', 'PA', 'Woba', 'Name'],
 		'years': ['2016','2017'],
-		'min_woba_values': ['0.25', '0.275', '0.30', '0.325', '0.35', '0.375', '0.40'],
-		'max_woba_values': ['0.40', '0.375', '0.35', '0.325', '0.30', '0.275', '0.25', '0'],
+		'min_woba_values': ['0.250', '0.275', '0.300', '0.325', '0.350', '0.375', '0.400'],
+		'max_woba_values': ['0.400', '0.375', '0.350', '0.325', '0.300', '0.275', '0.250'],
 		'team_names': team_names,
-		'positions':positions,
+		'positions':['DH', 'C', '1B', '2B', '3B','SS', 'OF', 'PH','PR'],
 		'url_params': url_params,
 		'pa_range': ["650", "600", "550", "500", "450", "400", "350", "300", "250", "200", "150", "100", "50"],
 	}
