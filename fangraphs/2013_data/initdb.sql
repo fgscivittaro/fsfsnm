@@ -1,3 +1,11 @@
+'''
+    Base for the Our SQL database
+    Below is the code run to format the database in respect to the below parameters
+    '''
+
+# sqlite3 Overall_sqlcode.sqlite3 -init initdb.sql
+
+
 DROP TABLE regular_data;
 DROP TABLE batted_ball_data;
 DROP TABLE marcel;
@@ -28,6 +36,8 @@ CREATE TABLE batted_ball_data
               buh int, buh_per int, pull_per int, cent_per int, oppo_per int,
               soft_per int, med_per int, hard_per int, year text);
 
+-- THese match the tables with respect to player_id, which is unique for 
+-- each player on the website
 
 CREATE INDEX marcel_player_id ON marcel (player_id);
 CREATE INDEX regression_player_id ON regression (player_id);

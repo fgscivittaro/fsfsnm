@@ -1,8 +1,6 @@
 from django.contrib import admin
 
-from .models import Marcel, Regression, RegularData, BattedBallData
+from .models import BattedBallData, RegularData
 
-admin.site.register(Marcel)
-admin.site.register(Regression)
-admin.site.register(RegularData)
 admin.site.register(BattedBallData)
+admin.site.register(RegularData)

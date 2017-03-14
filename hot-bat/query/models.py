@@ -133,6 +133,8 @@ class Marcel(models.Model):
     id = models.IntegerField(primary_key=True)
     player_id = models.IntegerField(blank=True, null=True)
     name = models.TextField(blank=True, null=True)
+    position = models.TextField(blank=True, null=True)
+    team = models.TextField(blank=True, null=True)
     year = models.TextField(blank=True, null=True)
     age = models.TextField(blank=True, null=True)
     g = models.IntegerField(blank=True, null=True)
@@ -157,7 +159,10 @@ class Marcel(models.Model):
     avg = models.IntegerField(blank=True, null=True)
     obp = models.IntegerField(blank=True, null=True)
     slg = models.IntegerField(blank=True, null=True)
-    woba = models.IntegerField(blank=True, null=True)
+    woba = models.FloatField(blank=True, null=True)
+
+    regular_data = None
+    regression = None
 
     def __str__(self):
         return '{}, {}'.format(self.name, self.year)
@@ -180,6 +185,7 @@ class Regression(models.Model):
     ld_per = models.IntegerField(db_column='LD_per', blank=True, null=True)  # Field name made lowercase.
     x_woba = models.TextField(db_column='x_wOBA', blank=True, null=True)  # Field name made lowercase. This field type is a guess.
     year = models.IntegerField(blank=True, null=True)
+
 
     def __str__(self):
         return '{}, {}'.format(self.name, self.year)
