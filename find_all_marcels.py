@@ -5,6 +5,10 @@ def create_file_with_headers(filename):
 	'''
 	Writes a new file with the given filename and populates the first row
 	with column headers.
+
+	Inputs: filename
+
+	Returns: nothing - creates new file
 	'''
 
 	myfile = open(filename, 'w')
@@ -23,6 +27,13 @@ def calculate_all_marcels(year, db, filename):
 	'''
 	Calculates Marcel projections for every player in the given database
 	and stores the data in a csv file with the given filename.
+
+	Inputs:
+		year: the year to project for
+		db: the database to retrieve names from
+		filename: the file to append projections to
+
+	Returns: nothing - updates filename
 	'''
 
 	player_list = retrieve_all_players(year - 1, db)
@@ -30,17 +41,22 @@ def calculate_all_marcels(year, db, filename):
 	for player in player_list:
 		proj = compute_marcel_projection(player, year, db)
 
-		print(proj)
 		myfile = open(filename, 'a')
 		myfile.write(','.join(proj) + '\n')
 		myfile.close()
-
-	print('ALL DONE')
 
 
 def retrieve_all_players(year, db):
 	'''
 	Returns a list of all players from the database for a given year.
+
+	Inputs:
+		year: the year to retrieve players from - this is the year before the
+			one we would like to project
+		db: the database to retrieve names from
+
+	Returns: a list of all the players found within the database for the given
+		year
 	'''
 
 	conn = sqlite3.connect(db)

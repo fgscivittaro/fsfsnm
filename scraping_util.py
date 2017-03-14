@@ -7,6 +7,10 @@ def get_soup(url):
     """
     Takes in a url and returns the parsed BeautifulSoup code for that url with
     handling capabilities if the request 'bounces'.
+
+    Inputs: the url
+
+    Returns: BeautifulSoup code for the url
     """
 
     s = requests.Session()
@@ -26,6 +30,10 @@ def get_weightings(year):
     """
     Takes in a year (str or int) and returns a list containing the necessary WOBA
     constants for that year.
+
+    Inputs: year
+
+    Returns: a dict of wOBA weightings for the given year
     """
 
     url = 'http://www.fangraphs.com/guts.aspx?type=cn'
@@ -65,32 +73,3 @@ def get_weightings(year):
         weightings_dict[header] = weighting
 
     return weightings_dict
-
-
-def convert_name_to_soup(name):
-    """
-    Takes a player's name and returns the soup for that player's stats page.
-    """
-
-    player_url = ('http://www.espn.com/mlb/players?search={}&alltime=true&statusId=1'
-    .format(name))
-
-    try:
-        return get_stats_soup(player_url)
-    except AttributeError:
-        return None
-    except:
-        raise
-
-
-def get_stats_soup(url):
-    """
-    Takes in the url of the players' ESPN bio and returns the soup code for the
-    player's stats page.
-    """
-
-    player_soup = get_soup(url)
-    back_half = player_soup.find('a', text = 'Stats').get('href')
-    stats_url = 'http://www.espn.com' + back_half
-
-    return get_soup(stats_url)

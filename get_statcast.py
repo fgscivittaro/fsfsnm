@@ -3,7 +3,7 @@
 # Scraper to grab BaseballSavant information
 #
 
-from bs4 import BeautifulSoup  as bs
+from bs4 import BeautifulSoup as bs
 import requests
 import json
 import csv
