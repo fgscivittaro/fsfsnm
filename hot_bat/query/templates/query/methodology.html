@@ -4,11 +4,81 @@
         <h1>The Hot Bat Fallacy</h1>
     </div>
 	<div style="width:800px; height:50px; margin:0 auto;">
-    	<h2>Our Mission</h2>
+    	<h2>Our Methodology</h2>
     </div>
     <div style="width:800px; height:50px; margin:0 auto;">
         <p>
-            Hello, world
+            In order to project players using a process-oriented method, we used <a href="https://baseballsavant.mlb.com/">Statcast</a> data from Baseball Savant, a website owned by the MLB. This website contains a trove of process-oriented batted ball data, such as exit velocity and launch angle. By “process-oriented”, we mean data that strip the luck component out of a batter’s performance, allowing us to evaluate how well they did the things they can actually control. For example, if a player hits a ball very hard, but it goes directly to a fielder and is caught, the batter performed well on an aspect they can control, ie striking the ball hard, but was unlucky. Using traditional projection data, events such as this count against a player, whereas our projection system is blind to the final result—out or hit—and instead measures the process.
+        </p>
+        <p>
+            This method is potentially impactful because, over the course of a given season, a batter does not actually hit the ball in play enough times for his results to adequately describe his true skill level. For example, it takes about 820 batted ball events for a player’s batting average on the balls they hit in play to stabilize. However, most baseball players have at most 750 plate appearances, and because they strike out and walk in many of these at bats, they do not come close to the needed 820 batted ball events. So, our method for projecting players should reflect a player’s true skill level more than most projection systems. In particular, our model projects performance for future seasons only by estimating their true skill level given how frequently they hit the ball hard, strike out, walk, etc., and assuming that their results will revert to this true skill level next season. 
+        </p>
+        <p>
+            In order to create a projection system for this data, we used Statcast data, as well as data from Fangraphs (http://www.fangraphs.com/), and performed a multivariate linear regression with many combinations of possible independent variables regressed against <a href="http://www.fangraphs.com/library/offense/woba/">wOBA</a>, the dependent variable. wOBA is a statistic that takes into account the frequency with which a player reaches base safely, and it weights this result by accounting for the quality of an on-base event. For example, wOBA takes into account that a double is more valuable than a walk, and that a home run is the most valuable way to get on base.
+        </p>
+        <p>
+            For each combination of variables that was used to create a model, we randomly sampled about 70% of the observations from a pool of valid data and held out the other 30% to test the quality of the model. By “valid data”, we mean that we excluded all players who had fewer than 30 batted ball events from the sample, in order to improve the quality of our model. Using this sample of 70% of observations, we calculated a linear model, and then tested the quality of this model by using our linear model to predict the wOBAs of the testing data. Then, we calculated the correlation coefficient between the wOBAs of the testing data and the wOBAs predicted by applying the model to the testing data. We also calculated the adjusted R-squared, a metric that calculates goodness-of-fit and penalizes a model for complexity, of a univariate linear regression between the predicted wOBAs and the true wOBAs of the testing data. Using this approach, we found that the model with the greatest explanatory power and an acceptably low complexity consisted of the following variables: the average distance that a player hit the ball, the player’s <a href="http://www.fangraphs.com/library/offense/rate-stats/">strikeout and walk rates</a>, the player’s <a href="http://www.fangraphs.com/library/offense/batted-ball/">line drive rate</a>,  the player’s <a href="http://m.mlb.com/glossary/statcast/exit-velocity">average exit velocity</a>, and the player’s <a href="http://m.mlb.com/glossary/statcast/barreled-ball">barrels</a> per batted ball event.  This model’s adjusted R-squared varied by the sample, but in general it was between 0.65 and 0.69 with a correlation coefficient around 0.81. Both of these results are quite strong and bode well for the success of the model. Projections for the next season were then generated for every batter with at least 30 batted ball events by applying the model to each player’s data and then assuming the result reflects their true skill level for the next season.
+        </p>
+        <p>
+            To test for the quality of our predictions for next year, we used our linear model to retrospectively generate predictions for the 2016 season, ie the previous one, using 2015 data. We then tested the predictions for 2016 against the actual 2016 data using the same method for testing described in the previous paragraph. This test resulted in a correlation coefficient of 0.378 and adjusted R-squared of 0.141. Both results, while not as strong as using the model on same-year data, seemed fairly strong given how much can change between seasons. In order to test this hunch, we also tested the predictions generated by a <a href="http://www.baseball-reference.com/about/marcels.shtml">Marcel</a> projection system. The Marcel system is known to be a very simple model with fairly accurate results, and it is considered very difficult to generate better predictions without introducing much greater complexity. Using the same method as previously described, the Marcel projection system had a correlation coefficient of 0.350 and an adjusted R-squared of 0.121. Thus, the early indication is that our model performed better as far as using 2015 data to predict 2016 data. Additionally, our model retained its lead over the Marcel projection when an outlier (see Appendix A) was removed from both datasets.
+        </p>
+        <div>
+            <div id="analysis-table" class="col-main">
+                <div class="mod-content">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="tableheader">
+                                <th colspan="20">Analysis of Results</th>
+                            </tr>
+                            <tr class="columnheaders" align="center">
+                                <th align="left">Projection Method</th>
+                                <th align="left">Correlation Coefficient</th>
+                                <th align="left">Adjusted R-squared</th>
+                            </tr>
+                        </thead>
+                        </tbody>
+                            <tr class="resultrow" align="right">
+                                <td align="left">Marcel</td>
+                                <td align="center">.350</td>
+                                <td align="center">.121</td>
+                            </tr>
+                            <tr class="resultrow" align="right">
+                                <td align="left">Statcast Projection</td>
+                                <td align="center">.378</td>
+                                <td align="center">.141</td>
+                            </tr>
+                            <tr class="resultrow" align="right">
+                                <td align="left">Marcel - Outlier Removed</td>
+                                <td align="center">.367</td>
+                                <td align="center">.133</td>
+                            </tr>
+                            <tr class="resultrow" align="right">
+                                <td align="left">Statcast - Outlier Removed</td>
+                                <td align="center">.397</td>
+                                <td align="center">.156</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <br />
+        <strong>Ways to Improve</strong>
+        <p>
+            Our model has three main limitations compared to other projection systems. 
+        </p>
+        <p>
+            First, most projection systems take more seasons than just the previous one into account when making their projections. This method prevents a model from assuming an outlier season is a player’s true skill level. Because Statcast data is only available for 2015 and 2016, our model can at most go back two years, but we chose to include only one year of data so that it would be possible to test the 2015 model’s predictions for 2016 against the actual 2016 results. Once Statcast is available for more seasons, we can improve our model by taking into account the last three or more years of a player’s batted ball quality.
+        </p>
+        <p>
+            Secondly, our model cannot project the performance of incoming rookies because there is no Statcast data from the minor leagues available for us to use. Most other projection systems have ways of taking minor league statistics and adjusting them for the better competition in the major leagues, allowing them to project the performance of rookies. This will be one advantage many traditional projection systems will have over our model until Statcast is used in minor league stadiums.
+        </p>
+        <p>
+           Thirdly, projection systems such as Marcel take into account a player’s age. Using age, these systems project improvement as a player approaches an age estimated to be their athletic prime and project worsening performance as a player ages into their thirties. For now, our system uses only batted ball data to estimate the true skill level of a player in that year. While beyond the scope of this project, an age adjustment could be added in the future. 
+        </p>
+        <strong>Appendix A: Removing the Outlier</strong>
+        <p>
+            The outlier we removed was the data for Chris Parmelee. During the 2015 season, Chris Parmelee performed below average, and so both projection systems predicted mediocre performance from him in 2016. During the 2016 season, on very few at bats (just enough to qualify for our 30 batted ball events cutoff), Chris Parmelee had a wOBA of almost 0.800, which is unsustainably high (for reference, almost all wOBAs are between 0.300 and 0.400). Once we removed this outlier and conducted our analysis, both projection systems performed much better.
         </p>
     </div>
 
