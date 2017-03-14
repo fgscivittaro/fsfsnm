@@ -33,7 +33,6 @@ def index(request):
 		baseQuery = baseQuery.filter(woba__gte=float(min_woba))
 	if max_woba:
 		baseQuery = baseQuery.filter(woba__lte=float(max_woba))
-
 	if position:
 		baseQuery = baseQuery.filter(position__contains=position)
 
@@ -45,10 +44,11 @@ def index(request):
 		.values_list('team', flat=True)\
 		.distinct()
 
-	if sort == 'name':
-		results = baseQuery.order_by(''+sort)[0:50]
-	elif sort == 'age' or 'pa':
-		results = baseQuery.order_by('-'+sort)[0:50]
+	if sort:
+		if sort == 'name':
+			results = baseQuery.order_by(''+sort)[0:50]
+		else:
+			results = baseQuery.order_by('-'+sort)[0:50]
 	else:
 		results = baseQuery.order_by('-woba')[0:50]
 
@@ -72,35 +72,7 @@ def index(request):
 		'years': ['2016','2017'],
 		'min_woba_values': ['0.250', '0.275', '0.300', '0.325', '0.350', '0.375', '0.400'],
 		'max_woba_values': ['0.400', '0.375', '0.350', '0.325', '0.300', '0.275', '0.250'],
-		'team_names': ['Angels',
- 'Astros',
- 'Athletics',
- 'Blue Jays',
- 'Braves',
- 'Brewers',
- 'Cardinals',
- 'Cubs',
- 'Diamondbacks',
- 'Dodgers',
- 'Giants',
- 'Indians',
- 'MarinersRays',
- 'Marlins',
- 'Mets',
- 'Nationals',
- 'Orioles',
- 'Padres',
- 'Phillies',
- 'Pirates',
- 'Rangers',
- 'Red Sox',
- 'Reds',
- 'Rockies',
- 'Royals',
- 'Tigers',
- 'Twins',
- 'White Sox',
- 'Yankees'],
+		'team_names': ['Angels','Astros','Athletics','Blue Jays','Braves','Brewers','Cardinals','Cubs','Diamondbacks','Dodgers','Giants','Indians','MarinersRays','Marlins','Mets','Nationals','Orioles','Padres','Phillies','Pirates','Rangers','Red Sox','Reds','Rockies','Royals','Tigers','Twins','White Sox','Yankees'],
 		'positions':['DH', 'C', '1B', '2B', '3B','SS', 'OF', 'PH','PR'],
 		'url_params': url_params,
 		'pa_range': ["650", "600", "550", "500", "450", "400", "350", "300", "250", "200", "150", "100", "50"],
